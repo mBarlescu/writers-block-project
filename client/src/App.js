@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
+
+import Home from './components/Home/Home';
+import Users from './components/Users/Users';
+import Error from './components/Errors/RouteError';
+import NavBar from './components/Navigation/NavBar';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-      <h1> hello nima </h1>
-
-      </div>
+      <BrowserRouter>
+        <div>
+          <NavBar />
+          <Switch>
+            <Route path='/' component={Home} exact />
+            <Route path='/users' component={Users} />
+            <Route component={Error} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
