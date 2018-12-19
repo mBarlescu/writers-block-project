@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class StoriesLikesControllerTest < ActionDispatch::IntegrationTest
+class Api::StoriesLikesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @stories_like = stories_likes(:one)
   end

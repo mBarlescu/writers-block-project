@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'stories#index'
+  root to: 'api/stories#index'
 
   namespace :api do 
     resources   :stories do

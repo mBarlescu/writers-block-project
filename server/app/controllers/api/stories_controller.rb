@@ -1,15 +1,15 @@
-class StoriesController < ApplicationController
+class Api::StoriesController < ApplicationController
   before_action :set_story, only: [:show, :update, :destroy]
 
   # GET /stories
   def index
     @stories = Story.all
-
     render json: @stories
   end
 
   # GET /stories/1
   def show
+    @story = Story.find(params[:id])
     render json: @story
   end
 

@@ -1,4 +1,4 @@
-class FeedbackLikesController < ApplicationController
+class Api::FeedbackLikesController < ApplicationController
   before_action :set_feedback_like, only: [:show, :update, :destroy]
 
   # GET /feedback_likes

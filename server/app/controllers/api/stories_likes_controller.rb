@@ -1,4 +1,4 @@
-class StoriesLikesController < ApplicationController
+class Api::StoriesLikesController < ApplicationController
   before_action :set_stories_like, only: [:show, :update, :destroy]
 
   # GET /stories_likes

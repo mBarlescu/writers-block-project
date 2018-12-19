@@ -1,4 +1,4 @@
-class GenresController < ApplicationController
+class Api::GenresController < ApplicationController
   before_action :set_genre, only: [:show, :update, :destroy]
 
   # GET /genres

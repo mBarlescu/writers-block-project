@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GenreStoriesControllerTest < ActionDispatch::IntegrationTest
+class Api::GenreStoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @genre_story = genre_stories(:one)
   end
