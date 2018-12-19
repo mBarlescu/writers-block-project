@@ -4,6 +4,7 @@ one:
   user_id: 1
   title: MyString
   description: MyText
+  text: MyText
   image: MyString
   published: false
 
@@ -11,5 +12,6 @@ two:
   user_id: 1
   title: MyString
   description: MyText
+  text: MyText
   image: MyString
   published: false

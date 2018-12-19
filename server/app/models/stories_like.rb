@@ -1,0 +1,2 @@
+class StoriesLike < ApplicationRecord
+end
