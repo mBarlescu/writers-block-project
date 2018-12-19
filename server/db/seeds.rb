@@ -29,14 +29,29 @@ puts "Making Users..."
 
 
 user1 = User.find_or_create_by!(
-  name: "Joe"
+  first_name: "Joe",
+  last_name: "Dolan",
+  description: "",
+  email: "joe@gmail.com",
+  password: "aaa",
+  image: "https://daphoto.com/wp-content/uploads/2013/11/Friel_4065-5x7x300(pp_w642_h900).jpg"
 )
+
 user2 = User.find_or_create_by!(
-  name: "Mike"
+  first_name: "Ben",
+  last_name: "Jenoli",
+  description: "",
+  email: "ben@gmail.com",
+  password: "aaa",
+  image: "https://srkheadshotday.com/wp-content/uploads/Mark_Otis_Headshot_16D7253_Crop32.jpg"
+  
 )
+
 user3 = User.find_or_create_by!(
-  name: "Al"
-)
-user4 = User.find_or_create_by!(
-  name: "Kim"
+  first_name: "Kim",
+  last_name: "Kennedy",
+  description: "",
+  email: "kim@gmail.com",
+  password: "aaa",
+  image: "https://i0.wp.com/blog.scottrklinephoto.com/wp-content/uploads/2013/10/Amy_Wigdahl_Headshot_15E9688.jpg"
 )
