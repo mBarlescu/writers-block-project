@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FollowersControllerTest < ActionDispatch::IntegrationTest
+class Api::FollowersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @follower = followers(:one)
   end

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class StoriesControllerTest < ActionDispatch::IntegrationTest
+class Api::StoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @story = stories(:one)
   end

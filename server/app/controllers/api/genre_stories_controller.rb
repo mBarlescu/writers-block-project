@@ -1,4 +1,4 @@
-class GenreStoriesController < ApplicationController
+class Api::GenreStoriesController < ApplicationController
   before_action :set_genre_story, only: [:show, :update, :destroy]
 
   # GET /genre_stories

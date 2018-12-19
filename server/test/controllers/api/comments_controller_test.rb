@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CommentsControllerTest < ActionDispatch::IntegrationTest
+class Api::CommentsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @comment = comments(:one)
   end

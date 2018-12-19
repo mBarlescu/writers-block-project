@@ -1,4 +1,4 @@
-class SegmentsController < ApplicationController
+class Api::SegmentsController < ApplicationController
   before_action :set_segment, only: [:show, :update, :destroy]
 
   # GET /segments

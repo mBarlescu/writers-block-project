@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SegmentsControllerTest < ActionDispatch::IntegrationTest
+class Api::SegmentsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @segment = segments(:one)
   end

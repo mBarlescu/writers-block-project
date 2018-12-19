@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FeedbackLikesControllerTest < ActionDispatch::IntegrationTest
+class Api::FeedbackLikesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @feedback_like = feedback_likes(:one)
   end
