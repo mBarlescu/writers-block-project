@@ -12,8 +12,9 @@ puts "Creating seed file..."
 
 puts "Making Users..."
 
+User.destroy_all
 
-joe = User.find_or_create_by!(
+joe = User.create!(
   first_name: "Joe",
   last_name: "Dolan",
   description: "",
@@ -22,7 +23,7 @@ joe = User.find_or_create_by!(
   image: "https://daphoto.com/wp-content/uploads/2013/11/Friel_4065-5x7x300(pp_w642_h900).jpg"
 )
 
-ben = User.find_or_create_by!(
+ben = User.create!(
   first_name: "Ben",
   last_name: "Jenoli",
   description: "",
@@ -32,7 +33,7 @@ ben = User.find_or_create_by!(
   
 )
 
-kim = User.find_or_create_by!(
+kim = User.create!(
   first_name: "Kim",
   last_name: "Kennedy",
   description: "",
@@ -41,6 +42,25 @@ kim = User.find_or_create_by!(
   image: "https://i0.wp.com/blog.scottrklinephoto.com/wp-content/uploads/2013/10/Amy_Wigdahl_Headshot_15E9688.jpg"
 )
 
+jim = User.create!(
+  first_name: "Jim",
+  last_name: "Jennedy",
+  description: "",
+  email: "jim@gmail.com",
+  password: "aaa",
+  image: "https://i0.wp.com/blog.scottrklinephoto.com/wp-content/uploads/2013/10/Amy_Wigdahl_Headshot_15E9688.jpg"
+)
+
+kon = User.create!(
+  first_name: "Kon",
+  last_name: "Krondy",
+  description: "",
+  email: "kon@gmail.com",
+  password: "aaa",
+  image: "https://i0.wp.com/blog.scottrklinephoto.com/wp-content/uploads/2013/10/Amy_Wigdahl_Headshot_15E9688.jpg"
+)
+
+
 puts "Making Genres..."
 
 genre1 = Genre.find_or_create_by! name: 'Fantasy'
@@ -48,6 +68,8 @@ genre2 = Genre.find_or_create_by! name: 'Romance'
 genre3 = Genre.find_or_create_by! name: 'Sci-Fi'
 
 puts "Making Stories..."
+
+Story.destroy_all
 
 Story.create!(
   user_id: joe.id,
@@ -75,3 +97,26 @@ Story.create!(
   image: "http://eskipaper.com/images/darkness-master-1.jpg",
   published: true
 )
+
+puts "Making Stories_likes..."
+
+@user1 = User.first
+@user2 = User.second
+@story1 = Story.first
+@story2 = Story.second
+
+StoriesLike.create!(
+  user_id: @user1,
+  story_id: @story1
+)
+
+StoriesLike.create!(
+  user_id: @user1,
+  story_id: @story2
+)
+
+StoriesLike.create!(
+  user_id: @user2,
+  story_id: @story2
+)
+

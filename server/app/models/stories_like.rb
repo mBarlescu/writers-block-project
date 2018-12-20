@@ -1,4 +1,7 @@
 class StoriesLike < ApplicationRecord
-  belongs_to :user
-  belongs_to :story
+
+  def stories_likes (id) 
+    StoriesLike.where(story_id: id)
+  end
+
 end

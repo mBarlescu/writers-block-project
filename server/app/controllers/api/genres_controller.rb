@@ -10,6 +10,7 @@ class Api::GenresController < ApplicationController
 
   # GET /genres/1
   def show
+    @genres_stories = 
     render json: @genre
   end
 
