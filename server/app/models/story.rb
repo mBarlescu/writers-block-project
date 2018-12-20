@@ -4,4 +4,11 @@ class Story < ApplicationRecord
   has_many :genre_stories
   has_many :story_likes
   has_many :segments
+
+
+  def most_popular
+  end
+
+
+
 end
