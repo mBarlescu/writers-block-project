@@ -49,7 +49,7 @@ genre3 = Genre.find_or_create_by! name: 'Sci-Fi'
 
 puts "Making Stories..."
 
-Story.create!(
+Story.find_or_create_by!(
   user_id: joe.id,
   title: "The Many Hardships of Hard Ships",
   description: "A touching story that gives you a relatable window into the mind of a master Shipsmith.",
@@ -75,3 +75,26 @@ Story.create!(
   image: "http://eskipaper.com/images/darkness-master-1.jpg",
   published: true
 )
+
+puts "Making Stories_likes..."
+
+@user1 = User.first
+@user2 = User.second
+@story1 = Story.first
+@story2 = Story.second
+
+StoriesLike.create!(
+  user_id: @user1,
+  story_id: @story1
+)
+
+StoriesLike.create!(
+  user_id: @user1,
+  story_id: @story2
+)
+
+StoriesLike.create!(
+  user_id: @user2,
+  story_id: @story2
+)
+
