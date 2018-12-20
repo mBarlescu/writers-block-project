@@ -59,14 +59,7 @@ kon = User.create!(
   password: "aaa",
   image: "https://i0.wp.com/blog.scottrklinephoto.com/wp-content/uploads/2013/10/Amy_Wigdahl_Headshot_15E9688.jpg"
 )
-puts "Making Followers..."
 
-Follower.destroy_all
-
-Follower.create!(
-  author_id: 1,
-  follower_id: 3
-)
 
 puts "Making Genres..."
 
@@ -104,3 +97,26 @@ Story.create!(
   image: "http://eskipaper.com/images/darkness-master-1.jpg",
   published: true
 )
+
+puts "Making Stories_likes..."
+
+@user1 = User.first
+@user2 = User.second
+@story1 = Story.first
+@story2 = Story.second
+
+StoriesLike.create!(
+  user_id: @user1,
+  story_id: @story1
+)
+
+StoriesLike.create!(
+  user_id: @user1,
+  story_id: @story2
+)
+
+StoriesLike.create!(
+  user_id: @user2,
+  story_id: @story2
+)
+

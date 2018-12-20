@@ -9,6 +9,8 @@ class Api::StoriesController < ApplicationController
 
   # GET /stories/1
   def show
+    @story1 = Story.first
+    #puts "WWWWWWWWWWWWWWWWWWWWW", StoriesLikes.first
     if @story
       render json: @story
     else
