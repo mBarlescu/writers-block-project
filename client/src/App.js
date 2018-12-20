@@ -8,13 +8,18 @@ import Error from './components/Errors/RouteError';
 import NavBar from './components/Navigation/NavBar';
 
 class App extends Component {
+
   render() {
     return (
       <BrowserRouter>
         <div>
           <NavBar />
           <Switch>
-            <Route path='/' component={Home} exact />
+            <Route
+            path='/'
+            component={Home}
+            //render={() => <Home getStories={this.getStories} />}
+            exact />
             <Route path='/users' component={Users} />
             <Route component={Error} />
           </Switch>
