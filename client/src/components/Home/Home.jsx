@@ -13,22 +13,25 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3001/api/stories')
+    axios.get('http://localhost:3000/api/users')
     .then(res => {
-      console.log(res)
-      this.setState({stories: res.data})
-    })
-    axios.get('http://localhost:3001/api/users')
-    .then(res => {
-      console.log(res)
       this.setState({users: res.data})
+    })
+    .catch(err => {
+      console.log('AAAAAAAA', err)
+    })
+
+    axios.get('http://localhost:3000/api/stories')
+    .then(res => {
+      this.setState({stories: res.data})
     })
   }
 
   render(){
     const allStories=this.state.stories
+    const allUsers=this.state.users
     const listOfStories = allStories.map((story, index) => {
-      return <Story story={story} key={index} />
+      return <Story story={story} key={index} users={allUsers[index]} />
     });
   return (
     <div className='container my-container'>

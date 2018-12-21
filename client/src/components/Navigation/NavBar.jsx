@@ -4,18 +4,23 @@ import { NavLink } from 'react-router-dom';
 const NavBar = () => {
   return(
 
-    <div className = 'navbar navbar-default navbar-fixed-top'>
-      <div className = 'container'>
-        <NavLink to="/" className='navbar-brand'>Writers Block</NavLink>
-        <div className='collapse navbar-collapse navHeaderCollapse'>
-          <ul className='nav navbar-nav navbar-right'>
-            <li> <NavLink to="/">Home</NavLink> </li>
+      <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+        <NavLink className='navbar-brand' to="/">Writer's Block</NavLink>
 
+
+
+
+          <ul className='navbar-nav'>
+            <li className='nav-item'>
+              <NavLink className='nav-link' to="/users">Users</NavLink>
+            </li>
+            <li className='nav-item'>
+              <NavLink className='nav-link' to="/stories">Stories</NavLink>
+            </li>
           </ul>
 
-        </div>
-      </div>
-    </div>
+      </nav>
+
   )
 }
 
