@@ -18,13 +18,13 @@ const UsersPage = (props) => {
       return a.id - b.id
     })
 
-    const test = allUsers.forEach(function (user) {
-      return user;
+    allStories.sort(function (a, b) {
+      return a.user_id - b.user_id
     })
-    console.log('ALSO', test)
-    console.log('HERE', allUsers)
 
-    const binary_search = (arr, value) => {
+    console.log('sroted list of users based on their id', allUsers)
+
+    const user_binary_search = (arr, value) => {
       let high = arr.length - 1;
       let low = 0;
       let mid = 0;
@@ -32,7 +32,7 @@ const UsersPage = (props) => {
       while ( low <= high ) {
         mid = Math.floor((high + low) / 2)
         if(arr[mid].id === value){
-          return arr[mid].id;
+          return mid;
         } else if (value > arr[mid].id){
           low = mid + 1;
         } else {
@@ -41,7 +41,7 @@ const UsersPage = (props) => {
       }
       return -1
     }
-    console.log('CHECK IT', binary_search(allUsers, 50))
+    console.log('binary search for a user based on their id', user_binary_search(allUsers, 1))
 
 
 
@@ -56,7 +56,7 @@ const UsersPage = (props) => {
         <br/>
         <br/>
         <div className='row justify-content-around my-row'>
-        {listOfUsers}
+
         </div>
       </div>
     </div>
