@@ -3,3 +3,44 @@
   height: 200px;
   margin: 10px;
 }
+
+.my-col-description{
+  border: solid red;
+  height: 200px;
+}
+
+.my-col-img{
+  border: solid red;
+  height: 200px;
+  padding: 0;
+}
+
+.img-cover{
+  height: 100%;
+  width: 100%;
+}
+
+.title{
+  color: #444;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 16px;
+}
+
+.author{
+  color: #999;
+  font-size: 14px;
+}
+
+.description {
+  font-size: 12px;
+  line-height:14px;
+}
+
+.outer-container {
+  background-color: #f7f6f3;
+}
+
+.container {
+  background-color: white;
+}

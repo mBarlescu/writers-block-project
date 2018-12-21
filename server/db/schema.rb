@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_19_042421) do
+ActiveRecord::Schema.define(version: 2018_12_20_231700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(version: 2018_12_19_042421) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "relationships", force: :cascade do |t|
+    t.integer "following_id"
+    t.integer "follower_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "segments", force: :cascade do |t|
     t.integer "story_id"
     t.text "text"
@@ -94,4 +101,6 @@ ActiveRecord::Schema.define(version: 2018_12_19_042421) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "relationships", "users", column: "follower_id", on_delete: :cascade
+  add_foreign_key "relationships", "users", column: "following_id", on_delete: :cascade
 end
