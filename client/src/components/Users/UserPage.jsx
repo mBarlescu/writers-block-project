@@ -8,8 +8,11 @@ const UsersPage = (props) => {
     return null;
   }
 
-    const userId = props.match.params.id
-    console.log(props.match.params.id)
+    let userId = props.match.params.id
+    console.log(typeof userId);
+    const userIdInt = Number.parseInt(userId)
+    console.log(typeof userIdInt)
+    console.log(userIdInt)
     const allStories=props.stories
     const allUsers=props.users
     console.log(props)
@@ -32,7 +35,7 @@ const UsersPage = (props) => {
       while ( low <= high ) {
         mid = Math.floor((high + low) / 2)
         if(arr[mid].id === value){
-          return mid;
+          return arr[mid];
         } else if (value > arr[mid].id){
           low = mid + 1;
         } else {
@@ -41,7 +44,27 @@ const UsersPage = (props) => {
       }
       return -1
     }
-    console.log('binary search for a user based on their id', user_binary_search(allUsers, 1))
+
+    const story_binary_search = (arr, value) => {
+      let high = arr.length - 1;
+      let low = 0;
+      let mid = 0;
+
+      while ( low <= high ) {
+        mid = Math.floor((high + low) / 2)
+        if(arr[mid].user_id === value){
+          return arr[mid];
+        } else if (value > arr[mid].id){
+          low = mid + 1;
+        } else {
+          high =mid - 1;
+        }
+      }
+      return -1
+    }
+
+    console.log('binary search for a user based on their id', user_binary_search(allUsers, userIdInt))
+    console.log('binary search for a story based on their id', story_binary_search(allStories, userIdInt))
 
 
 
