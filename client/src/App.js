@@ -8,6 +8,7 @@ import Users from './components/Users/Users';
 import Error from './components/Errors/RouteError';
 import NavBar from './components/Navigation/NavBar';
 import Stories from './components/Stories/Stories';
+import UserPage from './components/Users/UserPage'
 
 class App extends Component {
 constructor(){
@@ -47,11 +48,17 @@ constructor(){
             component={Home}
             exact />
 
-            <Route path='/users'
-            render={() => <Users stories={this.state.stories} users={this.state.users} />}/>
+            <Route
+            path='/users'
+            render={() => <Users stories={this.state.stories} users={this.state.users} />} exact/>
 
-            <Route path='/stories'
-             component={Stories} />
+            <Route
+            path='/stories'
+            component={Stories} />
+
+            <Route
+            path='/users/:id'
+            render={(props) => <UserPage {...props} stories={this.state.stories} users={this.state.users} /> } />
 
             <Route component={Error} />
 
