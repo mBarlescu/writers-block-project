@@ -106,17 +106,17 @@ puts "Making Stories_likes..."
 @story2 = Story.second
 
 StoriesLike.create!(
-  user_id: @user1,
-  story_id: @story1
+  user_id: @user1.id,
+  story_id: @story1.id
 )
 
 StoriesLike.create!(
-  user_id: @user1,
-  story_id: @story2
+  user_id: @user1.id,
+  story_id: @story2.id
 )
 
 StoriesLike.create!(
-  user_id: @user2,
-  story_id: @story2
+  user_id: @user2.id,
+  story_id: @story2.id
 )
 

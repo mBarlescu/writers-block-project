@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   namespace :api do 
     resources   :stories do
       resources :stories_likes, only: [:create]
-      post      :read
+      post      :read, :like
+      get :likes, :number_of_likes
     end
     resources   :feedbacks, only: [:new, :create, :destroy ] do 
       resources :feedbacks_likes, only: [:create]

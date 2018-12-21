@@ -1,7 +1,5 @@
 class StoriesLike < ApplicationRecord
-
-  def stories_likes (id) 
-    StoriesLike.where(story_id: id)
-  end
-
+  belongs_to :user
+  belongs_to :story
+  validates :user, uniqueness: { scope: :story}
 end
