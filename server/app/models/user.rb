@@ -3,6 +3,9 @@ class User < ApplicationRecord
   has_and_belongs_to_many :stories
   has_many :feedback
   has_many :feedback_likes
-  has_many :followers
   has_many :comments
+  has_many :follower_relationships, class_name: 'Relationship', foreign_key: 'follower_id'
+  has_many :following_relationships, class_name: 'Relationship', foreign_key: 'following_id'
+  has_many :followings, through: :follower_relationships
+  has_many :followers, through: :following_relationships
 end

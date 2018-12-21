@@ -60,12 +60,15 @@ kon = User.create!(
   image: "https://i0.wp.com/blog.scottrklinephoto.com/wp-content/uploads/2013/10/Amy_Wigdahl_Headshot_15E9688.jpg"
 )
 
+puts "DONE!"
 
 puts "Making Genres..."
 
 genre1 = Genre.find_or_create_by! name: 'Fantasy'
 genre2 = Genre.find_or_create_by! name: 'Romance'
 genre3 = Genre.find_or_create_by! name: 'Sci-Fi'
+
+puts "DONE!"
 
 puts "Making Stories..."
 
@@ -98,6 +101,8 @@ Story.create!(
   published: true
 )
 
+puts "DONE!"
+
 puts "Making Stories_likes..."
 
 @user1 = User.first
@@ -120,3 +125,52 @@ StoriesLike.create!(
   story_id: @story2
 )
 
+puts "DONE!"
+
+puts "Making Followers..."
+
+joe.following_relationships.create!(
+  following_id: joe.id,
+  follower_id: kon.id
+)
+
+kim.following_relationships.create!(
+  following_id: kim.id,
+  follower_id: ben.id
+)
+
+kon.following_relationships.create!(
+  following_id: kon.id,
+  follower_id: ben.id
+)
+
+kon.following_relationships.create!(
+  following_id: kon.id,
+  follower_id: joe.id
+)
+
+joe.following_relationships.create!(
+  following_id: joe.id,
+  follower_id: kon.id
+)
+
+ben.following_relationships.create!(
+  following_id: ben.id,
+  follower_id: joe.id
+)
+
+kim.following_relationships.create!(
+  following_id: kim.id,
+  follower_id: joe.id
+)
+
+kon.following_relationships.create!(
+  following_id: kon.id,
+  follower_id: kim.id
+)
+
+ben.following_relationships.create!(
+  following_id: ben.id,
+  follower_id: kim.id
+)
+puts "DONE!"
