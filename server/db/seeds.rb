@@ -74,7 +74,7 @@ puts "Making Stories..."
 
 Story.destroy_all
 
-Story.create!(
+genre1.stories.create!(
   user_id: joe.id,
   title: "The Many Hardships of Hard Ships",
   description: "A touching story that gives you a relatable window into the mind of a master Shipsmith.",
@@ -83,13 +83,23 @@ Story.create!(
   published: true
 )
 
-Story.create!(
+story2 = Story.create!(
   user_id: ben.id,
   title: "Willy and the Fenk",
   description: "A touching story that gives you a relatable window into the mind of a master Fenk and his companions.",
   text: "Here is where the story doc is kept",
   image: "http://orig06.deviantart.net/1d07/f/2015/103/8/d/the_rake_by_tsabo6-d8pk6q9.jpg",
   published: true
+)
+
+GenreStory.create!(
+  story_id: story2.id,
+  genre_id: genre1.id 
+)
+
+GenreStory.create!(
+  story_id: story2.id,
+  genre_id: genre2.id 
 )
 
 Story.create!(
@@ -100,6 +110,34 @@ Story.create!(
   image: "http://eskipaper.com/images/darkness-master-1.jpg",
   published: true
 )
+
+Story.create!(
+  user_id: kim.id,
+  title: "The flower",
+  description: "A touching flower story that gives you a relatable window into the mind of the author and their ability to become very dark very quickly.",
+  text: "Here is where the story doc is kept",
+  image: "http://eskipaper.com/images/darkness-master-1.jpg",
+  published: true
+)
+
+Story.create!(
+  user_id: kim.id,
+  title: "Lorem ipsum",
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in iaculis libero. Nunc odio urna, lacinia in libero et, feugiat finibus risus. Nullam sed tellus eget nulla consequat posuere et at tortor. Nullam in neque odio. Morbi porta massa quis cursus dapibus. Etiam ullamcorper, metus eget molestie porttitor, risus velit volutpat lectus, eget fermentum dui elit finibus eros. Mauris vitae diam quis ligula iaculis commodo. Ut vel leo consectetur, vestibulum dui at, pharetra dolor. Donec at augue turpis. In maximus nibh leo, nec tincidunt diam pharetra sed. Morbi varius nibh id orci sollicitudin maximus. Fusce consectetur convallis sagittis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer consequat leo nec vestibulum auctor. Morbi vulputate molestie velit, a mollis nisl. Nulla at justo eleifend, dignissim est varius, condimentum arcu.",
+  text: "Here is where the story doc is kept",
+  image: "http://eskipaper.com/images/darkness-master-1.jpg",
+  published: true
+)
+
+Story.create!(
+  user_id: kim.id,
+  title: "In hac habitasse platea dictumst.",
+  description: "In hac habitasse platea dictumst. In hac habitasse platea dictumst. Quisque vitae arcu ut orci semper interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam et nulla arcu. Proin posuere, nibh et efficitur auctor, magna ipsum ultricies erat, malesuada tincidunt neque libero sed odio. Nulla in nulla lacinia ante tincidunt ultrices id quis ligula. Praesent ipsum velit, lacinia id suscipit cursus, malesuada sit amet ligula. Nulla neque diam, viverra sit amet leo et, eleifend cursus tortor. Donec odio ligula, facilisis quis vulputate ac, rutrum id purus. Etiam dictum libero auctor mauris porttitor, et commodo urna vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque laoreet, risus sit amet hendrerit aliquam, justo lorem blandit quam, id commodo velit lacus ut elit.",
+  text: "Here is where the story doc is kept",
+  image: "http://eskipaper.com/images/darkness-master-1.jpg",
+  published: true
+)
+
 
 puts "DONE!"
 
@@ -171,3 +209,19 @@ kon.following_relationships.create!(
 )
 
 puts "DONE!"
+
+
+puts "Making Comments..."
+
+@story1.comments.create!(
+  user_id: kon.id,
+  text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+)
+@story1.comments.create!(
+  user_id: kon.id,
+  text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+)
+
+
+puts "DONE!"
+

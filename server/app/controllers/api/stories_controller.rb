@@ -9,9 +9,17 @@ class Api::StoriesController < ApplicationController
 
   # GET api/stories/1
   def show
-    @story1 = Story.first
+    @genres = @story.genres.all
+    @author = User.find(@story.user_id)
+    @number_of_likes = StoriesLike.where(story_id: params[:story_id]).count
+    @comments = @story.comments.all
+    @author_stories = @author.stories.where.not(id: @story.id)
+    #User.where.not(id: id)
     if @story
-      render json: @story
+      #render json: {genres: @genres.name }
+      render json: {story: @story, genres: @genres, author: @author, number_of_likes: @number_of_likes, comments: @comments, author_stories: @author_stories}
+      #{:emails => { :only => [:id, :email] })
+      #@user.as_json(only: [:picture, :age], methods: [:name])
     else
       render status: :not_found
     end
