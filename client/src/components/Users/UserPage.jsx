@@ -68,9 +68,7 @@ const UsersPage = (props) => {
 
 
 
-    const listOfUsers= allUsers.map((user, index) => {
-      return <User story={allStories[index]} key={index} user={user} />
-    });
+
   return (
     <div className='container my-container'>
       <div>
@@ -79,7 +77,7 @@ const UsersPage = (props) => {
         <br/>
         <br/>
         <div className='row justify-content-around my-row'>
-
+        <User story={story_binary_search(allStories, userIdInt)} user={user_binary_search(allUsers, userIdInt)} />
         </div>
       </div>
     </div>
