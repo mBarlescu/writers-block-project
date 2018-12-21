@@ -14,9 +14,36 @@ const UsersPage = (props) => {
     const allUsers=props.users
     console.log(props)
 
-    allUsers.forEach(function (user) {
-      console.log('this', user)
+    allUsers.sort(function(a, b) {
+      return a.id - b.id
     })
+
+    const test = allUsers.forEach(function (user) {
+      return user;
+    })
+    console.log('ALSO', test)
+    console.log('HERE', allUsers)
+
+    const binary_search = (arr, value) => {
+      let high = arr.length - 1;
+      let low = 0;
+      let mid = 0;
+
+      while ( low <= high ) {
+        mid = Math.floor((high + low) / 2)
+        if(arr[mid].id === value){
+          return arr[mid].id;
+        } else if (value > arr[mid].id){
+          low = mid + 1;
+        } else {
+          high =mid - 1;
+        }
+      }
+      return -1
+    }
+    console.log('CHECK IT', binary_search(allUsers, 50))
+
+
 
     const listOfUsers= allUsers.map((user, index) => {
       return <User story={allStories[index]} key={index} user={user} />
