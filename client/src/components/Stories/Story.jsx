@@ -1,12 +1,32 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
+
 
 class Story extends Component {
   constructor(props){
+
     super(props);
+
+    this.state = {
+      user: []
+    }
+}
+
+
+  componentDidMount() {
+    // axios.get(`http://localhost:3000/users/${this.props.story.user_id}`)
+    // .then(res => {
+    //   console.log('res', res)
+    //   this.setState({user: res.data})
+    // })
+
   }
 
-  render() {
+
+  render(){
+    console.log('HELLOHERE', this.state)
+console.log('HELLO', this.props)
     return (
       <div className='col-5 my-col'>
         <div className='header row'>
@@ -26,7 +46,9 @@ class Story extends Component {
         </div>
       </div>
     );
-  }
+
 }
+}
+
 
 export default Story;
