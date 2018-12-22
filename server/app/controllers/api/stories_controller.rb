@@ -13,13 +13,9 @@ class Api::StoriesController < ApplicationController
     @author = User.find(@story.user_id)
     @number_of_likes = StoriesLike.where(story_id: params[:story_id]).count
     @comments = @story.comments.all
-    @author_stories = @author.stories.where.not(id: @story.id)
-    #User.where.not(id: id)
+    @author_stories = @author.stories.where(published: true).where.not(id: @story.id)
     if @story
-      #render json: {genres: @genres.name }
-      render json: {story: @story, genres: @genres, author: @author, number_of_likes: @number_of_likes, comments: @comments, author_stories: @author_stories}
-      #{:emails => { :only => [:id, :email] })
-      #@user.as_json(only: [:picture, :age], methods: [:name])
+      render :show, status: :created
     else
       render status: :not_found
     end
