@@ -31,30 +31,19 @@ const UsersPage = (props) => {
       } else if (value > arr[mid].id){
         low = mid + 1;
       } else {
-        high =mid - 1;
+        high = mid - 1;
       }
     }
     return -1
   }
 
-  const story_binary_search = (arr, value) => {
-    let high = arr.length - 1;
-    let low = 0;
-    let mid = 0;
 
-    while ( low <= high ) {
-      mid = Math.floor((high + low) / 2)
-      if(arr[mid].user_id === value){
-        return arr[mid];
-      } else if (value > arr[mid].id){
-        low = mid + 1;
-      } else {
-        high =mid - 1;
-      }
-    }
-    return -1
+  const story_search = (arr, value) => {
+    return arr.filter(element => element.user_id === value);
   }
 
+  console.log('STORIES HERE', story_search(allStories, userIdInt));
+  console.log('USERS HERE', user_binary_search(allUsers, userIdInt));
 
   if (user_binary_search(allUsers, userIdInt) === -1) {
     return <RouteError />;
@@ -68,7 +57,7 @@ const UsersPage = (props) => {
         <br/>
         <br/>
         <div className='row justify-content-around my-row'>
-        <User story={story_binary_search(allStories, userIdInt)} user={user_binary_search(allUsers, userIdInt)} />
+        <User story={story_search(allStories, userIdInt)} user={user_binary_search(allUsers, userIdInt)} />
         </div>
       </div>
     </div>

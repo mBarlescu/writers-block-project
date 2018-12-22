@@ -36,6 +36,8 @@ constructor(){
       this.setState({stories: res.data})
     })
   }
+
+
   render() {
     return (
       <BrowserRouter>
@@ -45,16 +47,18 @@ constructor(){
 
             <Route
             path='/'
-            component={Home}
+            render={(props) => <Home {...props} stories={this.state.stories} users={this.state.users} />}
             exact />
 
             <Route
             path='/users'
-            render={() => <Users stories={this.state.stories} users={this.state.users} />} exact/>
+            render={(props) => <Users {...props} stories={this.state.stories} users={this.state.users} />}
+            exact/>
 
             <Route
             path='/stories'
             component={Stories} />
+
 
             <Route
             path='/users/:id'

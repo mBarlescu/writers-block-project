@@ -2,36 +2,31 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Story from '../Stories/Story'
 
-class Home extends Component {
-  constructor(){
-  super();
 
-    this.state = {
-      stories: [],
-      users: []
-    };
+function figureOutUser(users, user_id) {
+  users.find(user => user.id === user_id);
+}
+
+class Home extends Component {
+  constructor(props){
+  super(props);
+
+
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/api/users')
-    .then(res => {
-      this.setState({users: res.data})
-    })
-    .catch(err => {
-      console.log('AAAAAAAA', err)
-    })
 
-    axios.get('http://localhost:3000/api/stories')
-    .then(res => {
-      this.setState({stories: res.data})
-    })
   }
 
   render(){
-    const allStories=this.state.stories
-    const allUsers=this.state.users
+    const allStories=this.props.stories
+    const allUsers=this.props.users
+    console.log('HERE STORIES', allStories)
+    console.log('HERE USERS', allUsers)
     const listOfStories = allStories.map((story, index) => {
-      return <Story story={story} key={index} users={allUsers[index]} />
+      console.log(index);
+      let user = allUsers.find(user => user.id === story.user_id);;
+      return <Story story={story} key={index} users={user} />
     });
   return (
     <div className='container my-container'>
