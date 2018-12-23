@@ -10,7 +10,13 @@ class Api::UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: @user
+    if @user
+      @author_followers = Relationship.where(following_id: @user.id).count
+      @stories = @user.stories.where(published: true)
+      render :show, status: :created
+    else
+      render status: :not_found
+    end
   end
 
   # POST /users

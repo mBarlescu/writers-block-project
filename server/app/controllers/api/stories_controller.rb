@@ -3,19 +3,18 @@ class Api::StoriesController < ApplicationController
 
   # GET api/stories
   def index
-    @stories = Story.all
-    render json: @stories
+    @most_popular = StoriesLike.select("story_id, count(story_id) as likes").group("story_id").order("likes DESC").first(20)
+    @newest_stories = Story.all.order("created_at DESC").first(20)
   end
 
   # GET api/stories/1
   def show
-    @genres = @story.genres.all
-    @author = User.find(@story.user_id)
-    @number_of_likes = StoriesLike.where(story_id: params[:story_id]).count
-    @comments = @story.comments.all
-    @author_stories = @author.stories.where(published: true).where.not(id: @story.id)
     if @story
-      render :show, status: :created
+      @genres = @story.genres.all
+      @author = User.find(@story.user_id)
+      @number_of_likes = @story.stories_like.size
+      @comments = @story.comments.all
+      @author_stories = @author.stories.where(published: true).where.not(id: @story.id)
     else
       render status: :not_found
     end

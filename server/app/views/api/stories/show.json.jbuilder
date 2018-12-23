@@ -28,10 +28,8 @@ json.comments do
   json.array! @comments do |comment|
     json.text comment.text
     json.created_at comment.created_at
-    json.user do
-      json.first_name comment.user.first_name
-      json.last_name comment.user.last_name
-    end
+    json.first_name comment.user.first_name
+    json.last_name comment.user.last_name
   end
 end
 

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :relationships
-  root to: 'api/stories#index'
+  root to: 'api/stories#index' , defaults: { format: :json }
 
   namespace :api, defaults: { format: :json } do 
     resources   :stories do
