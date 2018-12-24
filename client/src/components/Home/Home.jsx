@@ -15,15 +15,19 @@ class Home extends Component {
   }
 
   componentDidMount() {
-
   }
 
   render(){
-    const allStories=this.props.stories
+    console.log('PROPS', this.props.stories)
+    const popularStories=this.props.stories
+    const pS=popularStories.popular_stories
+    console.log('FUCKKKK', pS)
+
+
     const allUsers=this.props.users
-    console.log('HERE STORIES', allStories)
+    console.log('HERE STORIES', popularStories)
     console.log('HERE USERS', allUsers)
-    const listOfStories = allStories.map((story, index) => {
+    const listOfPopularStories = pS.map((story, index) => {
       console.log(index);
       let user = allUsers.find(user => user.id === story.user_id);;
       return <Story story={story} key={index} users={user} />
@@ -36,7 +40,7 @@ class Home extends Component {
         <br/>
         <br/>
         <div className='row justify-content-around my-row'>
-        {listOfStories}
+        {listOfPopularStories}
         </div>
       </div>
     </div>
