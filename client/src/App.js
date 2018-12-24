@@ -15,15 +15,19 @@ constructor(){
   super();
 
     this.state = {
-      stories: [],
+      stories: {
+        popular_stories: [],
+        newest_stories: []
+      },
       users: []
     };
   }
 
   componentDidMount() {
+    console.log('COMPONENT DID MOUNT APP')
     axios.get('http://localhost:3000/api/users')
     .then(res => {
-      console.log(res)
+      console.log("USEEEEERS", res)
       this.setState({users: res.data})
     })
     .catch(err => {
@@ -32,7 +36,7 @@ constructor(){
 
     axios.get('http://localhost:3000/api/stories')
     .then(res => {
-      console.log(res)
+      console.log("STOOOOOOORIES",res)
       this.setState({stories: res.data})
     })
   }
