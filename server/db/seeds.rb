@@ -14,12 +14,14 @@ puts "Making Users..."
 
 User.destroy_all
 
+
 joe = User.create!(
   first_name: "Joe",
   last_name: "Dolan",
   description: "Lorem ipsum dolor amet beard master cleanse cray fingerstache, art party green juice unicorn trust fund you probably haven't heard of them vape swag brooklyn meditation gochujang.",
   email: "joe@gmail.com",
-  password: "aaa",
+  password: '123456' ,
+  password_confirmation: '123456',
   image: "https://daphoto.com/wp-content/uploads/2013/11/Friel_4065-5x7x300(pp_w642_h900).jpg"
 )
 
@@ -28,7 +30,8 @@ ben = User.create!(
   last_name: "Jenoli",
   description: "Excepteur next level hell of occupy, salvia organic helvetica kogi elit shoreditch paleo glossier tattooed aesthetic.",
   email: "ben@gmail.com",
-  password: "aaa",
+  password: '123456' ,
+  password_confirmation: '123456',
   image: "https://srkheadshotday.com/wp-content/uploads/Mark_Otis_Headshot_16D7253_Crop32.jpg"
   
 )
@@ -38,7 +41,8 @@ kim = User.create!(
   last_name: "Kennedy",
   description: "Artisan vape 90's, deserunt woke ipsum ullamco snackwave jianbing excepteur aliqua eiusmod.",
   email: "kim@gmail.com",
-  password: "aaa",
+  password: '123456' ,
+  password_confirmation: '123456',
   image: "https://i0.wp.com/blog.scottrklinephoto.com/wp-content/uploads/2013/10/Amy_Wigdahl_Headshot_15E9688.jpg"
 )
 
@@ -47,7 +51,8 @@ jim = User.create!(
   last_name: "Jennedy",
   description: "Exercitation austin tbh knausgaard tilde lo-fi. Chicharrones single-origin coffee echo park tumblr swag flannel deserunt chillwave kale chips typewriter man braid letterpress.",
   email: "jim@gmail.com",
-  password: "aaa",
+  password: '123456' ,
+  password_confirmation: '123456',
   image: "https://i0.wp.com/blog.scottrklinephoto.com/wp-content/uploads/2013/10/Amy_Wigdahl_Headshot_15E9688.jpg"
 )
 
@@ -56,7 +61,8 @@ kon = User.create!(
   last_name: "Krondy",
   description: "Skateboard celiac lo-fi sint YOLO direct trade. Activated charcoal hoodie wolf raw denim vape man braid aute laborum vexillologist keffiyeh seitan lumbersexual umami yr cronut.",
   email: "kon@gmail.com",
-  password: "aaa",
+  password: '123456' ,
+  password_confirmation: '123456',
   image: "https://i0.wp.com/blog.scottrklinephoto.com/wp-content/uploads/2013/10/Amy_Wigdahl_Headshot_15E9688.jpg"
 )
 
@@ -224,4 +230,5 @@ puts "Making Comments..."
 
 
 puts "DONE!"
+
 
