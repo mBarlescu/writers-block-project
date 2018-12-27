@@ -25,14 +25,14 @@ constructor(){
 
   componentDidMount() {
     console.log('COMPONENT DID MOUNT APP')
-/*     axios.get('http://localhost:3000/api/users')
+     axios.get('http://localhost:3000/api/users')
     .then(res => {
       console.log("USEEEEERS", res)
       this.setState({users: res.data})
     })
     .catch(err => {
       console.log('AAAAAAAA', err)
-    }) */
+    })
 
     axios.get('http://localhost:3000/api/stories')
     .then(res => {
@@ -53,7 +53,7 @@ constructor(){
             path='/'
             render={(props) => <Home {...props} stories={this.state.stories} users={this.state.users} />}
             exact />
-/* 
+
             <Route
             path='/users'
             render={(props) => <Users {...props} stories={this.state.stories} users={this.state.users} />}
