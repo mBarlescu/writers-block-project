@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root to: 'api/stories#index' , defaults: { format: :json }
 
   namespace :api, defaults: { format: :json } do 
+
     resources   :stories do
-      resources :stories_likes, only: [:create]
-      post      :read, :like
-      get :likes, :number_of_likes
+      get       :new, :segments
+      post      :like, :publish
     end
     resources   :feedbacks, only: [:new, :create, :destroy ] do 
       resources :feedbacks_likes, only: [:create]
@@ -19,7 +19,17 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create, :destroy ] do 
       resources :comments_likes, only: [:create]
     end
-    resources :sessions, path: '/login', only:[:create] 
+  
+
+  resources :genres , only: [:index] do
+    member do
+      get 'stories'
+    end
+  end
+      
+
+
+    resources :login, path: '/login', only:[:create] 
     resources :sessions, path: '/logout', only:[:destroy] 
     
   end

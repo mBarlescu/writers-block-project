@@ -3,18 +3,18 @@ class Api::StoriesController < ApplicationController
 
   # GET api/stories
   def index
-    @most_popular = StoriesLike.select("story_id, count(story_id) as likes").group("story_id").order("likes DESC").first(20)
-    @newest_stories = Story.all.order("created_at DESC").first(20)
+    @most_popular = Story.find_most_popular_stories
+    @newest_stories = Story.find_newest_stories
   end
 
   # GET api/stories/1
   def show
     if @story
       @genres = @story.genres.all
-      @author = User.find(@story.user_id)
+      @author = User.find(@story.id)
       @number_of_likes = @story.stories_like.size
       @comments = @story.comments.all
-      @author_stories = @author.stories.where(published: true).where.not(id: @story.id)
+      @author_stories = Story.find_stories_by_author(@story.user_id, @story.id)
     else
       render status: :not_found
     end
@@ -23,6 +23,7 @@ class Api::StoriesController < ApplicationController
   # POST api/stories
   def create
     @story = Story.new(story_params)
+    @story.user_id = current_user.id
 
     if @story.save
       render json: @story, status: :created, location: @story
@@ -40,34 +41,63 @@ class Api::StoriesController < ApplicationController
     end
   end
 
-  # GET api/stories/1/likes
-  def likes
-    render json: StoriesLike.where(story_id: params[:story_id])
-  end
-
-  # GET api/stories/1/number_of_likes
-  def number_of_likes
-    render json: StoriesLike.where(story_id: params[:story_id]).length
-  end
-
   # POST api/stories/1/like
   def like
     @user = User.third # Need to change this after
     @story_like = StoriesLike.new(
-      user_id: @user.id,
+      user_id: current_user.id,
       story_id: params[:story_id]
     )
     if @story_like.save
       render json: @story_like 
     else
-      puts "AAAA"
+      render json: @story_like.errors, status: :unprocessable_entity
     end
   end
 
+  # GET api/stories/1/new
+  def new
+    @story = Story.find(params[:story_id])
+  end
+
+
+  # POST api/stories/1/publish
+  def publish
+    @story = Story.find(params[:story_id])
+    if @story.update(text: params[:text], published: true)
+      segments = @story.text.split('\n')
+      segments.each_with_index do |item, index|
+        @story.segments.create!(
+          text: item,
+          position: index
+        )
+      end  
+    end    
+    if @story.save
+        render json: @story, status: :created
+    else
+      render json: @story.errors, status: :unprocessable_entity
+    end
+  end
+
+  # GET api/stories/1/segments
+  def segments
+    @story = Story.find(params[:story_id])
+    @segments = @story.segments.order('position')
+    @author = User.find(@story.id)
+    @number_of_likes = @story.stories_like.size
+    @feedbacks = []
+    @segments.each do |item|
+      @feedbacks.push(item.feedbacks.order('created_at DESC'))
+    end  
+  end
+
+  
   # DELETE api/stories/1
   def destroy
     @story.destroy
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -81,6 +111,6 @@ class Api::StoriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def story_params
-      params.require(:story).permit(:user_id, :title, :description, :text, :image, :published)
+      params.require(:story).permit(:title, :description, :text, :image, :published)
     end
 end

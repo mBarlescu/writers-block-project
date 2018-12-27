@@ -7,4 +7,9 @@ class Relationship < ApplicationRecord
 
 
   validates :follower_id, uniqueness: { scope: :following_id, message: "ALREADY EXISTS! Sorry, please follow someone else." }
+
+  def self.count_followers(user_id)
+    Relationship.where(following_id: user_id).count
+  end
+
 end

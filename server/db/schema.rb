@@ -16,11 +16,13 @@ ActiveRecord::Schema.define(version: 2018_12_20_231700) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "story_id"
+    t.bigint "user_id"
+    t.bigint "story_id"
     t.string "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["story_id"], name: "index_comments_on_story_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "feedback_likes", force: :cascade do |t|
@@ -38,18 +40,11 @@ ActiveRecord::Schema.define(version: 2018_12_20_231700) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "followers", force: :cascade do |t|
-    t.integer "author_id"
-    t.integer "follower_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "genre_stories", force: :cascade do |t|
-    t.integer "story_id"
-    t.integer "genre_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "genre_stories", id: false, force: :cascade do |t|
+    t.bigint "story_id"
+    t.bigint "genre_id"
+    t.index ["genre_id"], name: "index_genre_stories_on_genre_id"
+    t.index ["story_id"], name: "index_genre_stories_on_story_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -66,10 +61,12 @@ ActiveRecord::Schema.define(version: 2018_12_20_231700) do
   end
 
   create_table "segments", force: :cascade do |t|
-    t.integer "story_id"
+    t.bigint "story_id"
     t.text "text"
+    t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["story_id"], name: "index_segments_on_story_id"
   end
 
   create_table "stories", force: :cascade do |t|
@@ -83,11 +80,11 @@ ActiveRecord::Schema.define(version: 2018_12_20_231700) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "stories_likes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "story_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "stories_likes", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "story_id"
+    t.index ["story_id"], name: "index_stories_likes_on_story_id"
+    t.index ["user_id"], name: "index_stories_likes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -95,7 +92,7 @@ ActiveRecord::Schema.define(version: 2018_12_20_231700) do
     t.string "last_name"
     t.text "description"
     t.string "email"
-    t.string   "password_digest"
+    t.string "password_digest"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

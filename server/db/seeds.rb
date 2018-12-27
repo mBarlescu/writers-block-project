@@ -25,6 +25,16 @@ joe = User.create!(
   image: "https://daphoto.com/wp-content/uploads/2013/11/Friel_4065-5x7x300(pp_w642_h900).jpg"
 )
 
+mila = User.create!(
+  first_name: "Mila",
+  last_name: "Mariah",
+  description: "Lorem ipsum dolor amet beard master cleanse cray fingerstache, art party green juice unicorn trust fund you probably haven't heard of them vape swag brooklyn meditation gochujang.",
+  email: "mila@gmail.com",
+  password: '123456' ,
+  password_confirmation: '123456',
+  image: "https://daphoto.com/wp-content/uploads/2013/11/Friel_4065-5x7x300(pp_w642_h900).jpg"
+)
+
 ben = User.create!(
   first_name: "Ben",
   last_name: "Jenoli",

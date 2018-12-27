@@ -28,4 +28,8 @@ class User < ApplicationRecord
 
   end
 
+  def self.writers_with_published_stories
+    User.joins(:stories).where(stories: {published: true}).uniq
+  end
+
 end

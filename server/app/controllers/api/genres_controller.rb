@@ -4,7 +4,6 @@ class Api::GenresController < ApplicationController
   # GET /genres
   def index
     @genres = Genre.all
-
     render json: @genres
   end
 
@@ -32,6 +31,12 @@ class Api::GenresController < ApplicationController
     else
       render json: @genre.errors, status: :unprocessable_entity
     end
+  end
+
+  # GET api/genres/1/stories
+  def stories
+    @stories_by_genre = Story.find_published_stories_by_genre(params[:id])
+    render json: @stories_by_genre
   end
 
   # DELETE /genres/1

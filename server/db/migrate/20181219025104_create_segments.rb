@@ -1,8 +1,9 @@
 class CreateSegments < ActiveRecord::Migration[5.2]
   def change
     create_table :segments do |t|
-      t.integer :story_id
+      t.references :story, index: true
       t.text :text
+      t.integer :position
 
       t.timestamps
     end

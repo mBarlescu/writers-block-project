@@ -3,17 +3,15 @@ class Api::UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.all
-
-    render json: @users
+    @users = User.writers_with_published_stories
   end
 
   # GET /users/1
   def show
     if @user
-      @author_followers = Relationship.where(following_id: @user.id).count
-      @stories = @user.stories.where(published: true)
-      render :show, status: :created
+      @author_followers = Relationship.count_followers(@user.id)
+      @stories = Story.find_published_stories_by_user(@user.id)
+      render status: :created
     else
       render status: :not_found
     end
