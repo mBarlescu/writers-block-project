@@ -19,11 +19,26 @@ class Home extends Component {
   }
 
   render(){
-    const allStories=this.props.stories
+    console.log('PROPS', this.props.stories)
+    const popularStories=this.props.stories
+
+
+
     const allUsers=this.props.users
+    console.log('HERE STORIES', popularStories)
+
+    console.log('COMPONENT DID MOUNT HOME')
+
+  }
+
+  render(){
+    const allStories=this.props.stories.popular_stories
+    const allUsers=this.props.users.popular_stories
+    console.log('HERE PROPS', this.props)
     console.log('HERE STORIES', allStories)
+
     console.log('HERE USERS', allUsers)
-    const listOfStories = allStories.map((story, index) => {
+    const listOfPopularStories = allStories.map((story, index) => {
       console.log(index);
       let user = allUsers.find(user => user.id === story.user_id);;
       return <Story story={story} key={index} users={user} />
@@ -36,7 +51,7 @@ class Home extends Component {
         <br/>
         <br/>
         <div className='row justify-content-around my-row'>
-        {listOfStories}
+        {listOfPopularStories}
         </div>
       </div>
     </div>

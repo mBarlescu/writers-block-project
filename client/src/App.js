@@ -8,22 +8,27 @@ import Users from './components/Users/Users';
 import Error from './components/Errors/RouteError';
 import NavBar from './components/Navigation/NavBar';
 import Stories from './components/Stories/Stories';
-import UserPage from './components/Users/UserPage'
+import UserPage from './components/Users/UserPage';
+import StoryPage from './components/Stories/StoryPage';
 
 class App extends Component {
 constructor(){
   super();
 
     this.state = {
-      stories: [],
+      stories: {
+        popular_stories: [],
+        newest_stories: []
+      },
       users: []
     };
   }
 
   componentDidMount() {
+    console.log('COMPONENT DID MOUNT APP')
     axios.get('http://localhost:3000/api/users')
     .then(res => {
-      console.log(res)
+      console.log("USEEEEERS", res)
       this.setState({users: res.data})
     })
     .catch(err => {
@@ -32,9 +37,11 @@ constructor(){
 
     axios.get('http://localhost:3000/api/stories')
     .then(res => {
-      console.log(res)
+      console.log("STOOOOOOORIES",res)
       this.setState({stories: res.data})
     })
+
+    console.log('I HATE THIS', this.state.stories)
   }
 
 
@@ -63,6 +70,10 @@ constructor(){
             <Route
             path='/users/:id'
             render={(props) => <UserPage {...props} stories={this.state.stories} users={this.state.users} /> } />
+
+            <Route
+            path='stories/:id'
+            render={(props) => <StoryPage {}}
 
             <Route component={Error} />
 
