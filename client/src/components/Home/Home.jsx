@@ -20,7 +20,7 @@ class Home extends Component {
 
   render(){
     console.log('PROPS', this.props.stories)
-    const popularStories=this.props.stories
+
 
 
 
@@ -29,18 +29,15 @@ class Home extends Component {
 
     console.log('COMPONENT DID MOUNT HOME')
 
-  }
+    const popularStories=this.props.stories.popular_stories
 
-  render(){
-    const allStories=this.props.stories.popular_stories
-    const allUsers=this.props.users.popular_stories
     console.log('HERE PROPS', this.props)
-    console.log('HERE STORIES', allStories)
+    console.log('HERE STORIES', popularStories)
 
     console.log('HERE USERS', allUsers)
-    const listOfPopularStories = allStories.map((story, index) => {
+    const listOfPopularStories = popularStories.map((story, index) => {
       console.log(index);
-      let user = allUsers.find(user => user.id === story.user_id);;
+      let user = allUsers.find(user => user.id === story.user_id);
       return <Story story={story} key={index} users={user} />
     });
   return (
