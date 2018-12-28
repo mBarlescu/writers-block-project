@@ -70,17 +70,16 @@ class CreateStory extends Component {
       <div>
         <br />
         <br />
-        <div className='create-page-outer-container text-center'>{this.state.story.title} </div>
+        <h1 className='create-page-outer-container text-center'>{this.state.story.title}</h1>
           <br />
           <br />
-        <div className='create-page-inner-container'>
-          <form className='form-create-page' onSubmit={this.handleSubmit}>
+        <form className='form-create-page' onSubmit={this.handleSubmit} >
+        <button type='submit'>Save</button>
+          <div className="form-group">
 
-              <input className='input-create-page' type='text' name='text' onChange={this.handleChange} />
-
-            <button type='submit'>Save</button>
-          </form>
-        </div>
+            <textarea onChange={this.handleChange} className="form-control my-create-textarea" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+        </form>
       </div>
     )
   }

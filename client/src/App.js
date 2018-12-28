@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { 
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  CarouselIndicators,
+  CarouselCaption
+ } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button,  Row, Col } from 'reactstrap';
 import axios from 'axios';
 
 
@@ -52,6 +61,7 @@ constructor(){
     return (
       <BrowserRouter>
         <div className='outer-container'>
+        <div className='container my-container'>
           <NavBar />
           <Switch>
 
@@ -103,6 +113,7 @@ constructor(){
             <Route component={Error} />
 
           </Switch>
+          </div>
         </div>
       </BrowserRouter>
     );

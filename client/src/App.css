@@ -118,21 +118,23 @@
   text-align: center;
   display: inline-block;
   margin: auto;
-  text-align: left;
-}
-
-.input-create-page{
-  height:1000px;
-  width: 1000px;
-
-}
-
-.create-page-outer-container{
-  display: block;
   text-align: center;
 
 }
 
-.create-page-inner-container{
-  background-color: white;
+.my-create-textarea{
+  height: 1000px;
+}
+
+.create-page-outer-container{
+
+}
+
+
+textarea.form-control{
+  height: 1000px;
+  width: 690px;
+  display: inline-block;
+  margin: auto;
+  text-align: left;
 }
