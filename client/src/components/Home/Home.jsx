@@ -31,6 +31,9 @@ class Home extends Component {
 
     const popularStories=this.props.stories.popular_stories
 
+  render(){
+    const allStories=this.props.stories.popular_stories
+    const allUsers=this.props.users
     console.log('HERE PROPS', this.props)
     console.log('HERE STORIES', popularStories)
 
