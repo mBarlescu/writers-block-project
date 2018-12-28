@@ -36,15 +36,68 @@
   font-size: 12px;
   line-height:14px;
 }
+<<<<<<< HEAD
 /*
 .outer-container {
   background-color: #f7f6f3;
 }*/
+=======
+
+/* .outer-container {
+  background-color: #f7f6f3;
+} */
+>>>>>>> 7898d4a0c2cd373fb424d6afc87b7978635800c5
 
 .container {
   background-color: white;
 }
 
+<<<<<<< HEAD
 .createContainer {
   border: solid black;
+=======
+/* Form for /stories/new */
+.form-container {
+  background: darkgray;
+  margin: 50px;
+  border-radius: 5px;
+  border: black 2px solid;
+  padding: 10px;
+}
+.form-background {
+  background-color: lightskyblue;
+  border: solid 1px black;
+  border-radius: 5px;
+  margin: 10px;
+  margin-top: 6px;
+}
+.story-create-btn {
+  background: lightgray;
+  border-radius: 2px;
+  border: black 2px solid;
+  margin: 10px;
+  margin-top: 15px;
+  margin-left: 495px;
+  padding: 3px;
+}
+.form-title {
+  padding: 3px;
+  margin-left: 300px;
+}
+.story-form-text {
+  width: 400px;
+}
+#enter_title {
+  margin-left: 80px;
+}
+#enter_description {
+  margin-left: 28px;
+}
+#insert_image {
+  margin-left: 30px;
+}
+
+.story-form-checkbox {
+  margin: 10px;
+>>>>>>> 7898d4a0c2cd373fb424d6afc87b7978635800c5
 }

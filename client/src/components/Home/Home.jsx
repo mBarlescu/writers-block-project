@@ -11,7 +11,6 @@ class Home extends Component {
   constructor(props){
   super(props);
 
-
   }
 
   componentDidMount() {
@@ -20,9 +19,6 @@ class Home extends Component {
 
   render(){
     console.log('PROPS', this.props.stories)
-
-
-
 
     const allUsers=this.props.users
     console.log('HERE STORIES', popularStories)
