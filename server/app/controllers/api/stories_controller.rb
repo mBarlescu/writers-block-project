@@ -22,6 +22,7 @@ class Api::StoriesController < ApplicationController
 
   # POST api/stories
   def create
+    puts "hey this is activating ========= #{story_params} ================="
     @story = Story.new(story_params)
     @story.user_id = current_user.id
 
