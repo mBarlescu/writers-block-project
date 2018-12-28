@@ -3,13 +3,14 @@ import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
 
+
 class Story extends Component {
   constructor(props){
 
     super(props);
 
     this.state = {
-      user: []
+      //user: []
     }
 }
 
@@ -25,8 +26,6 @@ class Story extends Component {
 
 
   render(){
-    console.log('HELLOHERE', this.state)
-console.log('HELLO', this.props)
     return (
       <div className='col-5 my-col'>
         <div className='header row'>
@@ -36,7 +35,7 @@ console.log('HELLO', this.props)
           <div className='col-7 my-col-description'>
             <NavLink className='title' to="/">{this.props.story.title}</NavLink>
             <br />
-            <NavLink className='author' to="/">by {this.props.users.first_name} {this.props.users.last_name}</NavLink>
+            <NavLink className='author' to="/">by {this.props.story.first_name} {this.props.story.last_name}</NavLink>
             <br />
             <span className='description'>
               {this.props.story.description}

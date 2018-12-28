@@ -49,9 +49,8 @@ class CreateStory extends Component {
     event.preventDefault();
 
   console.log('Handling submit', this);
-  const text = {
-    text: this.state.text
-  }
+  const text = this.state.text
+
 
   let storyId = this.state.story.id;
 
@@ -71,10 +70,10 @@ class CreateStory extends Component {
       <div>
         <br />
         <br />
-        <div className='text-center'>{this.state.story.title} </div>
+        <div className='create-page-outer-container text-center'>{this.state.story.title} </div>
           <br />
           <br />
-        <div className='createContainer'>
+        <div className='create-page-inner-container'>
           <form className='form-create-page' onSubmit={this.handleSubmit}>
 
               <input className='input-create-page' type='text' name='text' onChange={this.handleChange} />

@@ -37,10 +37,11 @@
   line-height:14px;
 }
 
-/*
+
+
 .outer-container {
   background-color: #f7f6f3;
-}*/
+}
 
 
 /* .outer-container {
@@ -48,14 +49,21 @@
 } */
 
 
+
 .container {
   background-color: white;
 }
 
 
+
 .createContainer {
   border: solid black;
 }
+
+
+/* .createContainer {
+  border: solid black; */
+
 
 /* Form for /stories/new */
 .form-container {
@@ -100,15 +108,31 @@
 
 .story-form-checkbox {
   margin: 10px;
+
 }
 
 .form-create-page{
   height: 1000px;
   width: 1000px;
+  display: block;
+  text-align: center;
+  display: inline-block;
+  margin: auto;
+  text-align: left;
 }
 
 .input-create-page{
   height:1000px;
   width: 1000px;
 
+}
+
+.create-page-outer-container{
+  display: block;
+  text-align: center;
+
+}
+
+.create-page-inner-container{
+  background-color: white;
 }
