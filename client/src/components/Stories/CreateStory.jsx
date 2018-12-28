@@ -75,9 +75,9 @@ class CreateStory extends Component {
           <br />
           <br />
         <div className='createContainer'>
-          <form onSubmit={this.handleSubmit}>
+          <form className='form-create-page' onSubmit={this.handleSubmit}>
 
-              <input type='text' name='text' onChange={this.handleChange} />
+              <input className='input-create-page' type='text' name='text' onChange={this.handleChange} />
 
             <button type='submit'>Save</button>
           </form>
