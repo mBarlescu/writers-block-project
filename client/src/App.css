@@ -36,11 +36,15 @@
   font-size: 12px;
   line-height:14px;
 }
-
+/*
 .outer-container {
   background-color: #f7f6f3;
-}
+}*/
 
 .container {
   background-color: white;
+}
+
+.createContainer {
+  border: solid black;
 }
