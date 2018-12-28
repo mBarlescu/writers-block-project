@@ -154,6 +154,73 @@ Story.create!(
   published: true
 )
 
+Story.create!(
+  user_id: kim.id,
+  title: "In.",
+  description: "In hac habitasse platea dictumst. In hac habitasse platea dictumst. Quisque vitae arcu ut orci semper interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam et nulla arcu. Proin posuere, nibh et efficitur auctor, magna ipsum ultricies erat, malesuada tincidunt neque libero sed odio. Nulla in nulla lacinia ante tincidunt ultrices id quis ligula. Praesent ipsum velit, lacinia id suscipit cursus, malesuada sit amet ligula. Nulla neque diam, viverra sit amet leo et, eleifend cursus tortor. Donec odio ligula, facilisis quis vulputate ac, rutrum id purus. Etiam dictum libero auctor mauris porttitor, et commodo urna vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque laoreet, risus sit amet hendrerit aliquam, justo lorem blandit quam, id commodo velit lacus ut elit.",
+  text: "Here is where the story doc is kept",
+  image: "http://eskipaper.com/images/darkness-master-1.jpg",
+  published: true
+)
+
+Story.create!(
+  user_id: kim.id,
+  title: "In hac",
+  description: "In hac habitasse platea dictumst. In hac habitasse platea dictumst. Quisque vitae arcu ut orci semper interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam et nulla arcu. Proin posuere, nibh et efficitur auctor, magna ipsum ultricies erat, malesuada tincidunt neque libero sed odio. Nulla in nulla lacinia ante tincidunt ultrices id quis ligula. Praesent ipsum velit, lacinia id suscipit cursus, malesuada sit amet ligula. Nulla neque diam, viverra sit amet leo et, eleifend cursus tortor. Donec odio ligula, facilisis quis vulputate ac, rutrum id purus. Etiam dictum libero auctor mauris porttitor, et commodo urna vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque laoreet, risus sit amet hendrerit aliquam, justo lorem blandit quam, id commodo velit lacus ut elit.",
+  text: "Here is where the story doc is kept",
+  image: "http://eskipaper.com/images/darkness-master-1.jpg",
+  published: true
+)
+
+Story.create!(
+  user_id: kim.id,
+  title: "In hac habi",
+  description: "In hac habitasse platea dictumst. In hac habitasse platea dictumst. Quisque vitae arcu ut orci semper interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam et nulla arcu. Proin posuere, nibh et efficitur auctor, magna ipsum ultricies erat, malesuada tincidunt neque libero sed odio. Nulla in nulla lacinia ante tincidunt ultrices id quis ligula. Praesent ipsum velit, lacinia id suscipit cursus, malesuada sit amet ligula. Nulla neque diam, viverra sit amet leo et, eleifend cursus tortor. Donec odio ligula, facilisis quis vulputate ac, rutrum id purus. Etiam dictum libero auctor mauris porttitor, et commodo urna vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque laoreet, risus sit amet hendrerit aliquam, justo lorem blandit quam, id commodo velit lacus ut elit.",
+  text: "Here is where the story doc is kept",
+  image: "http://eskipaper.com/images/darkness-master-1.jpg",
+  published: true
+)
+Story.create!(
+  user_id: kim.id,
+  title: "In hac habitasse",
+  description: "In hac habitasse platea dictumst. In hac habitasse platea dictumst. Quisque vitae arcu ut orci semper interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam et nulla arcu. Proin posuere, nibh et efficitur auctor, magna ipsum ultricies erat, malesuada tincidunt neque libero sed odio. Nulla in nulla lacinia ante tincidunt ultrices id quis ligula. Praesent ipsum velit, lacinia id suscipit cursus, malesuada sit amet ligula. Nulla neque diam, viverra sit amet leo et, eleifend cursus tortor. Donec odio ligula, facilisis quis vulputate ac, rutrum id purus. Etiam dictum libero auctor mauris porttitor, et commodo urna vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque laoreet, risus sit amet hendrerit aliquam, justo lorem blandit quam, id commodo velit lacus ut elit.",
+  text: "Here is where the story doc is kept",
+  image: "http://eskipaper.com/images/darkness-master-1.jpg",
+  published: true
+)
+Story.create!(
+  user_id: kim.id,
+  title: "In hac habitasse pla",
+  description: "In hac habitasse platea dictumst. In hac habitasse platea dictumst. Quisque vitae arcu ut orci semper interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam et nulla arcu. Proin posuere, nibh et efficitur auctor, magna ipsum ultricies erat, malesuada tincidunt neque libero sed odio. Nulla in nulla lacinia ante tincidunt ultrices id quis ligula. Praesent ipsum velit, lacinia id suscipit cursus, malesuada sit amet ligula. Nulla neque diam, viverra sit amet leo et, eleifend cursus tortor. Donec odio ligula, facilisis quis vulputate ac, rutrum id purus. Etiam dictum libero auctor mauris porttitor, et commodo urna vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque laoreet, risus sit amet hendrerit aliquam, justo lorem blandit quam, id commodo velit lacus ut elit.",
+  text: "Here is where the story doc is kept",
+  image: "http://eskipaper.com/images/darkness-master-1.jpg",
+  published: true
+)
+Story.create!(
+  user_id: kim.id,
+  title: "In hac habitasse platea",
+  description: "In hac habitasse platea dictumst. In hac habitasse platea dictumst. Quisque vitae arcu ut orci semper interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam et nulla arcu. Proin posuere, nibh et efficitur auctor, magna ipsum ultricies erat, malesuada tincidunt neque libero sed odio. Nulla in nulla lacinia ante tincidunt ultrices id quis ligula. Praesent ipsum velit, lacinia id suscipit cursus, malesuada sit amet ligula. Nulla neque diam, viverra sit amet leo et, eleifend cursus tortor. Donec odio ligula, facilisis quis vulputate ac, rutrum id purus. Etiam dictum libero auctor mauris porttitor, et commodo urna vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque laoreet, risus sit amet hendrerit aliquam, justo lorem blandit quam, id commodo velit lacus ut elit.",
+  text: "Here is where the story doc is kept",
+  image: "http://eskipaper.com/images/darkness-master-1.jpg",
+  published: true
+)
+Story.create!(
+  user_id: kim.id,
+  title: "In hac habitasse platea di",
+  description: "In hac habitasse platea dictumst. In hac habitasse platea dictumst. Quisque vitae arcu ut orci semper interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam et nulla arcu. Proin posuere, nibh et efficitur auctor, magna ipsum ultricies erat, malesuada tincidunt neque libero sed odio. Nulla in nulla lacinia ante tincidunt ultrices id quis ligula. Praesent ipsum velit, lacinia id suscipit cursus, malesuada sit amet ligula. Nulla neque diam, viverra sit amet leo et, eleifend cursus tortor. Donec odio ligula, facilisis quis vulputate ac, rutrum id purus. Etiam dictum libero auctor mauris porttitor, et commodo urna vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque laoreet, risus sit amet hendrerit aliquam, justo lorem blandit quam, id commodo velit lacus ut elit.",
+  text: "Here is where the story doc is kept",
+  image: "http://eskipaper.com/images/darkness-master-1.jpg",
+  published: true
+)
+Story.create!(
+  user_id: kim.id,
+  title: "In hac habitasse platea dictum",
+  description: "In hac habitasse platea dictumst. In hac habitasse platea dictumst. Quisque vitae arcu ut orci semper interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam et nulla arcu. Proin posuere, nibh et efficitur auctor, magna ipsum ultricies erat, malesuada tincidunt neque libero sed odio. Nulla in nulla lacinia ante tincidunt ultrices id quis ligula. Praesent ipsum velit, lacinia id suscipit cursus, malesuada sit amet ligula. Nulla neque diam, viverra sit amet leo et, eleifend cursus tortor. Donec odio ligula, facilisis quis vulputate ac, rutrum id purus. Etiam dictum libero auctor mauris porttitor, et commodo urna vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque laoreet, risus sit amet hendrerit aliquam, justo lorem blandit quam, id commodo velit lacus ut elit.",
+  text: "Here is where the story doc is kept",
+  image: "http://eskipaper.com/images/darkness-master-1.jpg",
+  published: true
+)
+
 
 puts "DONE!"
 
@@ -163,6 +230,16 @@ puts "Making Stories_likes..."
 @user2 = User.second
 @story1 = Story.first
 @story2 = Story.second
+@story3 = Story.third
+@story4 = Story.find(4)
+@story5 = Story.find(5)
+@story6 = Story.find(6)
+@story7 = Story.find(7)
+@story8 = Story.find(8)
+@story9 = Story.find(9)
+@story10 = Story.find(10)
+@story11 = Story.find(11)
+@story12 = Story.find(12)
 
 StoriesLike.create!(
   user_id: @user1.id,
@@ -172,6 +249,48 @@ StoriesLike.create!(
 StoriesLike.create!(
   user_id: @user1.id,
   story_id: @story2.id
+)
+
+StoriesLike.create!(
+  user_id: @user1.id,
+  story_id: @story3.id
+)
+StoriesLike.create!(
+  user_id: @user1.id,
+  story_id: @story4.id
+)
+StoriesLike.create!(
+  user_id: @user1.id,
+  story_id: @story5.id
+)
+StoriesLike.create!(
+  user_id: @user1.id,
+  story_id: @story6.id
+)
+StoriesLike.create!(
+  user_id: @user1.id,
+  story_id: @story7.id
+)
+
+StoriesLike.create!(
+  user_id: @user1.id,
+  story_id: @story8.id
+)
+StoriesLike.create!(
+  user_id: @user1.id,
+  story_id: @story9.id
+)
+StoriesLike.create!(
+  user_id: @user1.id,
+  story_id: @story10.id
+)
+StoriesLike.create!(
+  user_id: @user1.id,
+  story_id: @story11.id
+)
+StoriesLike.create!(
+  user_id: @user1.id,
+  story_id: @story12.id
 )
 
 StoriesLike.create!(

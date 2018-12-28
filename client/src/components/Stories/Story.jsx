@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button,  Row, Col } from 'reactstrap';
 import axios from 'axios';
 
 
 
+
+
 class Story extends Component {
-  constructor(props){
+   constructor(props){
 
     super(props);
 
@@ -27,7 +31,7 @@ class Story extends Component {
 
   render(){
     return (
-      <div className='col-5 my-col'>
+      /* <div className='col-5 my-col'>
         <div className='header row'>
           <div className='col-5 my-col-img'>
             <img className='img-cover' src={this.props.story.image} />
@@ -43,10 +47,24 @@ class Story extends Component {
 
           </div>
         </div>
-      </div>
+      </div> */
+
+
+      <Col sm="3">
+      <Card body>
+        <CardTitle>{this.props.story.title}</CardTitle>
+        <CardText> {this.props.story.description}</CardText>
+        <Button>Go somewhere</Button>
+      </Card>
+    </Col>
     );
 
-}
+} 
+
+
+
+
+
 }
 
 
