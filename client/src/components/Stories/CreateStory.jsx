@@ -49,9 +49,8 @@ class CreateStory extends Component {
     event.preventDefault();
 
   console.log('Handling submit', this);
-  const text = {
-    text: this.state.text
-  }
+  const text = this.state.text
+  
 
   let storyId = this.state.story.id;
 

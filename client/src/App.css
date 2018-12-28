@@ -36,26 +36,18 @@
   font-size: 12px;
   line-height:14px;
 }
-<<<<<<< HEAD
 /*
 .outer-container {
   background-color: #f7f6f3;
 }*/
-=======
-
-/* .outer-container {
-  background-color: #f7f6f3;
-} */
->>>>>>> 7898d4a0c2cd373fb424d6afc87b7978635800c5
 
 .container {
   background-color: white;
 }
 
-<<<<<<< HEAD
-.createContainer {
-  border: solid black;
-=======
+/* .createContainer {
+  border: solid black; */
+  
 /* Form for /stories/new */
 .form-container {
   background: darkgray;
@@ -99,5 +91,4 @@
 
 .story-form-checkbox {
   margin: 10px;
->>>>>>> 7898d4a0c2cd373fb424d6afc87b7978635800c5
 }
