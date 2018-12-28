@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class StoryPage extends Component {
+class CreateStory extends Component {
   constructor(props){
 
     super(props);
@@ -15,9 +15,9 @@ class StoryPage extends Component {
   render(){
 
     return (
-      <p> hello, this is the NewStory page </p>
+      <p> hello, this is the CreateStory page </p>
     )
   }
 }
 
-export default StoryPage;
+export default CreateStory;

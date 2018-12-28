@@ -5,10 +5,6 @@ class NewStory extends Component {
 
     super(props);
 
-    let userId = props.match.params.id
-    const userIdInt = Number.parseInt(userId)
-    console.log(props)
-
   }
 
 

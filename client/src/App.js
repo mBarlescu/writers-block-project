@@ -13,6 +13,7 @@ import EditPage from './components/Stories/EditPage';
 import DraftsPage from './components/Stories/DraftsPage';
 import NewStory from './components/Stories/NewStory';
 import StoryPage from './components/Stories/StoryPage';
+import CreateStory from './components/Stories/CreateStory';
 
 
 class App extends Component {
@@ -75,18 +76,23 @@ constructor(){
             exact />
 
             <Route
+            path='/stories/new'
+            render={(props) => <NewStory {...props} stories= {this.state.stories} users={this.state.users} />}
+            exact />
+
+            <Route
             path='/stories/:id'
             render={(props) => <StoryPage {...props} stories= {this.state.stories} users={this.state.users} />}
             exact />
 
             <Route
-            path='/users/:id/new'
-            render={(props) => <NewStory {...props} stories= {this.state.stories} users={this.state.users} />}
-            exact />
+            path='/stories/:id/create'
+            render={(props) => <CreateStory {...props} stories= {this.state.stories} users={this.state.users} />}
+            exact/>
 
             <Route
             path='/users/:id/drafts'
-            render={(props) => <DraftsPage {...props} stories={this.state.stories} users={this.state.users} /> }
+            render={(props) => <DraftsPage {...props} stories={this.state.stories} users={this.state.users} />}
             exact />
 
             <Route
