@@ -33,7 +33,7 @@ class Home extends Component {
 
   render(){
     const allStories=this.props.stories.popular_stories
-    const allUsers=this.props.users.popular_stories
+    const allUsers=this.props.users
     console.log('HERE PROPS', this.props)
     console.log('HERE STORIES', allStories)
 
