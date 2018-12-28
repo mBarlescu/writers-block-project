@@ -2,6 +2,8 @@ json.popular_stories do
   json.array! @most_popular do |item|
     json.id item.story.id
     json.user_id item.story.user_id
+    json.first_name item.story.user.first_name
+    json.last_name item.story.user.last_name
     json.title item.story.title
     json.description item.story.description
     json.image item.story.image
@@ -14,6 +16,8 @@ json.newest_stories do
   json.array! @newest_stories do |story|
     json.id story.id
     json.user_id story.user_id
+    json.first_name story.user.first_name
+    json.last_name story.user.last_name
     json.title story.title
     json.description story.description
     json.image story.image
