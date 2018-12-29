@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Story from '../Stories/Story'
+import PopularStoriesCarousel from '../Home/_PopularStoriesCarousel'
+import NewestStoriesCarousel from '../Home/_NewestStoriesCarousel'
 import { 
   Carousel,
   CarouselItem,
@@ -11,12 +13,10 @@ import {
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button,  Row, Col } from 'reactstrap';
 
-
-/* function figureOutUser(users, user_id) {
-  users.find(user => user.id === user_id);
-} */
+import {Container} from 'reactstrap';
 
 const items = [];
+const newests = [];
 // const items = [
 //   {
 //     src: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa1d%20text%20%7B%20fill%3A%23555%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa1d%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22285.921875%22%20y%3D%22218.3%22%3EFirst%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E',
@@ -36,149 +36,95 @@ const items = [];
 // ];
 
 class Home extends Component {
- /*  constructor(props){
-  super(props);
+  /*  constructor(props){
+    super(props);
 
-  }
+    }
 
-  componentDidMount() {
+    componentDidMount() {
 
-  } */
+    } */
 
-  /* render(){
-    //const allUsers=this.props.users
+    /* render(){
+      //const allUsers=this.props.users
 
-    const popularStories=this.props.stories.popular_stories
-    const listOfPopularStories = popularStories.map((story, index) => {
-      //let user = allUsers.find(user => user.id === story.user_id);
-      return <Story story={story} key={index} />
-    });
-  return (
-    <div className='container my-container'>
-      <div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <div className='row justify-content-around my-row'>
-        {listOfPopularStories}
+      const popularStories=this.props.stories.popular_stories
+      const listOfPopularStories = popularStories.map((story, index) => {
+        //let user = allUsers.find(user => user.id === story.user_id);
+        return <Story story={story} key={index} />
+      });
+    return (
+      <div className='container my-container'>
+        <div>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <div className='row justify-content-around my-row'>
+          {listOfPopularStories}
+          </div>
         </div>
       </div>
-    </div>
-  )
-} */
+    )
+  } */
 
-constructor(props) {
-  super(props);
-  this.state = { activeIndex: 0 };
-  this.next = this.next.bind(this);
-  this.previous = this.previous.bind(this);
-  this.goToIndex = this.goToIndex.bind(this);
-  this.onExiting = this.onExiting.bind(this);
-  this.onExited = this.onExited.bind(this);
-}
-
-onExiting() {
-  this.animating = true;
-}
-
-onExited() {
-  this.animating = false;
-}
-
-next() {
-  if (this.animating) return;
-  const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
-  this.setState({ activeIndex: nextIndex });
-}
-
-previous() {
-  if (this.animating) return;
-  const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
-  this.setState({ activeIndex: nextIndex });
-}
-
-goToIndex(newIndex) {
-  if (this.animating) return;
-  this.setState({ activeIndex: newIndex });
-}
-
-render() {
-  const { activeIndex } = this.state;
-
-  const popularStories=this.props.stories.popular_stories
-  const listOfPopularStories = popularStories.map((story, index) => {
-    return <Story story={story} key={index} />
-  });
-
-  const size = 4;
-  items.length = 0; // Clears the items array
-  while (listOfPopularStories.length > 0) {
-    let tempStories = listOfPopularStories.splice(0, size);
-    items.push({stories: tempStories});
+  constructor(props) {
+    super(props);
+    this.state = { activeIndex: 0 };
+    this.next = this.next.bind(this);
+    this.previous = this.previous.bind(this);
+    this.goToIndex = this.goToIndex.bind(this);
+    this.onExiting = this.onExiting.bind(this);
+    this.onExited = this.onExited.bind(this);
   }
 
-  const slides = items.map((item) => {
+  onExiting() {
+    this.animating = true;
+  }
+
+  onExited() {
+    this.animating = false;
+  }
+
+  next() {
+    if (this.animating) return;
+    const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
+    this.setState({ activeIndex: nextIndex });
+  }
+
+  previous() {
+    if (this.animating) return;
+    const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
+    this.setState({ activeIndex: nextIndex });
+  }
+
+  goToIndex(newIndex) {
+    if (this.animating) return;
+    this.setState({ activeIndex: newIndex });
+  }
+
+  render() {
+  
+    const popularStories=this.props.stories.popular_stories
+    const newestStories=this.props.stories.newest_stories
+  
     return (
-      <CarouselItem
-        onExiting={this.onExiting}
-        onExited={this.onExited}
-        // key={item.src}
-      >
-      <div>
-      <Row>
-      {item.stories}
-    {/* <Col sm="4">
-      <Card body>
-        <CardTitle>Special Title Treatment</CardTitle>
-        <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-        <Button>Go somewhere</Button>
-      </Card>
-    </Col>
-    <Col sm="4">
-      <Card body>
-        <CardTitle>Special Title Treatment</CardTitle>
-        <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-        <Button>Go somewhere</Button>
-      </Card>
-    </Col>
-    <Col sm="4">
-      <Card body>
-        <CardTitle>Special Title Treatment</CardTitle>
-        <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-        <Button>Go somewhere</Button>
-      </Card>
-    </Col> */}
-  </Row>
-      </div>
-       
-      </CarouselItem>
+      <Container>
+        <Row>
+          <h4>Popular Stories</h4>
+        </Row>
+        <Row>
+          <PopularStoriesCarousel stories={popularStories}/>
+        </Row>
+        <Row>
+          <h4>Newest Stories</h4>
+        </Row>
+        <Row>
+          <PopularStoriesCarousel stories={newestStories}/>
+        </Row>
+      </Container>
     );
-  });
-
-  return (
-    <Carousel
-      activeIndex={activeIndex}
-      next={this.next}
-      previous={this.previous}
-    >
-      <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
-      {slides}
-      <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-      <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
-    </Carousel>
-  );
-}
-
-
-
-
-
-
-
-
-
-
+  }
 
 }
 

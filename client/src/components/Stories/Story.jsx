@@ -51,11 +51,20 @@ class Story extends Component {
 
 
       <Col sm="3">
-      <Card body>
-        <CardTitle>{this.props.story.title}</CardTitle>
-        <CardText> {this.props.story.description}</CardText>
-        <Button>Go somewhere</Button>
+      
+      <Card border="none">
+        <CardImg top width="100%" height="180px" src={this.props.story.image} alt="Card image cap"/>
+        <CardBody>
+          <CardTitle>{this.props.story.title}</CardTitle>
+          <CardText> {this.props.story.first_name} {this.props.story.last_name}</CardText>
+          <CardText>
+            <small className="text-muted">Last updated 3 mins ago</small>
+          </CardText>
+        </CardBody>
       </Card>
+
+
+
     </Col>
     );
 
