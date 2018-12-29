@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { 
+import {
   Carousel,
   CarouselItem,
   CarouselControl,
@@ -23,6 +23,7 @@ import DraftsPage from './components/Stories/DraftsPage';
 import NewStory from './components/Stories/NewStory';
 import StoryPage from './components/Stories/StoryPage';
 import CreateStory from './components/Stories/CreateStory';
+import ReadPage from './components/Stories/ReadPage';
 
 
 class App extends Component {
@@ -108,6 +109,11 @@ constructor(){
             <Route
             path='/stories/:id/edit'
             render={(props)=> <EditPage {...props} stories={this.state.stories} users={this.state.users} />}
+            exact />
+
+            <Route
+            path='/stories/:id/read'
+            render={(props)=> <ReadPage {...props} stories={this.state.stories} users={this.state.users} />}
             exact />
 
             <Route component={Error} />
