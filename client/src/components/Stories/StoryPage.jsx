@@ -149,7 +149,7 @@ listOfComments(){
                 <form>
                   <label>
                     Comment
-                    <input onChange={this.handleChange} type='comments' name='comments' />
+                    <textarea className='comments-textarea-storypage' onChange={this.handleChange} type='comments' name='comments' />
                   </label>
                   <button type='submit' onClick={this.handleSubmit}> Comment </button>
                 </form>

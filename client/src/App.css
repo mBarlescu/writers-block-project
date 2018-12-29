@@ -151,3 +151,11 @@ textarea.form-control{
   float: left;
   height: 585px;
 }
+
+.comments-textarea-storypage{
+  padding: 5px;
+  margin: 5px;
+  height: 100px;
+  width: 500px;
+
+}
