@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Story from '../Stories/Story'
+import Story from './_StoryCard'
 import { 
   Carousel,
   CarouselItem,
@@ -56,17 +56,18 @@ class NewestStoriesCarousel extends Component {
   render() {
     const { activeIndex } = this.state;
 
-    
-    const newestStories=this.props.stories
-    const listOfNewestStories = newestStories.map((story, index) => {
-      return <Story story={story} key={index} />
-    });
+    if(newests.length === 0) {
+      const newestStories=this.props.stories
+      const listOfNewestStories = newestStories.map((story) => {
+        let key = "newestStory_" + story.id;
+        return <Story story={story} key={key} />
+      });
 
-    const size = 4;
-    newests.length = 0; // Clears the items array
-    while (listOfNewestStories.length > 0) {
-      let tempStories = listOfNewestStories.splice(0, size);
-      newests.push({stories: tempStories});
+      const size = 4;
+      while (listOfNewestStories.length > 0) {
+        let tempStories = listOfNewestStories.splice(0, size);
+        newests.push({key: "newestStories_" + Math.random(), stories: tempStories});
+      }
     }
 
     const slidesNewestStories = newests.map((item) => {
@@ -74,7 +75,7 @@ class NewestStoriesCarousel extends Component {
         <CarouselItem
           onExiting={this.onExiting}
           onExited={this.onExited}
-          // key={item.src}
+          key={item.key}
         >
           <div>
             <Row>
