@@ -1,6 +1,7 @@
 json.author do 
   json.call(
     @user,
+    :id,
     :first_name,
     :last_name,
     :description,

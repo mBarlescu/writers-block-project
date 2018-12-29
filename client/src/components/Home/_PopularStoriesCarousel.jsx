@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Story from '../Stories/Story'
+import Story from './_StoryCard'
 import { 
   Carousel,
   CarouselItem,
@@ -56,39 +56,39 @@ class PopularStoriesCarousel extends Component {
   render() {
     const { activeIndex } = this.state;
 
-    const popularStories=this.props.stories
-    const listOfPopularStories = popularStories.map((story, index) => {
-      return <Story story={story} key={index} />
-    });
+    if(items.length === 0) {
+      const popularStories=this.props.stories
+      const listOfPopularStories = popularStories.map((story) => {
+        let key = "popularStory_" + story.id;
+        return <Story story={story} key={key} />
+      });
 
 
-    const size = 4;
-    items.length = 0; // Clears the items array
-    while (listOfPopularStories.length > 0) {
-      let tempStories = listOfPopularStories.splice(0, size);
-      items.push({stories: tempStories});
+      const size = 4;
+      while (listOfPopularStories.length > 0) {
+        let tempStories = listOfPopularStories.splice(0, size);
+        items.push({key: "popularStories_" + Math.random(), stories: tempStories});
+      }
     }
 
     const slidesPopularStories = items.map((item) => {
       return (
-        <CarouselItem
+        <CarouselItem 
           onExiting={this.onExiting}
           onExited={this.onExited}
-          // key={item.src}
+          key={item.key}
         >
-        <div>
-        <Row>
-        {item.stories}
-      
-    </Row>
-        </div>
-        
+          <div>
+            <Row >
+              {item.stories}
+            </Row>
+          </div>
         </CarouselItem>
       );
     });
 
     return (
-          <Carousel
+          <Carousel 
             activeIndex={activeIndex}
             next={this.next}
             previous={this.previous}
@@ -98,6 +98,8 @@ class PopularStoriesCarousel extends Component {
             <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
             <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
           </Carousel>
+         
+
     );
   }
 }
