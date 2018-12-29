@@ -9,7 +9,6 @@ class CreateStory extends Component {
 
     this.state={
       story: {},
-      text: ''
     }
 
     this.handleChange = this.handleChange.bind(this);
