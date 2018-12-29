@@ -12,10 +12,14 @@ class StoryPage extends Component {
   }
 
 
+
+
+
+
   render(){
 
     return (
-      <p> hello, this is the NewStory page </p>
+      <p> hello, this is the StoryPage page </p>
     )
   }
 }

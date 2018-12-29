@@ -14,6 +14,7 @@ class CreateStory extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handlePublish = this.handlePublish.bind(this);
 
 
 
@@ -42,14 +43,14 @@ class CreateStory extends Component {
 
    handleChange(event) {
     this.setState({ text: event.target.value });
-    console.log('EVENT', event)
+
   };
 
   handleSubmit(event){
     event.preventDefault();
 
-  console.log('Handling submit', this);
-  const text = this.state.text
+  console.log('Handling submit', event.target);
+  let text = this.state.text
 
 
   let storyId = this.state.story.id;
@@ -60,7 +61,22 @@ class CreateStory extends Component {
       console.log('CONTENT', res.data);
     })
 
-  }
+  };
+
+  handlePublish(event){
+    event.preventDefault();
+
+  console.log('handling publish', this);
+  let text = this.state.text
+
+  let storyId = this.state.story.id;
+
+  axios.post(`http://localhost:3000/api/stories/${storyId}/publish`, { text })
+  .then(res => {
+    console.log('published content', res);
+    console.log('published content 2', res.data);
+  })
+  };
 
 
 
@@ -73,8 +89,9 @@ class CreateStory extends Component {
         <h1 className='create-page-outer-container text-center'>{this.state.story.title}</h1>
           <br />
           <br />
-        <form className='form-create-page' onSubmit={this.handleSubmit} >
-        <button type='submit'>Save</button>
+        <form className='form-create-page' >
+        <button type='submit' onClick={this.handleSubmit}>Save</button>
+        <button type='submit' onClick={this.handlePublish}>Publish</button>
           <div className="form-group">
 
             <textarea onChange={this.handleChange} className="form-control my-create-textarea" id="exampleFormControlTextarea1" rows="3"></textarea>
