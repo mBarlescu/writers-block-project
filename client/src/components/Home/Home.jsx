@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Story from '../Stories/Story'
+import Story from './_StoryCard'
 import PopularStoriesCarousel from '../Home/_PopularStoriesCarousel'
 import NewestStoriesCarousel from '../Home/_NewestStoriesCarousel'
 import { 
@@ -110,17 +110,17 @@ class Home extends Component {
   
     return (
       <Container>
-        <Row>
+        <Row  style={{marginTop:60}}>
           <h4>Popular Stories</h4>
         </Row>
-        <Row>
+        <Row style={{marginTop:30}}>
           <PopularStoriesCarousel stories={popularStories}/>
         </Row>
-        <Row>
+        <Row style={{marginTop:60}}>
           <h4>Newest Stories</h4>
         </Row>
-        <Row>
-          <PopularStoriesCarousel stories={newestStories}/>
+        <Row style={{marginTop:30}}>
+          <NewestStoriesCarousel stories={newestStories}/>
         </Row>
       </Container>
     );

@@ -30,13 +30,15 @@ end
 
 json.segments_feedbacks do
   json.array! @feedbacks do |items|
+
     json.array! items do |item|
-      json.item.segment_id do
+    
         json.id item.id
         json.segment_id item.segment_id
         json.text item.text
         json.created_at item.created_at
-      end
+     
+   
     end
   end
 end
