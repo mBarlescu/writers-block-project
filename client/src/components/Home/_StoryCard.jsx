@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { NavLink } from 'react-router-dom';
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button,  Row, Col } from 'reactstrap';
@@ -15,6 +16,10 @@ class StoryCard extends Component {
 
   handleClick() {
     alert("OI!!");
+    //<Redirect to="/"/>
+    //let path = "/stories/"+{this.props.story.id}+"/read"
+    //<NavLink  to="path"></NavLink>
+   // /stories/:id/read
   }
 
   render(){

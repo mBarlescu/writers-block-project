@@ -72,6 +72,11 @@ constructor(){
             exact />
 
             <Route
+            path='/login'
+            render={(props) => <Login {...props} stories={this.state.stories} users={this.state.users} />}
+            exact />
+
+            <Route
             path='/users'
             render={(props) => <Users {...props} stories={this.state.stories} users={this.state.users} />}
             exact/>

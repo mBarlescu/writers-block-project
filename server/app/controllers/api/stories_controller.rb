@@ -90,7 +90,9 @@ class Api::StoriesController < ApplicationController
     @feedbacks = []
     @segments.each do |item|
       @feedbacks.push(item.feedbacks.order('created_at DESC'))
-    end  
+    end
+    puts("SEEEEEEEEEEEEEEEEEEEEEEEEEEEEEG #{@segments}")  
+    puts("FEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE #{@feedbacks}")
   end
 
   

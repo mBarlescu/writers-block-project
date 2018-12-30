@@ -298,7 +298,62 @@ StoriesLike.create!(
   story_id: @story2.id
 )
 
+
+
+puts "Making Segments..."
+
+@story1.segments.create!(
+  text: "In hac habitasse platea dictumst. In hac habitasse platea dictumst. Quisque vitae arcu ut orci semper interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam et nulla arcu. Proin posuere, nibh et efficitur auctor, magna ipsum ultricies erat, malesuada tincidunt neque libero sed odio. Nulla in nulla lacinia ante tincidunt ultrices id quis ligula. Praesent ipsum velit, lacinia id suscipit cursus, malesuada sit amet ligula. Nulla neque diam, viverra sit amet leo et, eleifend cursus tortor. Donec odio ligula, facilisis quis vulputate ac, rutrum id purus. Etiam dictum libero auctor mauris porttitor, et commodo urna vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque laoreet, risus sit amet hendrerit aliquam, justo lorem blandit quam, id commodo velit lacus ut elit.",
+  position: 0
+)
+
+@story1.segments.create!(
+  text: "Lorem ipsum dolor sit amet, aperiam evertitur per at. Ad quo sint labore audire, malis iriure volutpat at eos, quem delicatissimi necessitatibus no his. Ut nec lobortis adipiscing, vel at graece debitis philosophia, eos eu ignota pertinacia definitiones. Antiopam consequat ius an, paulo malorum usu ad, impetus alienum consequat an quo. Malis eloquentiam reformidans vis ad, cu vis imperdiet efficiendi, no vix sale audiam.",
+  position: 1
+)
+
+@story1.segments.create!(
+  text: "Per cu quis diceret abhorreant, ut eam hinc deserunt. Ex nec meis maiestatis scripserit, est ea semper sadipscing. Probo magna et mei, mei labitur invidunt philosophia eu. Sea ei commodo albucius, et pro audiam vivendum, nec noster facete equidem id. Alii etiam aperiam eum ea.",
+  position: 2
+)
+
+@story1.segments.create!(
+  text: "No vis oratio offendit repudiare. Ut quo elitr iriure invenire, no feugait repudiare euripidis duo. Nec amet legendos cotidieque ei. Te legere propriae gloriatur eos, dolore vocibus vix in.",
+  position: 3
+)
+
+@story1.segments.create!(
+  text: "Natum illud dolorem ius id, nusquam mnesarchum usu ut. Ad nusquam reprehendunt quo, sit ea primis gubergren. Quis dicunt principes usu eu, habeo ancillae nec in. Hinc graece no sit, cum iusto omnes et",
+  position: 4
+)
+
+puts "Feedbacks..."
+
+@seg1 = Segment.first
+@seg2 = Segment.second
+
+Feedback.create!(
+  segment_id: @seg1.id,
+  user_id: @user1.id,
+  text: "Pro et libris denique, discere cotidieque id eos. Eu dissentiet disputationi vix, ut accumsan qualisque eos, ad pri sale facilisis. No nec verear splendide, eam quem enim ei. Assum dissentiunt quo in. Eius necessitatibus cu cum, id eum habeo adipiscing. Duo ex commodo scriptorem, vim ex quas everti lobortis."
+  )
+
+  Feedback.create!(
+  segment_id: @seg2.id,
+  user_id: @user2.id,
+  text: "Et copiosae facilisis consequuntur qui. Quem democritum vim ea, vim everti sadipscing in. Nam quando homero cetero ea, te est natum dictas inimicus, his tota facilisi te. Per iriure utroque facilis ut."
+  )
+
+  Feedback.create!(
+  segment_id: @seg2.id,
+  user_id: @user1.id,
+  text: "Pro et libris denique, discere cotidieque id eos. Eu dissentiet disputationi vix, ut accumsan qualisque eos, ad pri sale facilisis. No nec verear splendide, eam quem enim ei. Assum dissentiunt quo in. Eius necessitatibus cu cum, id eum habeo adipiscing. Duo ex commodo scriptorem, vim ex quas everti lobortis."
+  )
+
+
+
 puts "DONE!"
+
 
 puts "Making Followers..."
 
