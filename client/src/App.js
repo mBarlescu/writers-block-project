@@ -24,6 +24,7 @@ import NewStory from './components/Stories/NewStory';
 import StoryPage from './components/Stories/StoryPage';
 import CreateStory from './components/Stories/CreateStory';
 import ReadPage from './components/Stories/ReadPage';
+import Login from './components/Login/Login';
 
 
 class App extends Component {
