@@ -50,7 +50,7 @@ class Api::StoriesController < ApplicationController
       story_id: params[:story_id]
     )
     if @story_like.save
-      render json: @story_like 
+      render json: @story_like
     else
       render json: @story_like.errors, status: :unprocessable_entity
     end
@@ -72,8 +72,8 @@ class Api::StoriesController < ApplicationController
           text: item,
           position: index
         )
-      end  
-    end    
+      end
+    end
     if @story.save
         render json: @story, status: :created
     else
@@ -90,10 +90,10 @@ class Api::StoriesController < ApplicationController
     @feedbacks = []
     @segments.each do |item|
       @feedbacks.push(item.feedbacks.order('created_at DESC'))
-    end  
+    end
   end
 
-  
+
   # DELETE api/stories/1
   def destroy
     @story.destroy
