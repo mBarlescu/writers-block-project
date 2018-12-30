@@ -98,7 +98,7 @@ handleSubmit(event){
   console.log('is state being changed here?', this.state)
   let storyId = this.state.data.story.id;
 
-  axios.put(`http://localhost:3000/api/stories/${storyId}`, { newComments })
+  axios.put(`http://localhost:3000/api/comments`, { newComments })
   .then(res => {
     console.log('comment sent', res);
     console.log('comment sent 2', res.data);
@@ -110,7 +110,12 @@ handleSubmit(event){
 listOfComments(){
   const comments = this.state.data.comments;
   return comments.map((comment, index) => {
-    return <li>{comment.text}</li>
+    return <div>
+              <span className='commentName-storypage'>{comment.first_name} {comment.last_name}: </span>
+              <span>{comment.text}</span>
+              <br />
+              <br />
+            </div>
   })
 }
 
@@ -153,9 +158,9 @@ listOfComments(){
                   </label>
                   <button type='submit' onClick={this.handleSubmit}> Comment </button>
                 </form>
-                <ul>
+
                   {this.listOfComments()}
-                </ul>
+
               </div>
             </div>
           </div>

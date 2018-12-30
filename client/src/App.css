@@ -159,3 +159,27 @@ textarea.form-control{
   width: 500px;
 
 }
+
+.commentName-storypage{
+  font-weight: 600;
+}
+
+.test-col{
+  border: solid;
+  height: 1000px;
+}
+
+.authorImg-userpage{
+  height:200px;
+  width: 150px;
+}
+
+.test-col-1{
+  border: solid;
+}
+
+
+.test-col-2{
+  border: solid;
+  height: 400px;
+}
