@@ -29,8 +29,9 @@ Rails.application.routes.draw do
       
 
 
-    resources :login, path: '/login', only:[:create] 
-    resources :sessions, path: '/logout', only:[:destroy] 
+    resources :sessions, path: '/login', only:[:create] 
+    delete '/logout', to: 'sessions#destroy'
+    resources :sessions, only:[:index] 
     
   end
 
