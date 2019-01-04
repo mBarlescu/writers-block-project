@@ -15,7 +15,11 @@ class NavBar extends Component {
       
     };  
     
-    console.log("PROPS NAv", props.currentUser.id)
+    this.props.validateUserSession();
+
+    this.renderNameAndLogoutLink = this.renderNameAndLogoutLink.bind(this);
+    this.logout = this.logout.bind(this);
+    this.renderLogin = this.renderLogin.bind(this);
 
     
   }
@@ -27,18 +31,28 @@ class NavBar extends Component {
         <span className="navbar-text" >
           Hi, {this.props.currentUser.firstName} {this.props.currentUser.lastName}
         </span>
-        <NavLink className='nav-link' tag={Link} to="/" onClick = {this.logout}>Logout</NavLink>
+        <NavLink className='nav-link' to="/" onClick = {this.logout}>Logout</NavLink>
         </ul>
       );
     }
   }
 
- 
+  renderLogin() {
+    if(!this.props.currentUser.firstName){
+      return(
+        <ul className='navbar-nav ' style={{position: 'absolute', right: 0}}>
+          <NavLink className='nav-link' to="/login">Login</NavLink>
+        </ul>
+      );
+    }
+  }
 
   logout() {
+    let thisComponent = this;
     axios.delete(`http://localhost:3000/api/logout`)
     .then(function (response) {
       console.log("Response logout", response);
+      thisComponent.props.validateUserSession();
     })
     .catch(function (error) {
       console.log("Error logout", error);
@@ -66,6 +80,7 @@ class NavBar extends Component {
             </ul>
            
             {this.renderNameAndLogoutLink()}
+            {this.renderLogin()}
               
             
         </nav>

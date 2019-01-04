@@ -16,13 +16,12 @@ class Api::StoriesController < ApplicationController
       @comments = @story.comments.all
       @author_stories = Story.find_stories_by_author(@story.user_id, @story.id)
     else
-      render status: :not_found
+      render json: @story.errors, status: :not_found
     end
   end
 
   # POST api/stories
   def create
-    puts "hey this is activating ========= #{story_params} ================="
     @story = Story.new(story_params)
     @story.user_id = current_user.id
 
@@ -35,11 +34,15 @@ class Api::StoriesController < ApplicationController
 
   # PATCH/PUT api/stories/1
   def update
-    if @story.update(story_params)
-      render json: @story
+    if((current_user.id == @story.user_id) && @story.published == false)
+      if @story.update(story_params)
+        render json: @story
+      else
+        render json: @story.errors, status: :unprocessable_entity
+      end
     else
-      render json: @story.errors, status: :unprocessable_entity
-    end
+      render json: @story.errors, status: :not_found
+    end  
   end
 
   # POST api/stories/1/like
@@ -65,19 +68,27 @@ class Api::StoriesController < ApplicationController
   # POST api/stories/1/publish
   def publish
     @story = Story.find(params[:story_id])
-    if @story.update(text: params[:text], published: true)
-      segments = @story.text.split('\n')
-      segments.each_with_index do |item, index|
-        @story.segments.create!(
-          text: item,
-          position: index
-        )
+    if((current_user.id == @story.user_id) && @story.published == false)
+      if @story.update(text: params[:text], published: true)
+        segments = @story.text.split("\n")
+        index = 0
+        segments.each_with_index do |item|
+          if item != ""
+            @story.segments.create!(
+              text: item,
+              position: index
+            )
+            index = index+1
+          end
+        end
       end
-    end
-    if @story.save
-        render json: @story, status: :created
+      if @story.save
+          render json: @story, status: :created
+      else
+        render json: @story.errors, status: :unprocessable_entity
+      end
     else
-      render json: @story.errors, status: :unprocessable_entity
+      render json: @story.errors, status: :not_found
     end
   end
 
@@ -91,8 +102,6 @@ class Api::StoriesController < ApplicationController
     @segments.each do |item|
       @feedbacks.push(item.feedbacks.order('created_at DESC'))
     end
-    puts("SEEEEEEEEEEEEEEEEEEEEEEEEEEEEEG #{@segments}")  
-    puts("FEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE #{@feedbacks}")
   end
 
 

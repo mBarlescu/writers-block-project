@@ -18,6 +18,7 @@ class StoryPage extends Component {
           comments: [],
           number_of_likes: {},
         },
+        text:""
       }
       this.handleSubmit = this.handleSubmit.bind(this);
       this.handleChange = this.handleChange.bind(this);
@@ -61,10 +62,10 @@ navLinkToRead() {
 }
 
 handleChange(event){
-  this.setState({ text: {
+  this.setState({ 
     text: event.target.value,
     }
-  });
+  );
     console.log('handle submit here', this.state)
   };
 
@@ -98,7 +99,7 @@ handleSubmit(event){
   console.log('is state being changed here?', this.state)
   let storyId = this.state.data.story.id;
 
-  axios.put(`http://localhost:3000/api/comments`, { newComments })
+  axios.post(`http://localhost:3000/api/comments`, { text })
   .then(res => {
     console.log('comment sent', res);
     console.log('comment sent 2', res.data);

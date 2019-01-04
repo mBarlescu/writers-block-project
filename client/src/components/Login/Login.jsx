@@ -24,16 +24,10 @@ class Login extends Component {
     this.handlePassword = this.handlePassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onDismiss = this.onDismiss.bind(this);
-  
-    axios.get(`http://localhost:3000/api/sessions`)
-    .then(res => {
-      console.log("Session", res.data)
-      this.setRedirect();
-       
-    })
-    .catch(err => {
-       console.log('Error', err)
-    }) 
+    this.setRedirect = this.setRedirect.bind(this);
+    this.renderRedirect = this.renderRedirect.bind(this);
+
+    this.props.validateUserSession(()=> this.setRedirect());
   }
 
   onDismiss() {
@@ -70,7 +64,7 @@ class Login extends Component {
     axios.post(`http://localhost:3000/api/login`, { email, password})
     .then(function (response) {
       console.log("Response ", response);
-      thisComponent.setRedirect();
+      thisComponent.props.validateUserSession(()=> thisComponent.setRedirect());
     })
     .catch(function (error) {
       console.log("Error ", error);

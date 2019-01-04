@@ -32,9 +32,7 @@ constructor(){
   super();
 
     this.state = {
-      
-
-      stories: {
+        stories: {
         popular_stories: [],
         newest_stories: []
       },
@@ -42,20 +40,30 @@ constructor(){
       currentUser: {}
     };
 
+    this.validateUserSession = this.validateUserSession.bind(this);
+  }
+
+  validateUserSession(onSuccess, onFailure) {
     axios.get(`http://localhost:3000/api/sessions`)
-    .then(res => {
-      console.log("Session App Inside", res.data)
-      this.setState({ currentUser:{
+     .then(res => {
+       console.log("Session App", res.data)
+       this.setState({ currentUser:{
         id: res.data.id,
         firstName: res.data.first_name,
         lastName: res.data.last_name
       } });
-      
-    })
-    .catch(err => {
-      console.log('Error', err)
-      this.setState({ currentUser:{} });
-    })
+      if(onSuccess !== undefined) {
+        onSuccess();
+      }
+       
+     })
+     .catch(err => {
+       console.log('Error', err);
+       this.setState({ currentUser:{} });
+       if(onFailure !== undefined) {
+        onFailure();
+      }
+     })
   }
 
   componentDidMount() {
@@ -75,22 +83,7 @@ constructor(){
       this.setState({stories: res.data})
     })
 
-
-
-    axios.get(`http://localhost:3000/api/sessions`)
-     .then(res => {
-       console.log("Session App", res.data)
-       this.setState({ currentUser:{
-         id: res.data.id,
-         firstName: res.data.first_name,
-         lastName: res.data.last_name
-       } });
-       
-     })
-     .catch(err => {
-       console.log('Error', err);
-       this.setState({ currentUser:{} });
-     })
+    this.validateUserSession();
      
   }
 
@@ -100,7 +93,7 @@ constructor(){
       <BrowserRouter>
         <div className='outer-container'>
         <div className='container my-container'>
-          <NavBar currentUser={this.state.currentUser}/>
+          <NavBar currentUser={this.state.currentUser}   validateUserSession={this.validateUserSession}/>
           <Switch>
 
             <Route
@@ -110,7 +103,7 @@ constructor(){
 
             <Route
             path='/login'
-            render={(props) => <Login />}
+            render={(props) => <Login {...props} validateUserSession={this.validateUserSession} />}
             exact />
 
             <Route
@@ -140,7 +133,7 @@ constructor(){
 
             <Route
             path='/stories/:id/create'
-            render={(props) => <CreateStory {...props} stories= {this.state.stories} users={this.state.users} />}
+            render={(props) => <CreateStory {...props}  validateUserSession={this.validateUserSession} />}
             exact/>
 
             <Route
