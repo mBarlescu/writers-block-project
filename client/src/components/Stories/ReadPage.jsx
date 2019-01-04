@@ -17,10 +17,11 @@ class ReadPage extends Component {
         segments_feedbacks: [],
       },
       selectedSegment: 0,
+      feedback: [],
     }
 
      this.selectSegment = this.selectSegment.bind(this);
-     this.viewFeedBack = this.viewFeedBack.bind(this);
+     this.getFeedBack = this.getFeedBack.bind(this);
 
     let storyId = props.match.params.id
     const storyIdInt = Number.parseInt(storyId)
@@ -50,12 +51,12 @@ class ReadPage extends Component {
     console.log('event here', event.props.segmentId)
     this.setState({selectedSegment: event.props.segmentId}, function (){
         console.log('updated state', this.state);
-        this.viewFeedBack()
+        this.getFeedBack()
       });
     console.log('event state', this.state)
   }
 
-  viewFeedBack(){
+  getFeedBack(){
     const selectedSegmentState = this.state.selectedSegment
     const feedback = this.state.data.segments_feedbacks;
     const segmentFeedback = feedback.find(function(e) {
@@ -63,8 +64,21 @@ class ReadPage extends Component {
         return i.segment_id === selectedSegmentState;
       })
     });
-    console.log('seg', segmentFeedback)
+    console.log('seg', segmentFeedback);
+    this.setState({feedback: segmentFeedback}, function (){
+        console.log('updated AGAIN state', this.state);
+        this.showFeedBack();
+  });
   }
+
+  showFeedBack() {
+    const feedback = this.state.feedback;
+    return feedback.map((eachFeedBack, index) => {
+      return <ReadPageFeedback text= {eachFeedBack.text} />
+    })
+  }
+
+
 
   render(){
 
@@ -79,6 +93,7 @@ class ReadPage extends Component {
             {this.listOfSegments()}
         </div>
         <div className='col-4 test-col'>
+        {this.showFeedBack()}
         </div>
       </div>
     )
