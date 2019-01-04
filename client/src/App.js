@@ -32,16 +32,34 @@ constructor(){
   super();
 
     this.state = {
+      
+
       stories: {
         popular_stories: [],
         newest_stories: []
       },
-      users: []
+      users: [],
+      currentUser: {}
     };
+
+    axios.get(`http://localhost:3000/api/sessions`)
+    .then(res => {
+      console.log("Session App Inside", res.data)
+      this.setState({ currentUser:{
+        id: res.data.id,
+        firstName: res.data.first_name,
+        lastName: res.data.last_name
+      } });
+      
+    })
+    .catch(err => {
+      console.log('Error', err)
+      this.setState({ currentUser:{} });
+    })
   }
 
   componentDidMount() {
-    console.log('COMPONENT DID MOUNT APP')
+    console.log('COMPONENT DID MOUNT APP1')
      axios.get('http://localhost:3000/api/users')
     .then(res => {
       console.log("USEEEEERS", res)
@@ -56,6 +74,24 @@ constructor(){
       console.log("STOOOOOOORIES",res)
       this.setState({stories: res.data})
     })
+
+
+
+    axios.get(`http://localhost:3000/api/sessions`)
+     .then(res => {
+       console.log("Session App", res.data)
+       this.setState({ currentUser:{
+         id: res.data.id,
+         firstName: res.data.first_name,
+         lastName: res.data.last_name
+       } });
+       
+     })
+     .catch(err => {
+       console.log('Error', err);
+       this.setState({ currentUser:{} });
+     })
+     
   }
 
 
@@ -64,17 +100,17 @@ constructor(){
       <BrowserRouter>
         <div className='outer-container'>
         <div className='container my-container'>
-          <NavBar />
+          <NavBar currentUser={this.state.currentUser}/>
           <Switch>
 
             <Route
             path='/'
-            render={(props) => <Home {...props} stories={this.state.stories} users={this.state.users} />}
+            render={(props) => <Home />}
             exact />
 
             <Route
             path='/login'
-            render={(props) => <Login {...props} stories={this.state.stories} users={this.state.users} />}
+            render={(props) => <Login />}
             exact />
 
             <Route

@@ -92,6 +92,11 @@ class Api::StoriesController < ApplicationController
       @feedbacks.push(item.feedbacks.order('created_at DESC'))
     end
 
+
+    puts("SEEEEEEEEEEEEEEEEEEEEEEEEEEEEEG #{@segments}")
+    puts("FEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE #{@feedbacks}")
+
+
     puts("SEEEEEEEEEEEEEEEEEEEEEEEEEEEEEG #{@segments}")
     puts("FEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE #{@feedbacks}")
 
