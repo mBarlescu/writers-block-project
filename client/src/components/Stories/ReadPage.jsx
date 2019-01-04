@@ -92,15 +92,15 @@ class ReadPage extends Component {
 
   console.log('handling submit', event.target);
   let text = this.state.text;
-  let segmentId = this.state.selectedSegment;
+  let segment_id = this.state.selectedSegment;
 
-  const params = {
+ /*  const params = {
     text: text,
     segment_id: segmentId,
-  };
+  }; */
   console.log('STATE beofre submit', this.state);
 
-  axios.post('http://localhost:3000/api/feedbacks', params)
+  axios.post('http://localhost:3000/api/feedbacks', {text, segment_id})
     .then(res => {
       console.log('post to feedbacks text', res);
       console.log('post to feedbacks 2 text', res.data);
