@@ -183,3 +183,7 @@ textarea.form-control{
   border: solid;
   height: 400px;
 }
+
+.title-readpage{
+  font-weight: 600;
+}
