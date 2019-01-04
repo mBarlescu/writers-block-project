@@ -18,10 +18,13 @@ class ReadPage extends Component {
       },
       selectedSegment: 0,
       feedback: [],
+      text: "",
     }
 
      this.selectSegment = this.selectSegment.bind(this);
      this.getFeedBack = this.getFeedBack.bind(this);
+     this.handleChange = this.handleChange.bind(this);
+     this.handleSubmit = this.handleSubmit.bind(this);
 
     let storyId = props.match.params.id
     const storyIdInt = Number.parseInt(storyId)
@@ -78,6 +81,33 @@ class ReadPage extends Component {
     })
   }
 
+  handleChange(event) {
+    this.setState({text: event.target.value}, function () {
+      console.log('textArea Value', this.state.text);
+    });
+  };
+
+  handleSubmit(event){
+    event.preventDefault();
+
+  console.log('handling submit', event.target);
+  let text = this.state.text;
+  let segmentId = this.state.selectedSegment;
+
+  const params = {
+    text: text,
+    segment_id: segmentId,
+  };
+  console.log('STATE beofre submit', this.state);
+
+  axios.post('http://localhost:3000/api/feedbacks', params)
+    .then(res => {
+      console.log('post to feedbacks text', res);
+      console.log('post to feedbacks 2 text', res.data);
+    });
+
+
+  }
 
 
   render(){
@@ -93,6 +123,16 @@ class ReadPage extends Component {
             {this.listOfSegments()}
         </div>
         <div className='col-4 test-col'>
+          <form>
+            <textarea onChange={this.handleChange}>
+            </textarea>
+            <br />
+            <button type='submit' onClick={this.handleSubmit}>
+            Comment
+            </button>
+          </form>
+          <br />
+          <br />
         {this.showFeedBack()}
         </div>
       </div>
