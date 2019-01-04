@@ -42,6 +42,7 @@ class ReadPage extends Component {
     })
   }
 
+
   listOfSegments(){
     const segments = this.state.data.segments;
     return segments.map((segment, index) => {
@@ -99,15 +100,78 @@ class ReadPage extends Component {
     segment_id: segmentId,
   }; */
   console.log('STATE beofre submit', this.state);
+  console.log('so', {text})
 
   axios.post('http://localhost:3000/api/feedbacks', {text, segment_id})
     .then(res => {
       console.log('post to feedbacks text', res);
       console.log('post to feedbacks 2 text', res.data);
+      // this.refreshFeedback(res.data)
+
+  //     this.state = {
+  //       data: {
+  //       ...this.state.data,
+  //       segments_feedbacks: res.data,
+  //   },
+  // }
+  this.refreshFeedback(res.data)
+  console.log('PLEASE', this.state)
+
+
     });
 
-
   }
+
+  refreshFeedback(resData){
+
+    const selectedSegmentState = this.state.selectedSegment
+    const feedback = this.state.data.segments_feedbacks;
+    const segmentFeedback = feedback.find(function(e) {
+      return e.find(function(i) {
+        return i.segment_id === selectedSegmentState;
+      })
+    });
+    console.log('seg', segmentFeedback);
+
+    console.log('FUCK', segmentFeedback);
+    console.log('before', feedback)
+    // feedback.splice(segmentFeedback)
+    console.log('BULLSHIT', feedback.indexOf(segmentFeedback))
+    const index = feedback.indexOf(segmentFeedback)
+    feedback.splice(index, 1)
+
+    console.log('lets see', feedback)
+    feedback.push(resData);
+    console.log('new data', feedback)
+        this.state = {
+          data: {
+          ...this.state.data,
+          segments_feedbacks: feedback,
+          },
+          selectedSegment: this.state.selectedSegment,
+          feedback: resData,
+          text: this.state.text,
+
+        }
+        this.setState({
+          data: {
+            ...this.state.data
+          },
+          selectedSegment: this.state.selectedSegment,
+          feedback: this.state.feedback,
+          text: this.state.text,
+        })
+
+
+  //   this.setState({feedback: segmentFeedback}, function (){
+  //       console.log('updated AGAIN state', this.state);
+  //       this.showFeedBack();
+  // });
+  }
+
+
+
+
 
 
   render(){

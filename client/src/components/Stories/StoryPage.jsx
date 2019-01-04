@@ -102,10 +102,10 @@ handleSubmit(event){
     console.log('comment sent 2', res.data);
     this.setComments(res.data.comments)
     this.setState({text:""})
-     
+
   })
 
-  
+
 };
 
 listOfComments(){
