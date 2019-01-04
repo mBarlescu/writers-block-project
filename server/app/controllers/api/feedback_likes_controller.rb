@@ -18,7 +18,7 @@ class Api::FeedbackLikesController < ApplicationController
     @feedback_like = FeedbackLike.new(feedback_like_params)
 
     if @feedback_like.save
-      render json: @feedback_like, status: :created, location: @feedback_like
+      render json: @feedback_like, status: :created
     else
       render json: @feedback_like.errors, status: :unprocessable_entity
     end
