@@ -1,13 +1,13 @@
 class Api::CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :update, :destroy]
 
-  # GET /comments
+  # GET api/comments
   def index
     @comments = Comment.all
     render json: @comments
   end
 
-  # GET /comments/1
+  # GET api/comments/1
   def show
     render json: @comment
   end
@@ -18,13 +18,16 @@ class Api::CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @comment.save
-      render json: @comment, status: :created, location: @comment
+      @story = Story.find(@comment.story_id)
+      @comments = @story.comments
+
+      render status: :created
     else
       render json: @comment.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /comments/1
+  # PATCH/PUT api/comments/1
   def update
     if @comment.update(comment_params)
       render json: @comment
@@ -33,7 +36,7 @@ class Api::CommentsController < ApplicationController
     end
   end
 
-  # DELETE /comments/1
+  # DELETE api/comments/1
   def destroy
     @comment.destroy
   end

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 class CreateStory extends Component {
@@ -9,13 +10,17 @@ class CreateStory extends Component {
 
     this.state={
       story: {},
+      redirect: false,
+      text:""
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePublish = this.handlePublish.bind(this);
+    this.setRedirect = this.setRedirect.bind(this);
+    this.renderRedirect = this.renderRedirect.bind(this);
 
-
+    this.props.validateUserSession(()=>{},()=> this.setRedirect());
 
 
     let storyId = props.match.params.id;
@@ -26,7 +31,7 @@ class CreateStory extends Component {
     axios.get(`http://localhost:3000/api/stories/${storyId}/new`)
     .then(res => {
       console.log("NEW", res)
-      this.setState({story: res.data})
+      this.setState({story: res.data, text: res.data.text})
       console.log('STATE', this.state)
     })
     .catch(err => {
@@ -38,6 +43,19 @@ class CreateStory extends Component {
 
 
 
+  }
+
+
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  }
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/login' />
+    }
   }
 
    handleChange(event) {
@@ -83,6 +101,7 @@ class CreateStory extends Component {
 
     return (
       <div>
+        {this.renderRedirect()}
         <br />
         <br />
         <h1 className='create-page-outer-container text-center'>{this.state.story.title}</h1>
@@ -93,7 +112,7 @@ class CreateStory extends Component {
         <button type='submit' onClick={this.handlePublish}>Publish</button>
           <div className="form-group">
 
-            <textarea onChange={this.handleChange} className="form-control my-create-textarea" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea value={this.state.text} onChange={this.handleChange} className="form-control my-create-textarea" id="exampleFormControlTextarea1" rows="3" ></textarea>
           </div>
         </form>
       </div>

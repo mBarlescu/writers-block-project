@@ -37,6 +37,7 @@ class Home extends Component {
       console.log("STOOOOOOORIES",res)
       this.setState({stories: res.data})
     })
+
   }
 
  

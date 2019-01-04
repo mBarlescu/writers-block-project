@@ -4,5 +4,6 @@
     :id,
     :title,
     :description,
+    :text,
     :image
   )

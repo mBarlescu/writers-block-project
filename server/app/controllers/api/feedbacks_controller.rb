@@ -16,9 +16,12 @@ class Api::FeedbacksController < ApplicationController
   # POST /feedbacks
   def create
     @feedback = Feedback.new(feedback_params)
+    @feedback.user_id = current_user.id
 
     if @feedback.save
-      render json: @feedback, status: :created, location: @feedback
+      @segment = Segment.find(@feedback.segment_id)
+      @feedbacks = @segment.feedbacks
+      render json: @feedbacks, status: :created
     else
       render json: @feedback.errors, status: :unprocessable_entity
     end
