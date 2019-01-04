@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import ReadPage from './ReadPage'
 import { NavLink } from 'react-router-dom';
@@ -15,14 +16,19 @@ class StoryPage extends Component {
           author: {},
           genres: [],
           author_stories: [],
-          comments: [],
           number_of_likes: {},
         },
-        text:""
-      }
-      this.handleSubmit = this.handleSubmit.bind(this);
-      this.handleChange = this.handleChange.bind(this);
-      this.listOfGenres = this.listOfGenres.bind(this);
+        text:"",
+        comments: []
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.listOfGenres = this.listOfGenres.bind(this);
+    this.setComments = this.setComments.bind(this);
+    //this.setRedirect = this.setRedirect.bind(this);
+    //this.renderRedirect = this.renderRedirect.bind(this);
+
 
 
     let storyId = props.match.params.id
@@ -30,22 +36,43 @@ class StoryPage extends Component {
     console.log(props)
     this.setState({id: storyId})
 
-  axios.get(`http://localhost:3000/api/stories/${storyId}`)
-  .then(res => {
-    console.log('working?', res)
-    this.setState({data: res.data})
-    console.log('STATEE', this.state)
+    axios.get(`http://localhost:3000/api/stories/${storyId}`)
+    .then(res => {
+      console.log('working?', res)
+      this.setState({data: res.data, comments: res.data.comments})
+      console.log('STATEE', this.state)
+    })
+    .catch(err => {
+      console.log('error', err)
+    })
+
+
+
+    this.setState({id: storyId})
+
+    console.log('STATE HERE', this.state)
+
+  }
+
+
+/* setRedirect = () => {
+  this.setState({
+    redirect: true
   })
-  .catch(err => {
-    console.log('error', err)
-  })
+}
 
 
+renderRedirect = () => {
+  if (this.state.redirect) {
+    let path = `/stories/${this.state.data.story.id}`
+    console.log("Deveria redirecionar", path)
+    return <Redirect to= {path} />
+  }
+} */
 
-  this.setState({id: storyId})
 
-  console.log('STATE HERE', this.state)
-
+setComments = (data) => {
+  this.setState({comments: data})
 }
 
 listOfGenres() {
@@ -61,55 +88,29 @@ navLinkToRead() {
   return `/stories/${this.state.data.story.id}/read`
 }
 
-handleChange(event){
-  this.setState({ 
-    text: event.target.value,
-    }
-  );
-    console.log('handle submit here', this.state)
-  };
+handleChange(event) {
+  this.setState({ text: event.target.value });
+};
 
 handleSubmit(event){
   event.preventDefault();
+  let story_id = this.state.data.story.id
   let text = this.state.text
-  console.log('being fired?', this.state)
-  const comments = this.state.data.comments
-  console.log('comments are lame', comments)
-  let newComments = comments.slice();
-  newComments.push(text);
-  console.log('this is what i want to see', newComments)
-
-  this.state = {
-    data: {
-      ...this.state.data,
-      comments: newComments,
-    },
-  };
-  this.setState({
-     data: {
-      ...this.state.data
-    }
-  })
-  // this.setState({
-  //   data: Object.assign({}, this.state.data, {
-  //     comments: newComments,
-  //   }),
-  // });
-
-  console.log('is state being changed here?', this.state)
-  let storyId = this.state.data.story.id;
-
-  axios.post(`http://localhost:3000/api/comments`, { text })
+  axios.post(`http://localhost:3000/api/comments`, { text, story_id })
   .then(res => {
     console.log('comment sent', res);
     console.log('comment sent 2', res.data);
+    this.setComments(res.data.comments)
+    this.setState({text:""})
+     
   })
 
-  console.log('this comment', this.state)
+  
 };
 
 listOfComments(){
-  const comments = this.state.data.comments;
+  const comments = this.state.comments;
+  console.log("Comments", comments)
   return comments.map((comment, index) => {
     return <div>
               <span className='commentName-storypage'>{comment.first_name} {comment.last_name}: </span>
@@ -153,10 +154,7 @@ listOfComments(){
               <div className='col-12 my-col comments-story-page'>
                 <h2> Comments </h2>
                 <form>
-                  <label>
-                    Comment
-                    <textarea className='comments-textarea-storypage' onChange={this.handleChange} type='comments' name='comments' />
-                  </label>
+                  <textarea className='comments-textarea-storypage' value={this.state.text} onChange={this.handleChange} type='comments' name='comments' />
                   <button type='submit' onClick={this.handleSubmit}> Comment </button>
                 </form>
 
