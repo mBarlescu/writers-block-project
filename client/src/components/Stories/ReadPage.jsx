@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
+import ReadPageText from './ReadPageText';
+import ReadPageFeedback from './ReadPageFeedback';
 
 class ReadPage extends Component {
   constructor(props) {
@@ -14,7 +16,11 @@ class ReadPage extends Component {
         number_of_likes: {},
         segments_feedbacks: [],
       },
+      selectedSegment: 0,
     }
+
+     this.selectSegment = this.selectSegment.bind(this);
+     this.viewFeedBack = this.viewFeedBack.bind(this);
 
     let storyId = props.match.params.id
     const storyIdInt = Number.parseInt(storyId)
@@ -35,10 +41,29 @@ class ReadPage extends Component {
   listOfSegments(){
     const segments = this.state.data.segments;
     return segments.map((segment, index) => {
-      return <div>
-              {segment.text}
-            </div>
+      return <ReadPageText onClick={this.selectSegment} text={segment.text} segmentId={segment.id} key={index} />
+
     })
+  }
+
+  selectSegment(event){
+    console.log('event here', event.props.segmentId)
+    this.setState({selectedSegment: event.props.segmentId}, function (){
+        console.log('updated state', this.state);
+        this.viewFeedBack()
+      });
+    console.log('event state', this.state)
+  }
+
+  viewFeedBack(){
+    const selectedSegmentState = this.state.selectedSegment
+    const feedback = this.state.data.segments_feedbacks;
+    const segmentFeedback = feedback.find(function(e) {
+      return e.find(function(i) {
+        return i.segment_id === selectedSegmentState;
+      })
+    });
+    console.log('seg', segmentFeedback)
   }
 
   render(){
