@@ -3,6 +3,8 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import ReadPageText from './ReadPageText';
 import ReadPageFeedback from './ReadPageFeedback';
+import ToggleButton from './ToggleButton';
+
 
 class ReadPage extends Component {
   constructor(props) {
