@@ -28,6 +28,12 @@ json.number_of_likes do
  )
 end
 
+json.user_liked_story do
+ json.call(
+  json.boolean @user_liked_story
+ )
+end
+
 json.segments_feedbacks do
   json.array! @feedbacks do |items|
 

@@ -95,6 +95,10 @@ class Api::StoriesController < ApplicationController
   # GET api/stories/1/segments
   def segments
     @story = Story.find(params[:story_id])
+    @user_liked_story = false
+    if current_user && StoriesLike.where(user_id: current_user.id, story_id: @story.id) != []
+      @user_liked_story = true
+    end
     @segments = @story.segments.order('position')
     @author = User.find(@story.id)
     @number_of_likes = @story.stories_like.size
