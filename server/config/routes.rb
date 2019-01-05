@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create, :destroy ] do 
       resources :comments_likes, only: [:create]
     end
+
+    resources   :stories_likes , only: [:create]
   
 
   resources :genres , only: [:index] do
