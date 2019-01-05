@@ -15,13 +15,12 @@ class Api::StoriesLikesController < ApplicationController
 
   # POST /stories_likes
   def create
-    puts("AAAAAAAAAAAAAAAAAAAAAAAa   #{stories_like_params}")
-    puts("Params    #{params}")
     @stories_like = StoriesLike.new(stories_like_params)
     @stories_like.user_id = current_user.id
-
     if @stories_like.save
-      render json: @stories_like, status: :created
+      @story = Story.find(@stories_like.story_id)
+      @number_of_likes = @story.stories_like.size
+      render json: @number_of_likes, status: :created
     else
       render json: @stories_like.errors, status: :unprocessable_entity
     end
