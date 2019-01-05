@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {FormGroup, FormControl, ControlLabel, FieldGroup, Radio, Button, Form, Col, HelpBlock}  from 'react-bootstrap';
-import Axios from 'axios';
+import axios from 'axios';
 
 
 class NewStory extends Component {
@@ -43,22 +43,22 @@ class NewStory extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    let thisComponent = this;
+    //let thisComponent = this;
 
-    let thisComponent = this;
-    let email = this.state.email;
-    let password = this.state.password;
+    //let thisComponent = this;
+    //let email = this.state.email;
+    //let password = this.state.password;
     
   
-    axios.post(`http://localhost:3000/api/stories/create`, { email, password})
+    axios.post(`http://localhost:3000/api/stories/create`, { })
     .then(function (response) {
       console.log("Response ", response);
-      thisComponent.props.validateUserSession(()=> thisComponent.setRedirect());
+      //thisComponent.props.validateUserSession(()=> thisComponent.setRedirect());
     })
     .catch(function (error) {
       console.log("Error ", error);
-      thisComponent.setState({password: ''});
-      thisComponent.setState({visible: true});
+      //thisComponent.setState({password: ''});
+      //thisComponent.setState({visible: true});
 
     });
   }
