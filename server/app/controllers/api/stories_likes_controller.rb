@@ -1,4 +1,4 @@
-class Api::Controller < ApplicationController
+class Api::StoriesLikesController < ApplicationController
   before_action :set_stories_like, only: [:show, :update, :destroy]
 
   # GET /stories_likes
@@ -15,6 +15,8 @@ class Api::Controller < ApplicationController
 
   # POST /stories_likes
   def create
+    puts("AAAAAAAAAAAAAAAAAAAAAAAa   #{stories_like_params}")
+    puts("Params    #{params}")
     @stories_like = StoriesLike.new(stories_like_params)
     @stories_like.user_id = current_user.id
 
