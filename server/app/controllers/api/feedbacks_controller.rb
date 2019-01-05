@@ -13,6 +13,9 @@ class Api::FeedbacksController < ApplicationController
     render json: @feedback
   end
 
+
+  def feedbacks
+
   # POST /feedbacks
   def create
     @feedback = Feedback.new(feedback_params)
@@ -20,7 +23,7 @@ class Api::FeedbacksController < ApplicationController
 
     if @feedback.save
       @segment = Segment.find(@feedback.segment_id)
-      @feedbacks = @segment.feedbacks
+      @feedbacks = @segment.feedbacks.order('created_at DESC')
       render json: @feedbacks, status: :created
     else
       render json: @feedback.errors, status: :unprocessable_entity
