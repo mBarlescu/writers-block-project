@@ -13,12 +13,13 @@ class Api::FeedbackLikesController < ApplicationController
     render json: @feedback_like
   end
 
-  # POST /feedback_likes
+  # POST api/feedback_likes
   def create
     @feedback_like = FeedbackLike.new(feedback_like_params)
+    @feedback_like.user_id = current_user.id
 
     if @feedback_like.save
-      render json: @feedback_like, status: :created, location: @feedback_like
+      render json: @feedback_like, status: :created
     else
       render json: @feedback_like.errors, status: :unprocessable_entity
     end
