@@ -78,7 +78,7 @@ class ReadPage extends Component {
   showFeedBack() {
     const feedback = this.state.feedback;
     return feedback.map((eachFeedBack, index) => {
-      return <ReadPageFeedback text= {eachFeedBack.text} />
+      return <ReadPageFeedback text= {eachFeedBack.text} created={eachFeedBack.created_at} author={this.state.data.author} />
     })
   }
 

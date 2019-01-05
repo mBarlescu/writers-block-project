@@ -14,7 +14,9 @@ class ReadPageFeedback extends Component {
   render() {
     return(
       <div>
-        {this.props.text}
+        {this.props.author.first_name} {this.props.author.last_name}: {this.props.text}
+        <br />
+        {this.props.created}
         <br />
         <br />
       </div>

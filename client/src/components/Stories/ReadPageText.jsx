@@ -21,6 +21,8 @@ class ReadPageText extends Component {
     return(
       <div onClick={this.props.onClick.bind(null, this)}>
         {this.props.text}
+        <br />
+        <br />
       </div>
     )
   }
