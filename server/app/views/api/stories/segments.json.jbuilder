@@ -39,6 +39,7 @@ json.segments_feedbacks do
         json.created_at item.created_at
         json.first_name item.user.first_name
         json.last_name item.user.last_name
+        json.number_of_likes item.feedback_likes.count
    
     end
   end
