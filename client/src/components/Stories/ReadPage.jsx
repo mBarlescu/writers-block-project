@@ -25,6 +25,7 @@ class ReadPage extends Component {
      this.getFeedBack = this.getFeedBack.bind(this);
      this.handleChange = this.handleChange.bind(this);
      this.handleSubmit = this.handleSubmit.bind(this);
+     this.handleStoryLike = this.handleStoryLike.bind(this);
 
     let storyId = props.match.params.id
     const storyIdInt = Number.parseInt(storyId)
@@ -76,10 +77,12 @@ class ReadPage extends Component {
   }
 
   showFeedBack() {
+    if(this.state.feedback){
     const feedback = this.state.feedback;
     return feedback.map((eachFeedBack, index) => {
       return <ReadPageFeedback text= {eachFeedBack.text} created={eachFeedBack.created_at} author={this.state.data.author} />
     })
+  }
   }
 
   handleChange(event) {
@@ -121,6 +124,20 @@ class ReadPage extends Component {
     });
 
   }
+
+  handleStoryLike(event){
+    event.preventDefault();
+    console.log('handling story event', event.target);
+    let storyLikes = this.state.data.number_of_likes;
+    let storyId = this.state.data.story.id;
+
+    axios.post('http://localhost:3000/api/stories_likes', { storyId })
+      .then(res => {
+        console.log('post to storyLikes', res);
+        console.log('post to storyLikes 2', res.data);
+      })
+  }
+
 
   refreshFeedback(resData){
 
@@ -173,7 +190,6 @@ class ReadPage extends Component {
 
 
 
-
   render(){
 
     return(
@@ -181,7 +197,8 @@ class ReadPage extends Component {
         <div className='col-8 test-col'>
           <h5> {this.state.data.author.first_name} {this.state.data.author.last_name} </h5>
             <span className='title-readpage'> {this.state.data.story.title} </span>
-            <span className='likes-readpage'>Likes: {this.state.data.story.number_of_likes} </span>
+            <span className='likes-readpage'>Likes: {this.state.data.number_of_likes.number} </span>
+            <button type='submit' onClick={this.handleStoryLike}>Like</button>
             <br />
             <br />
             {this.listOfSegments()}
