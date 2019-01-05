@@ -129,10 +129,14 @@ class ReadPage extends Component {
     event.preventDefault();
     console.log('handling story event', event.target);
     let storyLikes = this.state.data.number_of_likes;
+
     let storyId = this.state.data.story.id;
     console.log('dchecking', storyId)
 
-    axios.post('http://localhost:3000/api/stories_likes', { storyId })
+    let story_id = this.state.data.story.id;
+
+
+    axios.post('http://localhost:3000/api/stories_likes', { story_id })
       .then(res => {
         console.log('post to storyLikes', res);
         console.log('post to storyLikes 2', res.data);
