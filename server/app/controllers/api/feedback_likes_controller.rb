@@ -21,7 +21,8 @@ class Api::FeedbackLikesController < ApplicationController
     @feedback_like.user_id = current_user.id
     
     if @feedback_like.save
-      @number_of_likes = FeedbackLike.get_number_of_likes(@feedback_like.feedback_id)
+      @feedback = Feedback.find(@feedback_like.feedback_id)
+      @number_of_likes = @feedback.feedback_likes.count
       render json: @number_of_likes, status: :created
     else
       render json: @feedback_like.errors, status: :unprocessable_entity
