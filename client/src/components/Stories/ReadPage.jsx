@@ -125,23 +125,6 @@ class ReadPage extends Component {
 
   }
 
-  handleStoryLike(event){
-    event.preventDefault();
-    console.log('handling story event', event.target);
-    let storyLikes = this.state.data.number_of_likes;
-
-    let storyId = this.state.data.story.id;
-    console.log('dchecking', storyId)
-
-    let story_id = this.state.data.story.id;
-
-
-    axios.post('http://localhost:3000/api/stories_likes', { story_id })
-      .then(res => {
-        console.log('post to storyLikes', res);
-        console.log('post to storyLikes 2', res.data);
-      })
-  }
 
 
   refreshFeedback(resData){
@@ -189,6 +172,53 @@ class ReadPage extends Component {
   //       console.log('updated AGAIN state', this.state);
   //       this.showFeedBack();
   // });
+  }
+
+  handleStoryLike(event){
+    event.preventDefault();
+    console.log('handling story event', event.target);
+    let storyLikes = this.state.data.number_of_likes;
+
+    let storyId = this.state.data.story.id;
+    console.log('dchecking', storyId)
+
+    let story_id = this.state.data.story.id;
+
+
+    axios.post('http://localhost:3000/api/stories_likes', { story_id })
+      .then(res => {
+        console.log('post to storyLikes', res);
+        console.log('post to storyLikes 2', res.data);
+        this.refreshStoryLikes(res.data)
+      })
+
+
+  }
+
+  refreshStoryLikes(resData){
+    console.log("WHAT IS THIS RESDATA?", resData)
+    console.log('check state', this.state)
+    this.state = {
+          data: {
+          ...this.state.data,
+          number_of_likes: {
+            number: resData,
+          },
+          },
+          selectedSegment: this.state.selectedSegment,
+          feedback: this.state.feedback,
+          text: this.state.text,
+
+        }
+        this.setState({
+          data: {
+            ...this.state.data
+          },
+          selectedSegment: this.state.selectedSegment,
+          feedback: this.state.feedback,
+          text: this.state.text,
+        })
+        console.log('RES STORY LIKES', this.state)
   }
 
 

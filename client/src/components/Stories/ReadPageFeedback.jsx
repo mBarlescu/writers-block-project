@@ -48,7 +48,9 @@ class ReadPageFeedback extends Component {
         {this.props.author.first_name} {this.props.author.last_name}: {this.props.text}
         <br />
         {this.timeSince(this.props.created)}
-        <br />
+        <button>
+        Like
+        </button>
         <br />
       </div>
     )
