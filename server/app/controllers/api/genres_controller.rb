@@ -1,13 +1,13 @@
 class Api::GenresController < ApplicationController
   before_action :set_genre, only: [:show, :update, :destroy]
 
-  # GET /genres
+  # GET api/genres
   def index
     @genres = Genre.all
     render json: @genres
   end
 
-  # GET /genres/1
+  # GET api/genres/1
   def show
     @genres_stories = 
     render json: @genre
