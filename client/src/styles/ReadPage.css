@@ -1,0 +1,16 @@
+i.like{
+  color: #D3D3D3;
+}
+
+i.unlike{
+  color: red;
+}
+
+i.like:hover {
+  color: red;
+}
+
+i.unlike:hover{
+  color: #D3D3D3;
+}
+
