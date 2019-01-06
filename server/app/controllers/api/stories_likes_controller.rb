@@ -37,8 +37,7 @@ class Api::StoriesLikesController < ApplicationController
 
   # DELETE /stories_likes/1
   def destroy
-    @stories_like.user_id = current_user.id
-    @story = Story.find(@stories_like.story_id)
+    @story = Story.find(params[:id])
     if @stories_like.destroy
       @number_of_likes = @story.stories_like.size
       render json: @number_of_likes, status: :ok
@@ -50,7 +49,7 @@ class Api::StoriesLikesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_stories_like
-      @stories_like = StoriesLike.find(params[:id])
+      @stories_like = StoriesLike.where(story_id: params[:id], user_id: current_user.id).first
     end
 
     # Only allow a trusted parameter "white list" through.
