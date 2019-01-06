@@ -11,6 +11,7 @@ class DraftsPage extends Component {
       id: 0,
       drafts:[],
     }
+    this.deleteDraft2 = this.deleteDraft2.bind(this);
 
 
     let storyId = props.match.params.id
@@ -53,14 +54,26 @@ class DraftsPage extends Component {
     console.log('draft page state', this.state)
   }
 
+  deleteDraft2(resData){
+    console.log('IS DELETEDRAFT 2 BEING HIT?', resData)
+    this.state = {
+          id: this.state.id,
+          drafts: resData,
+        }
+        this.setState({
+          id: this.state.id,
+          drafts: this.state.drafts,
+        });
+  }
+
+
   getDrafts(){
     console.log('state before get drafts', this.state);
     const drafts = this.state.drafts;
     return drafts.map((draft, index) => {
-      return <EachDraft key={index} id={draft.id} user_id={draft.user_id} title={draft.title} description={draft.description} text={draft.text} image={draft.image} published={draft.published} created_at={draft.created_at} updated_at={draft.updated_at} />
+      return <EachDraft key={index} deleteDraft2={this.deleteDraft2} id={draft.id} user_id={draft.user_id} title={draft.title} description={draft.description} text={draft.text} image={draft.image} published={draft.published} created_at={draft.created_at} updated_at={draft.updated_at} />
     })
   }
-
 
 
 

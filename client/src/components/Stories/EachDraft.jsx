@@ -20,6 +20,8 @@ class EachDraft extends Component {
       }
     }
 
+    this.deleteDraft = this.deleteDraft.bind(this);
+
     this.setState({
       data: {
         ...this.state.data
@@ -76,6 +78,18 @@ class EachDraft extends Component {
   return `/stories/${this.state.data.id}/create`
 }
 
+deleteDraft(event){
+    event.preventDefault();
+    console.log("DELETING DRAFT", this.event)
+
+    axios.delete(`http://localhost:3000/api/stories/${this.state.data.id}`)
+      .then(res => {
+        console.log('deleting draft', res);
+        console.log('deleting draft 2', res.data);
+        this.props.deleteDraft2(res.data)
+      })
+  }
+
 
 
 
@@ -99,7 +113,7 @@ class EachDraft extends Component {
               <NavLink to={this.navLinkToEdit()}>Edit</NavLink>
             </button>
             <br />
-            <button>Delete</button>
+            <button onClick={this.deleteDraft}>Delete</button>
           </div>
         </div>
       </div>
