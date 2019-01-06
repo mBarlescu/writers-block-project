@@ -11,19 +11,24 @@ class Api::UsersController < ApplicationController
     if @user
       @author_followers = Relationship.count_followers(@user.id)
       @stories = Story.find_published_stories_by_user(@user.id)
+      @relationship = Relationship.new
+      @temp_relationship = Relationship.where(following_id: @user.id, follower_id:current_user.id)
+      if current_user &&  !@temp_relationship.empty?
+        @relationship = @temp_relationship.first
+      end
       render status: :created
     else
       render status: :not_found
     end
   end
 
-  # POST /users
+  # POST /users                                                                                       
   def create
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
       #redirect_to '/'
-      render json: @user, status: :created, location: @user
+      render json: @user, status: :created, location: @user                                                     
     else
       render json: @user.errors, status: :unprocessable_entity
     end

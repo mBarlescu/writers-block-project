@@ -16,13 +16,15 @@ class Api::RelationshipsController < ApplicationController
   # POST /relationships
   def create
     @relationship = Relationship.new(relationship_params)
-
+    @relationship.follower_id = current_user.id
     if @relationship.save
-      render json: @relationship, status: :created, location: @relationship
+      @author_followers = Relationship.count_followers(@relationship.following_id)
+      render json: @author_followers, status: :created
     else
       render json: @relationship.errors, status: :unprocessable_entity
     end
   end
+            
 
   # PATCH/PUT /relationships/1
   def update
@@ -35,7 +37,12 @@ class Api::RelationshipsController < ApplicationController
 
   # DELETE /relationships/1
   def destroy
-    @relationship.destroy
+    if @relationship.destroy
+      @author_followers = Relationship.count_followers(params[:user_id])
+      render json: @author_followers, status: :ok
+    else
+      render json: @relationship.errors, status: :unprocessable_entity
+    end
   end
 
   private
