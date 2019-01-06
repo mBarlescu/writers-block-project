@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2018_12_20_231700) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "stories_likes", id: false, force: :cascade do |t|
+  create_table "stories_likes", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "story_id"
     t.index ["story_id"], name: "index_stories_likes_on_story_id"
