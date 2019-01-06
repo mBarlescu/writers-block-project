@@ -20,7 +20,7 @@ json.number_of_followers do
  )
 end
 
-p "IMPRIMINDO O RELATIONSHIP #{@relationship}"
+
   json.relationship do
     json.call(
       @relationship,
