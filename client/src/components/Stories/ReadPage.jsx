@@ -30,6 +30,7 @@ class ReadPage extends Component {
      this.handleSubmit = this.handleSubmit.bind(this);
      this.handleStoryLike = this.handleStoryLike.bind(this);
      this.handleStoryUnlike = this.handleStoryUnlike.bind(this);
+     this.ifSegmentExistsShowFeedback = this.ifSegmentExistsShowFeedback.bind(this);
 
 
     let storyId = props.match.params.id
@@ -247,28 +248,42 @@ class ReadPage extends Component {
         console.log('post to storyLikes', res);
         console.log('post to storyLikes 2', res.data);
         console.log('NEW STATE after story UNLIKE', this.state)
+        this.refreshStoryUnlike(res.data)
       })
   }
 
+  refreshStoryUnlike(resData){
+    console.log('check state', this.state)
+    this.state = {
+          data: {
+          ...this.state.data,
+          number_of_likes: {
+            number: resData,
+          },
+          user_liked_story: {
+            boolean: false,
+          }
+          },
+          selectedSegment: this.state.selectedSegment,
+          feedback: this.state.feedback,
+          text: this.state.text,
 
+        }
+        this.setState({
+          data: {
+            ...this.state.data
+          },
+          selectedSegment: this.state.selectedSegment,
+          feedback: this.state.feedback,
+          text: this.state.text,
+        })
+        console.log('RES STORY LIKES', this.state)
+  }
 
-
-
-  render(){
-
-    return(
-      <div className='row'>
-        <div className='col-8 test-col'>
-          <h5> {this.state.data.author.first_name} {this.state.data.author.last_name} </h5>
-            <span className='title-readpage'> {this.state.data.story.title} </span>
-            <span className='likes-readpage'>Likes: {this.state.data.number_of_likes.number} </span>
-            {this.state.data.user_liked_story ? <button onClick={this.handleStoryUnlike}>Unlike</button>  : <button onClick={this.handleStoryLike}>Like</button>}
-
-            <br />
-            <br />
-            {this.listOfSegments()}
-        </div>
-        <div className='col-4 test-col'>
+  ifSegmentExistsShowFeedback(){
+    if (this.state.selectedSegment){
+      return(
+      <div className='col-4 test-col'>
           <form>
             <textarea onChange={this.handleChange}>
             </textarea>
@@ -280,8 +295,46 @@ class ReadPage extends Component {
           <br />
           <br />
         {this.showFeedBack()}
-        </div>
       </div>
+      )
+    }
+  }
+
+
+
+  render(){
+
+    return(
+      <div>
+      {this.state.selectedSegment ? <div className='row'>
+        <div className='col-8 test-col'>
+          <h5> {this.state.data.author.first_name} {this.state.data.author.last_name} </h5>
+            <span className='title-readpage'> {this.state.data.story.title} </span>
+            <span className='likes-readpage'>Likes: {this.state.data.number_of_likes.number} </span>
+            {this.state.data.user_liked_story ? <button onClick={this.handleStoryUnlike}>Unlike</button>  : <button onClick={this.handleStoryLike}>Like</button>}
+
+            <br />
+            <br />
+            {this.listOfSegments()}
+        </div>
+        {this.ifSegmentExistsShowFeedback()}
+      </div>
+      :
+      <div className='row'>
+        <div className='col-12 test-col'>
+          <h5> {this.state.data.author.first_name} {this.state.data.author.last_name} </h5>
+            <span className='title-readpage'> {this.state.data.story.title} </span>
+            <span className='likes-readpage'>Likes: {this.state.data.number_of_likes.number} </span>
+            {this.state.data.user_liked_story ? <button onClick={this.handleStoryUnlike}>Unlike</button>  : <button onClick={this.handleStoryLike}>Like</button>}
+
+            <br />
+            <br />
+            {this.listOfSegments()}
+        </div>
+        {this.ifSegmentExistsShowFeedback()}
+      </div>
+    }
+    </div>
     )
   }
 }

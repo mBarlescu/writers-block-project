@@ -79,14 +79,6 @@ class ReadPageFeedback extends Component {
         <br />
         {this.timeSince(this.props.created)}
         <br />
-        <span>Rating: {this.state.number_of_likes} </span>
-        <button onClick={this.handleFeedbackLikes}>
-        Up Vote
-        </button>
-        <button>
-        Down Vote
-        </button>
-        <br />
         <br />
       </div>
     )
