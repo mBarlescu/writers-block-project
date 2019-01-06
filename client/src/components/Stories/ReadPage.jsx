@@ -17,6 +17,7 @@ class ReadPage extends Component {
         author: {},
         number_of_likes: {},
         segments_feedbacks: [],
+        user_liked_story: {},
       },
       selectedSegment: 0,
       feedback: [],
@@ -28,6 +29,8 @@ class ReadPage extends Component {
      this.handleChange = this.handleChange.bind(this);
      this.handleSubmit = this.handleSubmit.bind(this);
      this.handleStoryLike = this.handleStoryLike.bind(this);
+     this.handleStoryUnlike = this.handleStoryUnlike.bind(this);
+
 
     let storyId = props.match.params.id
     const storyIdInt = Number.parseInt(storyId)
@@ -206,6 +209,9 @@ class ReadPage extends Component {
           number_of_likes: {
             number: resData,
           },
+          user_liked_story: {
+            boolean: true,
+          }
           },
           selectedSegment: this.state.selectedSegment,
           feedback: this.state.feedback,
@@ -221,6 +227,27 @@ class ReadPage extends Component {
           text: this.state.text,
         })
         console.log('RES STORY LIKES', this.state)
+        console.log("FIND THE TOOOOOOOOOOOGLE", this.state.data.user_liked_story)
+        console.log('FIND TOgGLE HERE', this.state.data.user_liked_story.boolean)
+  }
+
+  handleStoryUnlike(event){
+    event.preventDefault();
+    console.log('handling story UNLIKE event', event.target);
+    let storyLikes = this.state.data.number_of_likes;
+    let story_id = this.state.data.story.id;
+    console.log('checking state before handling story unlike', this.state)
+    console.log('unlike, story_id', story_id);
+    console.log('storyLikes', storyLikes);
+
+
+
+    axios.delete(`http://localhost:3000/api/stories_likes/${story_id}`)
+      .then(res => {
+        console.log('post to storyLikes', res);
+        console.log('post to storyLikes 2', res.data);
+        console.log('NEW STATE after story UNLIKE', this.state)
+      })
   }
 
 
@@ -235,7 +262,8 @@ class ReadPage extends Component {
           <h5> {this.state.data.author.first_name} {this.state.data.author.last_name} </h5>
             <span className='title-readpage'> {this.state.data.story.title} </span>
             <span className='likes-readpage'>Likes: {this.state.data.number_of_likes.number} </span>
-            <button type='submit' onClick={this.handleStoryLike}>Like</button>
+            {this.state.data.user_liked_story ? <button onClick={this.handleStoryUnlike}>Unlike</button>  : <button onClick={this.handleStoryLike}>Like</button>}
+
             <br />
             <br />
             {this.listOfSegments()}
