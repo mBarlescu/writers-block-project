@@ -6,11 +6,10 @@ Rails.application.routes.draw do
 
     resources   :stories do
       get       :new, :segments
-      post      :like, :publish
+      post      :publish
     end
-    resources   :feedbacks, only: [:new, :create, :destroy ] do 
-      resources :feedbacks_likes, only: [:create]
-    end
+    resources   :feedbacks, only: [:new, :create, :destroy ] 
+
     resources :users do 
       resources :relationships, only: [:create, :destroy]
     end
