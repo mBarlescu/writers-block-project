@@ -27,6 +27,7 @@ class DraftsPage extends Component {
 
 
 
+
     axios.get(`http://localhost:3000/api/drafts`)
       .then(res => {
         console.log('axios get', res.data)
@@ -64,6 +65,7 @@ class DraftsPage extends Component {
           id: this.state.id,
           drafts: this.state.drafts,
         });
+  //omg why
   }
 
 

@@ -88,6 +88,7 @@ deleteDraft(event){
         console.log('deleting draft 2', res.data);
         this.props.deleteDraft2(res.data)
       })
+      //omg why
   }
 
 
