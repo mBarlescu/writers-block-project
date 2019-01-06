@@ -30,4 +30,8 @@ class Story < ApplicationRecord
     Story.where(published: true, user_id: user_id)
   end
 
+  def self.find_unpublished_stories_by_user(user_id)
+    Story.where(published: false, user_id: user_id)
+  end
+
 end

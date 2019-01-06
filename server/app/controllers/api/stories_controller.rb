@@ -15,6 +15,10 @@ class Api::StoriesController < ApplicationController
       @number_of_likes = @story.stories_like.size
       @comments = @story.comments.all
       @author_stories = Story.find_stories_by_author(@story.user_id, @story.id)
+      @user_liked_story = false
+      if current_user && StoriesLike.where(user_id: current_user.id, story_id: @story.id) != []
+        @user_liked_story = true
+      end
     else
       render json: @story.errors, status: :not_found
     end
@@ -108,10 +112,21 @@ class Api::StoriesController < ApplicationController
     end
   end
 
+  # GET api/drafts
+  def drafts
+    @drafts = Story.find_unpublished_stories_by_user(current_user.id)
+    render json: @drafts, status: :ok
+  end
+
 
   # DELETE api/stories/1
   def destroy
-    @story.destroy
+    if @story.destroy
+      @drafts = Story.find_unpublished_stories_by_user(current_user.id)
+      render json: @drafts, status: :ok
+    else
+      render json: @story.errors, status: :not_found
+    end
   end
 
 
