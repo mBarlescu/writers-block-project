@@ -13,7 +13,7 @@ class Api::StoriesController < ApplicationController
       @genres = @story.genres.all
       @author = User.find(@story.id)
       @number_of_likes = @story.stories_like.size
-      @comments = @story.comments.all
+      @comments = @story.comments.all.order('created_at DESC')
       @author_stories = Story.find_stories_by_author(@story.user_id, @story.id)
       @user_liked_story = false
       if current_user && StoriesLike.where(user_id: current_user.id, story_id: @story.id) != []

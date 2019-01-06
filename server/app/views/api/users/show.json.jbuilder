@@ -19,3 +19,15 @@ json.number_of_followers do
   json.number @author_followers
  )
 end
+
+p "IMPRIMINDO O RELATIONSHIP #{@relationship}"
+  json.relationship do
+    json.call(
+      @relationship,
+      :id,
+      :following_id, 
+      :follower_id
+    )
+  end                                                 
+
+

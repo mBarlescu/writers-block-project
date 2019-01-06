@@ -19,7 +19,7 @@ class Api::CommentsController < ApplicationController
 
     if @comment.save
       @story = Story.find(@comment.story_id)
-      @comments = @story.comments
+      @comments = @story.comments.order('created_at DESC')
 
       render status: :created
     else
