@@ -13,8 +13,6 @@ Rails.application.routes.draw do
     end
     resources :users do 
       resources :relationships, only: [:create, :destroy]
-      get     :draft
-      post    :draft
     end
     resources :comments, only: [:new, :create, :destroy ] do 
       resources :comments_likes, only: [:create]
@@ -31,7 +29,7 @@ Rails.application.routes.draw do
   end
       
 
-
+    get 'drafts', to: 'stories#drafts'
     resources :sessions, path: '/login', only:[:create] 
     delete '/logout', to: 'sessions#destroy'
     resources :sessions, only:[:index] 

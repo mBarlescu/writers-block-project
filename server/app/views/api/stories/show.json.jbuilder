@@ -8,6 +8,12 @@ json.story do
   )
 end
 
+json.user_liked_story do
+ json.call(
+  json.boolean @user_liked_story
+ )
+end
+
 json.author do 
   json.call(
     @author,
