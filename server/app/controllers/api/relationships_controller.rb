@@ -18,9 +18,11 @@ class Api::RelationshipsController < ApplicationController
     @follower_id = current_user.id
     @following_id =  params[:user_id]
     @relationship = Relationship.new(follower_id: @follower_id, following_id: @following_id)
+    @relationship_id = 0
     if @relationship.save
       @author_followers = Relationship.count_followers(@relationship.following_id)
-      render json: @author_followers, status: :created
+      @relationship_id = @relationship.id
+      render status: :created
     else
       render json: @relationship.errors, status: :unprocessable_entity
     end
