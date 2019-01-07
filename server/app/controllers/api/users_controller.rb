@@ -12,9 +12,11 @@ class Api::UsersController < ApplicationController
       @author_followers = Relationship.count_followers(@user.id)
       @stories = Story.find_published_stories_by_user(@user.id)
       @relationship = Relationship.new
+      @is_following = false
       @temp_relationship = Relationship.where(following_id: @user.id, follower_id:current_user.id)
       if current_user &&  !@temp_relationship.empty?
         @relationship = @temp_relationship.first
+        @is_following = true
       end
       render status: :created
     else
