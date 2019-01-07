@@ -15,7 +15,8 @@ class NewStory extends Component {
       image:"",
       genres:[],
       listGenres: [],
-      redirect: false
+      redirect: false,
+      id:0
     }
 
     this.handleTitle = this.handleTitle.bind(this);
@@ -46,8 +47,11 @@ class NewStory extends Component {
 
   renderRedirect = () => {
     if (this.state.redirect) {
-      return <Redirect to='/' />
+      let path = `/stories/${this.state.id}/create`
+      console.log("Deveria redirecionar", path)
+      return <Redirect to= {path} />
     }
+
   }
 
   handleTitle(event) {
@@ -66,7 +70,6 @@ class NewStory extends Component {
     
     let genresTemp = this.state.genres
    // genresTemp.push(event.target.value)
-    console.log("Kamylla: ", event.target.value)
     this.setState({genres: genresTemp});
   }
 
@@ -85,8 +88,10 @@ class NewStory extends Component {
 
   
     axios.post(`http://localhost:3000/api/stories`, {title, description, genre, image })
-    .then(function (response) {
+    .then( (response) => {
       console.log("Response ", response);
+      this.setState({id: response.data.id})
+      this.setRedirect();
       //thisComponent.props.validateUserSession(()=> thisComponent.setRedirect());
     })
     .catch(function (error) {
@@ -124,6 +129,7 @@ class NewStory extends Component {
 
     return (
       <div>
+        {this.renderRedirect()}
         <div className="pb-2 mt-4 mb-2 border-bottom">
         <h5>New Story</h5>
         </div>

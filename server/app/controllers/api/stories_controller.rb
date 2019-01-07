@@ -26,11 +26,16 @@ class Api::StoriesController < ApplicationController
 
   # POST api/stories
   def create
-    @story = Story.new(story_params)
+    puts("PARAMS", params)
+    @genre = Genre.find(params[:genre])
+    #@story = Story.new(story_params)
+    #@story.user_id = current_user.id
+    @story = @genre.stories.new(story_params)
     @story.user_id = current_user.id
+    puts("Passou  #{@story}")
 
     if @story.save
-      render json: @story, status: :created, location: @story
+      render json: @story, status: :created
     else
       render json: @story.errors, status: :unprocessable_entity
     end
