@@ -23,6 +23,7 @@ import DraftsPage from './components/Stories/DraftsPage';
 import NewStory from './components/Stories/NewStory';
 import StoryPage from './components/Stories/StoryPage';
 import CreateStory from './components/Stories/CreateStory';
+import UpdateStory from './components/Stories/UpdateStory';
 import ReadPage from './components/Stories/ReadPage';
 import Login from './components/Login/Login';
 
@@ -134,6 +135,11 @@ constructor(){
             <Route
             path='/stories/:id/create'
             render={(props) => <CreateStory {...props}  validateUserSession={this.validateUserSession} />}
+            exact/>
+
+            <Route
+            path='/stories/:id/update'
+            render={(props) => <UpdateStory {...props}  validateUserSession={this.validateUserSession} />}
             exact/>
 
             <Route

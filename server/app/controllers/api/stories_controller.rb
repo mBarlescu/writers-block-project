@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class Api::StoriesController < ApplicationController
   before_action :set_story, only: [:show, :update, :destroy]
 
@@ -26,13 +28,13 @@ class Api::StoriesController < ApplicationController
 
   # POST api/stories
   def create
-    puts("PARAMS", params)
-    @genre = Genre.find(params[:genre])
-    @story = @genre.stories.new(story_params)
+    @story = Story.new(story_params)
     @story.user_id = current_user.id
     @story.published = false
     @story.text = ""
     if @story.save
+      @genre_story = GenreStory.new(genre_id: params[:genre], story_id: @story.id)
+      @genre_story.save
       render json: @story, status: :created
     else
       render json: @story.errors, status: :unprocessable_entity
@@ -41,8 +43,11 @@ class Api::StoriesController < ApplicationController
 
   # PATCH/PUT api/stories/1
   def update
+    puts("PARAMS, #{params}")
     if((current_user.id == @story.user_id) && @story.published == false)
       if @story.update(story_params)
+        @genre_story = GenreStory.where(story_id: @story.id)
+        @genre_story.update(genre_id: params[:genre])
         render json: @story
       else
         render json: @story.errors, status: :unprocessable_entity
@@ -119,6 +124,25 @@ class Api::StoriesController < ApplicationController
   def drafts
     @drafts = Story.find_unpublished_stories_by_user(current_user.id)
     render json: @drafts, status: :ok
+  end
+
+  # POST api/stories/upload
+  def upload
+    if params[:filepond].present?
+      file = params[:filepond]
+      random_string = SecureRandom.hex
+      filename = Rails.root.join('public', 'images', 'stories', random_string)
+      dirname = File.dirname(filename)
+      unless File.directory?(dirname)
+        FileUtils.mkdir_p(dirname)
+      end
+      File.open(filename, 'wb') do |f|
+        f.write(file.read)
+      end
+      render json: "/images/stories/#{random_string}", status: :ok
+    else
+      render json: {}, status: :not_found
+    end
   end
 
 

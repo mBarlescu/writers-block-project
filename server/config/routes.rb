@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       
 
     get 'drafts', to: 'stories#drafts'
+    post 'upload', to: 'stories#upload'
     resources :sessions, path: '/login', only:[:create] 
     delete '/logout', to: 'sessions#destroy'
     resources :sessions, only:[:index] 

@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2018_12_20_231700) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "genre_stories", id: false, force: :cascade do |t|
+  create_table "genre_stories", force: :cascade do |t|
     t.bigint "story_id"
     t.bigint "genre_id"
     t.index ["genre_id"], name: "index_genre_stories_on_genre_id"
