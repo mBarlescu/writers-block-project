@@ -1,0 +1,20 @@
+i.follow{
+  color: #D3D3D3;
+}
+
+i.unfollow{
+  color: green;
+}
+
+i.follow:hover {
+  color: green;
+}
+
+i.unfollow:hover{
+  color: #D3D3D3;
+}
+
+.image {
+  height:200px;
+  width: 200px;
+}

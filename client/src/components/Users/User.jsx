@@ -5,12 +5,13 @@ class User extends Component {
   constructor(props){
   super(props);
 
-
+  console.log('PROPS FOR USER', this.props)
   }
 
-  componentDidMount() {
 
-  }
+  navLinkToUser() {
+  return `/users/${this.props.user.id}`
+}
 
   render(){
 
@@ -22,7 +23,7 @@ class User extends Component {
             <img className='img-cover' src={this.props.user.image} />
           </div>
           <div className='col-7 my-col-description'>
-            <NavLink className='author' to="/">{this.props.user.first_name} {this.props.user.last_name}</NavLink>
+            <NavLink className='author' to={this.navLinkToUser()}>{this.props.user.first_name} {this.props.user.last_name}</NavLink>
             <br />
             <span className='description'>
               {this.props.user.description}

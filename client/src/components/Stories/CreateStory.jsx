@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+import { NavLink } from 'react-router-dom';
 
 class CreateStory extends Component {
 
@@ -95,6 +96,11 @@ class CreateStory extends Component {
   })
   };
 
+  navLinkToStory() {
+  return `/stories/${this.state.story.id}`
+}
+
+
 
 
   render(){
@@ -109,7 +115,9 @@ class CreateStory extends Component {
           <br />
         <form className='form-create-page' >
         <button type='submit' onClick={this.handleSubmit}>Save</button>
-        <button type='submit' onClick={this.handlePublish}>Publish</button>
+        <button type='submit' onClick={this.handlePublish}>
+          <NavLink className='title' to={this.navLinkToStory()}>Publish</NavLink>
+        </button>
           <div className="form-group">
 
             <textarea value={this.state.text} onChange={this.handleChange} className="form-control my-create-textarea" id="exampleFormControlTextarea1" rows="3" ></textarea>

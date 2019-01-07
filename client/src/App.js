@@ -55,7 +55,7 @@ constructor(){
       if(onSuccess !== undefined) {
         onSuccess();
       }
-       
+
      })
      .catch(err => {
        console.log('Error', err);
@@ -84,7 +84,7 @@ constructor(){
     })
 
     this.validateUserSession();
-     
+
   }
 
 

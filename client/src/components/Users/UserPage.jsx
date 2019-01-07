@@ -4,7 +4,9 @@ import User from './User'
 import RouteError from '../Errors/RouteError'
 import axios from 'axios';
 import UserStories from '../Stories/UserStories';
-import '../../styles/UserPage.css'
+import '../../styles/UserPage.css';
+import { NavLink } from 'react-router-dom';
+
 
 class UsersPage extends Component {
   constructor(props){
@@ -15,7 +17,8 @@ class UsersPage extends Component {
         author:{},
         author_stories: [],
         number_of_followers: {},
-        relationship: {}
+        relationship: {},
+        is_following: {},
       }
     }
 
@@ -97,7 +100,7 @@ getAuthorImage(){
     axios.post(`http://localhost:3000/api/users/${user_id}/relationships`)
       .then(res => {
         console.log('followers post', res);
-        console.log('followers post 2', res.data);
+        console.log('followers Creating 2', res.data);
         this.refreshUserFollowers(res.data)
       })
   }
@@ -108,9 +111,17 @@ getAuthorImage(){
     this.state={
       data:{
         ...this.state.data,
-        number_of_followers:{
-          number: resData,
+        is_following:{
+          boolean: true,
         },
+        number_of_followers:{
+          number: resData.author_followers.number,
+        },
+        relationship:{
+          id: resData.relationship_id.id,
+          following_id: null,
+          followers_id: null,
+        }
       },
     }
     this.setState({
@@ -124,8 +135,8 @@ getAuthorImage(){
   handleUserUnfollow(event){
     event.preventDefault();
     console.log('handling story UNLIKE event', event.target);
-    let user_id = this.state.author.id;
-    let relationship_id = this.state.relationships.id;
+    let user_id = this.state.data.author.id;
+    let relationship_id = this.state.data.relationship.id;
     console.log('state before unfollow', this.state);
 
     axios.delete(`http://localhost:3000/api/users/${user_id}/relationships/${relationship_id}`)
@@ -139,9 +150,34 @@ getAuthorImage(){
 
   refreshUserUnfollow(resData){
     console.log('state prior to unfollow refresh', this.state);
-
-
+    this.state={
+      data:{
+        ...this.state.data,
+        is_following:{
+          boolean: false,
+        },
+        number_of_followers:{
+          number: resData,
+        },
+        relationship:{
+          id: null,
+          following_id: null,
+          followers_id: null,
+        }
+      },
+    }
+    this.setState({
+      data: {
+        ...this.state.data
+      },
+    })
+    console.log('state after unfollow refresh', this.state)
   }
+
+  navLinkToDrafts() {
+    console.log('WHAT IS THE STATE HERE???', this.state)
+  return `/users/${this.state.data.author.id}/drafts`
+}
 
   render(){
     return (
@@ -160,21 +196,25 @@ getAuthorImage(){
           </div>
           <div className='col-2 likes-col-userpage test-col-1'>
             <span>Followers: {this.state.data.number_of_followers.number}</span>
-            {this.state.data.relationship.id ? <i className="fas fa-plus unfollow" onClick={this.handleUserUnfollow}></i> : <i className="fas fa-plus follow" onClick={this.handleUserFollow}>Follow</i>}
+            {this.state.data.is_following.boolean ? <i className="fas fa-plus unfollow" onClick={this.handleUserUnfollow}></i> : <i className="fas fa-plus follow" onClick={this.handleUserFollow}></i>}
             <br />
             <br />
-            <button>My Drafts</button>
+            <button>
+            <NavLink className='title' to={this.navLinkToDrafts()}>Drafts</NavLink>
+            </button>
           </div>
         </div>
         <div className='row'>
           <div className='col-12 test-col-2'>
             <h2> My Works </h2>
-            <div>
+            <div className="row justify-content-around">
+
               {this.listOfStories()}
+              </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+
     )
   }
 }
