@@ -104,7 +104,7 @@ handleSubmit(event){
   event.preventDefault();
   let story_id = this.state.data.story.id
   let text = this.state.text
-  axios.put(`http://localhost:3000/api/comments`, { text, story_id })
+  axios.post(`http://localhost:3000/api/comments`, { text, story_id })
   .then(res => {
     console.log('comment sent', res);
     console.log('comment sent 2', res.data);
