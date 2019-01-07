@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/public/images/stories/*
 
 
 .byebug_history

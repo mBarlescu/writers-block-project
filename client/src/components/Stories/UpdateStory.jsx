@@ -6,7 +6,7 @@ import 'filepond/dist/filepond.min.css';
 import axios from 'axios';
 
 
-class NewStory extends Component {
+class UpdateStory extends Component {
   constructor(props){
 
     super(props);
@@ -15,6 +15,7 @@ class NewStory extends Component {
       title:"",
       description:"",
       image:"",
+      genre_id:0,
       genres:[],
       listGenres: [],
       redirect: false,
@@ -29,6 +30,20 @@ class NewStory extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setRedirect = this.setRedirect.bind(this);
     this.renderRedirect = this.renderRedirect.bind(this);
+
+    let storyId = props.match.params.id
+
+     axios.get(`http://localhost:3000/api/stories/${storyId}`)
+    .then(res => {
+      this.setState({title: res.data.story.title, 
+                     description: res.data.story.description,
+                     genre_id: res.data.genres[0].id})
+      console.log('STATEE', res.data.genres)
+    })
+    .catch(err => {
+      console.log('error', err)
+    })
+ 
 
 
     axios.get(`http://localhost:3000/api/genres`)
@@ -69,10 +84,7 @@ class NewStory extends Component {
   }
 
   handleGenres(event) {
-    
-    let genresTemp = this.state.genres
-   // genresTemp.push(event.target.value)
-    this.setState({genres: genresTemp});
+    this.setState({genre_id: event.target.value});
   }
 
   getGenres(list) {
@@ -85,10 +97,14 @@ class NewStory extends Component {
     let title = event.target[0].value
     let description = event.target[1].value
     let genre= event.target[2].value
-    console.log("GENRE: ", event.target[2].value)
-    let image= "http://localhost:3001" + this.pond.getFile(0).serverId
+    let image = ""
+    if (this.pond.getFile(0)) {
+      image = "http://localhost:3001" + this.pond.getFile(0).serverId
+    }           
+    
+    let storyId = this.props.match.params.id
  
-    axios.post(`http://localhost:3000/api/stories`, {title, description, genre, image })
+    axios.put(`http://localhost:3000/api/stories/${storyId}`, {title, description, genre, image })
     .then( (response) => {
       console.log("Response ", response);
       this.setState({id: response.data.id})
@@ -132,21 +148,21 @@ class NewStory extends Component {
       <div>
         {this.renderRedirect()}
         <div className="pb-2 mt-4 mb-2 border-bottom">
-        <h5>New Story</h5>
+          <h5>Edit Story</h5>
         </div>
         <br />
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="formControlsText">
             <ControlLabel>Title</ControlLabel>
-            <FormControl  type="text" id="kamylla" />
+            <FormControl  type="text" value={this.state.title}  onChange={this.handleTitle} />
           </FormGroup>
           <FormGroup controlId="formControlsTextarea">
             <ControlLabel>Description</ControlLabel>
-            <FormControl componentClass="textarea" className="test" />
+            <FormControl componentClass="textarea" className="test" value={this.state.description} onChange={this.handleDescription} />
           </FormGroup>
           <FormGroup controlId="formControlsSelect">
             <ControlLabel>Genres</ControlLabel>
-            <FormControl componentClass="select" placeholder="select">
+            <FormControl componentClass="select" placeholder="select" value={this.state.genre_id} onChange={this.handleGenres}>
               <option value="select" disabled selected>Select</option>
               {genres}
             </FormControl>
@@ -174,4 +190,4 @@ class NewStory extends Component {
   }
 }
 
-export default NewStory;
+export default UpdateStory;
