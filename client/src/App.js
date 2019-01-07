@@ -72,6 +72,7 @@ constructor(){
     .then(res => {
       console.log("USEEEEERS", res)
       this.setState({users: res.data})
+      // this.setUser(res.data)
     })
     .catch(err => {
       console.log('AAAAAAAA', err)
@@ -82,10 +83,30 @@ constructor(){
       console.log("STOOOOOOORIES",res)
       this.setState({stories: res.data})
     })
+    // console.log("WHERE IN APPJS IS STATE", this.state)
 
     this.validateUserSession();
-
+    console.log("WHERE IN APPJS IS STATE", this.state)
   }
+
+  // setUser(resData){
+  //   this.state = {
+  //       stories: {
+  //         ...this.state.stories
+  //       },
+  //       users: resData,
+  //       currentUser: this.state.currentUser
+  //   }
+  //   this.setState({
+  //     stories: {
+  //         ...this.state.stories
+  //       },
+  //       users: this.state.users,
+  //       currentUser: this.state.currentUser
+  //   })
+  //   console.log('WHAT IS THIS STATE?!!?!?! ', this.state)
+
+  // }
 
 
   render() {
@@ -93,7 +114,7 @@ constructor(){
       <BrowserRouter>
         <div className='outer-container'>
         <div className='container my-container'>
-          <NavBar currentUser={this.state.currentUser}   validateUserSession={this.validateUserSession}/>
+          <NavBar users={this.state.users} currentUser={this.state.currentUser}   validateUserSession={this.validateUserSession}/>
           <Switch>
 
             <Route

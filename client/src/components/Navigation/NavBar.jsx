@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import axios from 'axios';
+import '../../styles/NavBar.css'
 
 
 
@@ -10,11 +11,13 @@ class NavBar extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { 
+
+    this.state = {
       currenteUser:{props}
-      
-    };  
-    
+
+    };
+    console.log('PROPS ON NAVBAR', this.props)
+    console.log('STATE ON NAVBAR', this.state)
     this.props.validateUserSession();
 
     this.renderNameAndLogoutLink = this.renderNameAndLogoutLink.bind(this);
@@ -22,7 +25,7 @@ class NavBar extends Component {
     this.renderLogin = this.renderLogin.bind(this);
     this.renderCreate = this.renderCreate.bind(this);
 
-    
+
   }
 
   renderNameAndLogoutLink() {
@@ -72,6 +75,11 @@ class NavBar extends Component {
 
   }
 
+   navLinkToDrafts() {
+    console.log('WHAT IS THE STATE HERE???', this.state)
+  return `/users/${this.props.currentUser.id}/drafts`
+}
+
 
 
 
@@ -85,13 +93,16 @@ class NavBar extends Component {
               <li className='nav-item'>
                 <NavLink className='nav-link' to="/users">Users</NavLink>
               </li>
+              <li className='nav-item'>
+                <NavLink className='nav-link' to={this.navLinkToDrafts()}>Drafts</NavLink>
+              </li>
               {this.renderCreate()}
             </ul>
-           
+
             {this.renderNameAndLogoutLink()}
             {this.renderLogin()}
-              
-            
+
+
         </nav>
 
     )

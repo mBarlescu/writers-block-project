@@ -182,6 +182,9 @@ getAuthorImage(){
   render(){
     return (
       <div className='container my-container'>
+        <br />
+        <br />
+        <br />
         <div className='row'>
           <div className='col-2 authorImg-col-userpage test-col-1'>
             <img className="authorImg-userpage" src={this.getAuthorImage()} />
@@ -199,9 +202,7 @@ getAuthorImage(){
             {this.state.data.is_following.boolean ? <i className="fas fa-plus unfollow" onClick={this.handleUserUnfollow}></i> : <i className="fas fa-plus follow" onClick={this.handleUserFollow}></i>}
             <br />
             <br />
-            <button>
-            <NavLink className='title' to={this.navLinkToDrafts()}>Drafts</NavLink>
-            </button>
+
           </div>
         </div>
         <div className='row'>

@@ -60,10 +60,27 @@ class ReadPage extends Component {
 
   selectSegment(event){
     console.log('event here', event.props.segmentId)
-    this.setState({selectedSegment: event.props.segmentId}, function (){
-        console.log('updated state', this.state);
+    this.state = {
+          data: {
+          ...this.state.data,
+          },
+          selectedSegment: event.props.segmentId,
+          feedback: this.state.feedback,
+          text: this.state.text,
+
+        }
+        this.setState({
+          data: {
+            ...this.state.data
+          },
+          selectedSegment: this.state.selectedSegment,
+          feedback: this.state.feedback,
+          text: this.state.text,
+        })
+    // this.setState({selectedSegment: event.props.segmentId}, function (){
+    //     console.log('updated state', this.state);
         this.getFeedBack()
-      });
+      // });
     console.log('event state', this.state)
   }
 
