@@ -27,6 +27,7 @@ i.unlike:hover{
 .storypage-commentButton{
   background-color: #D3D3D3;
   color:#585858;
+  margin-left: 410px;
 }
 
 .storypage-commentButton:hover{
@@ -59,7 +60,7 @@ padding: 10px;
 }
 
 .storyPage-genre{
-
+font-weight: 600;
 }
 
 .readMe:hover{
@@ -77,6 +78,7 @@ font-size: 25px;
 
 .uni-heart{
 font-size: 30px;
+margin-left: 15px;
 }
 
 .comments-textarea-storypage{
@@ -89,6 +91,11 @@ font-size: 30px;
 
 .commentName-storypage{
 
+}
+
+
+.comments-story-page{
+  padding: 20px;
 }
 
 .commentText-storypage{

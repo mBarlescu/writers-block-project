@@ -113,7 +113,7 @@ constructor(){
   render() {
     return (
       <BrowserRouter>
-        <div className='outer-container'>
+        <div>
         <NavBar users={this.state.users} currentUser={this.state.currentUser}   validateUserSession={this.validateUserSession}/>
         <div className='container'>
 

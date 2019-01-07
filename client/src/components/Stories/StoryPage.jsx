@@ -107,7 +107,7 @@ handleSubmit(event){
   event.preventDefault();
   let story_id = this.state.data.story.id
   let text = this.state.text
-  axios.put(`http://localhost:3000/api/comments`, { text, story_id })
+  axios.post(`http://localhost:3000/api/comments`, { text, story_id })
   .then(res => {
     console.log('comment sent', res);
     console.log('comment sent 2', res.data);
@@ -130,7 +130,7 @@ listOfComments(){
                 {this.timeSince(comment.created_at)}
               </div>
               <br />
-              <br />
+
             </div>
   })
 }
@@ -311,6 +311,7 @@ handleStoryUnlike(event){
                 <h2> Comments </h2>
                 <form>
                   <textarea className='comments-textarea-storypage' value={this.state.text} onChange={this.handleChange} type='comments' name='comments' />
+                  <br />
                   <button className='btn btn-secondary storypage-commentButton' type='submit' onClick={this.handleSubmit}> Comment </button>
                 </form>
 

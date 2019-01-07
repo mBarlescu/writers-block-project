@@ -200,6 +200,10 @@ class ReadPage extends Component {
   render(){
 
     return(
+      <div>
+      <br />
+      <br />
+      <br />
       <div className='row'>
         <div className='col-8 test-col'>
           <h5> {this.state.data.author.first_name} {this.state.data.author.last_name} </h5>
@@ -223,6 +227,7 @@ class ReadPage extends Component {
           <br />
         {this.showFeedBack()}
         </div>
+      </div>
       </div>
     )
   }
