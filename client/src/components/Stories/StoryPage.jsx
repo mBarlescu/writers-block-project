@@ -18,6 +18,7 @@ class StoryPage extends Component {
           genres: [],
           author_stories: [],
           number_of_likes: {},
+          user_liked_story: {},
         },
         text:"",
         comments: []
@@ -27,6 +28,8 @@ class StoryPage extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.listOfGenres = this.listOfGenres.bind(this);
     this.setComments = this.setComments.bind(this);
+    this.handleStoryLike = this.handleStoryLike.bind(this);
+    this.handleStoryUnlike = this.handleStoryUnlike.bind(this);
     //this.setRedirect = this.setRedirect.bind(this);
     //this.renderRedirect = this.renderRedirect.bind(this);
 
@@ -89,6 +92,10 @@ navLinkToRead() {
   return `/stories/${this.state.data.story.id}/read`
 }
 
+navLinkToUser() {
+  return `/users/${this.state.data.author.id}`
+}
+
 handleChange(event) {
   this.setState({ text: event.target.value });
 };
@@ -122,6 +129,106 @@ listOfComments(){
   })
 }
 
+handleStoryLike(event){
+    event.preventDefault();
+    console.log('handling story event', event.target);
+    let storyLikes = this.state.data.number_of_likes;
+
+    let storyId = this.state.data.story.id;
+    console.log('dchecking', storyId)
+
+    let story_id = this.state.data.story.id;
+
+
+    axios.post('http://localhost:3000/api/stories_likes', { story_id })
+      .then(res => {
+        console.log('post to storyLikes', res);
+        console.log('post to storyLikes 2', res.data);
+        this.refreshStoryLikes(res.data)
+      })
+
+
+  }
+
+  refreshStoryLikes(resData){
+    console.log("WHAT IS THIS RESDATA?", resData)
+    console.log('check state', this.state)
+    this.state = {
+          data: {
+          ...this.state.data,
+          number_of_likes: {
+            number: resData,
+          },
+          user_liked_story: {
+            boolean: true,
+          }
+          },
+          selectedSegment: this.state.selectedSegment,
+          feedback: this.state.feedback,
+          text: this.state.text,
+
+        }
+        this.setState({
+          data: {
+            ...this.state.data
+          },
+          selectedSegment: this.state.selectedSegment,
+          feedback: this.state.feedback,
+          text: this.state.text,
+        })
+        console.log('RES STORY LIKES', this.state)
+        console.log("FIND THE TOOOOOOOOOOOGLE", this.state.data.user_liked_story)
+        console.log('FIND TOgGLE HERE', this.state.data.user_liked_story.boolean)
+  }
+
+handleStoryUnlike(event){
+    event.preventDefault();
+    console.log('handling story UNLIKE event', event.target);
+    let storyLikes = this.state.data.number_of_likes;
+    let story_id = this.state.data.story.id;
+    console.log('checking state before handling story unlike', this.state)
+    console.log('unlike, story_id', story_id);
+    console.log('storyLikes', storyLikes);
+
+
+
+    axios.delete(`http://localhost:3000/api/stories_likes/${story_id}`)
+      .then(res => {
+        console.log('post to storyLikes', res);
+        console.log('post to storyLikes 2', res.data);
+        console.log('NEW STATE after story UNLIKE', this.state)
+        this.refreshStoryUnlike(res.data)
+      })
+  }
+
+  refreshStoryUnlike(resData){
+    console.log('check state', this.state)
+    this.state = {
+          data: {
+          ...this.state.data,
+          number_of_likes: {
+            number: resData,
+          },
+          user_liked_story: {
+            boolean: false,
+          }
+          },
+          selectedSegment: this.state.selectedSegment,
+          feedback: this.state.feedback,
+          text: this.state.text,
+
+        }
+        this.setState({
+          data: {
+            ...this.state.data
+          },
+          selectedSegment: this.state.selectedSegment,
+          feedback: this.state.feedback,
+          text: this.state.text,
+        })
+        console.log('RES STORY LIKES', this.state)
+  }
+
 
   render(){
 
@@ -134,9 +241,9 @@ listOfComments(){
                 <img className='img-cover' src={this.state.data.story.image} />
               </div>
               <div className='col-9 my-col-description'>
-                <NavLink className='title' to="/">{this.state.data.story.title}</NavLink>
+                <NavLink className='title' to={this.navLinkToRead()}>{this.state.data.story.title}</NavLink>
                 <br />
-                <NavLink className='author' to="/">by {this.state.data.author.first_name} {this.state.data.author.last_name}</NavLink>
+                <NavLink className='author' to={this.navLinkToUser()}>by {this.state.data.author.first_name} {this.state.data.author.last_name}</NavLink>
                 <br />
                 <span className='description'>
                   {this.state.data.story.description}
@@ -148,6 +255,10 @@ listOfComments(){
                 <button>
                  <NavLink to={this.navLinkToRead()}>Read</NavLink>
                 </button>
+                <br />
+                <br />
+                <span className='likes-readpage'>Likes: {this.state.data.number_of_likes.number} </span>
+                {this.state.data.user_liked_story.boolean ? <i className="fas fa-heart unlike" onClick={this.handleStoryUnlike}></i>  : <i className="fas fa-heart like" onClick={this.handleStoryLike}></i>}
 
               </div>
             </div>

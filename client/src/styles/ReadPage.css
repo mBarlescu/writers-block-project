@@ -14,3 +14,7 @@ i.unlike:hover{
   color: #D3D3D3;
 }
 
+.image {
+  height:200px;
+  width: 200px;
+}

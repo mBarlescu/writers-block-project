@@ -13,9 +13,12 @@ class UsersPage extends Component {
       data:{
         author:{},
         author_stories: [],
-        number_of_followers: {}
-      },
+        number_of_followers: {},
+        relationship: {}
+      }
     }
+
+    this.handleUserFollow = this.handleUserFollow.bind(this);
 
 
   let userId = props.match.params.id
@@ -81,8 +84,38 @@ getAuthorImage(){
   listOfStories(){
     const authorStories = this.state.data.author_stories;
     return authorStories.map((story, index) => {
-      return  <UserStories author={this.state.data.author} author_stories={story} />
+      return  <UserStories key={index} author={this.state.data.author} author_stories={story} />
     })
+  }
+
+  handleUserFollow(event){
+    event.preventDefault();
+    console.log('handling follow button', event.target);
+    let user_id = this.state.data.author.id;
+
+    axios.post(`http://localhost:3000/api/users/${user_id}/relationships`)
+      .then(res => {
+        console.log('followers post', res);
+        console.log('followers post 2', res.data);
+        this.refreshUserFollowers(res.data)
+      })
+  }
+
+  refreshUserFollowers(resData){
+    console.log('are we hitting refresh for followers?', resData);
+    console.log('check state before refresh followers', this.state);
+    this.state={
+      data:{
+        ...this.state.data,
+        number_of_followers: resData,
+      },
+    }
+    this.setState({
+      data: {
+        ...this.state.data
+      },
+    })
+    console.log('state after refresh followers', this.state)
   }
 
   render(){
@@ -101,7 +134,8 @@ getAuthorImage(){
             </div>
           </div>
           <div className='col-2 likes-col-userpage test-col-1'>
-            <button>Follow</button>
+            <span>Followers: {this.state.data.number_of_followers.number}</span>
+            <button onClick={this.handleUserFollow}>Follow</button>
             <br />
             <br />
             <button>My Drafts</button>
