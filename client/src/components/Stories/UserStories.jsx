@@ -17,6 +17,13 @@ class UserStories extends Component {
 
 }
 
+navLinkToStory() {
+  return `/stories/${this.props.author_stories.id}`
+}
+navLinkToUser() {
+  return `/users/${this.props.author.id}`
+}
+
 
   render(){
     return (
@@ -26,9 +33,9 @@ class UserStories extends Component {
             <img className='img-cover' src={this.props.author_stories.image} />
           </div>
           <div className='col-7 my-col-description'>
-            <NavLink className='title' to="/">{this.props.author_stories.title}</NavLink>
+            <NavLink className='title' to={this.navLinkToStory()}>{this.props.author_stories.title}</NavLink>
             <br />
-            <NavLink className='author' to="/">by {this.props.author.first_name} {this.props.author.last_name}</NavLink>
+            <NavLink className='author' to={this.navLinkToUser()}>by {this.props.author.first_name} {this.props.author.last_name}</NavLink>
             <br />
             <span className='description'>
               {this.props.author_stories.description}

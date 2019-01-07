@@ -4,6 +4,7 @@ import User from './User'
 import RouteError from '../Errors/RouteError'
 import axios from 'axios';
 import UserStories from '../Stories/UserStories';
+import '../../styles/UserPage.css'
 
 class UsersPage extends Component {
   constructor(props){
@@ -19,7 +20,7 @@ class UsersPage extends Component {
     }
 
     this.handleUserFollow = this.handleUserFollow.bind(this);
-
+    this.handleUserUnfollow = this.handleUserUnfollow.bind(this);
 
   let userId = props.match.params.id
   const userIdInt = Number.parseInt(userId)
@@ -84,7 +85,7 @@ getAuthorImage(){
   listOfStories(){
     const authorStories = this.state.data.author_stories;
     return authorStories.map((story, index) => {
-      return  <UserStories key={index} author={this.state.data.author} author_stories={story} />
+      return  <UserStories key={this.state.data.author_stories.id} author={this.state.data.author} author_stories={story} />
     })
   }
 
@@ -107,7 +108,9 @@ getAuthorImage(){
     this.state={
       data:{
         ...this.state.data,
-        number_of_followers: resData,
+        number_of_followers:{
+          number: resData,
+        },
       },
     }
     this.setState({
@@ -116,6 +119,28 @@ getAuthorImage(){
       },
     })
     console.log('state after refresh followers', this.state)
+  }
+
+  handleUserUnfollow(event){
+    event.preventDefault();
+    console.log('handling story UNLIKE event', event.target);
+    let user_id = this.state.author.id;
+    let relationship_id = this.state.relationships.id;
+    console.log('state before unfollow', this.state);
+
+    axios.delete(`http://localhost:3000/api/users/${user_id}/relationships/${relationship_id}`)
+      .then(res => {
+        console.log('delete method for unfollow', res);
+        console.log('delete method for unfollow 2', res.data);
+        this.refreshUserUnfollow(res.data);
+      })
+
+  }
+
+  refreshUserUnfollow(resData){
+    console.log('state prior to unfollow refresh', this.state);
+
+
   }
 
   render(){
@@ -135,7 +160,7 @@ getAuthorImage(){
           </div>
           <div className='col-2 likes-col-userpage test-col-1'>
             <span>Followers: {this.state.data.number_of_followers.number}</span>
-            <button onClick={this.handleUserFollow}>Follow</button>
+            {this.state.data.relationship.id ? <i className="fas fa-plus unfollow" onClick={this.handleUserUnfollow}></i> : <i className="fas fa-plus follow" onClick={this.handleUserFollow}>Follow</i>}
             <br />
             <br />
             <button>My Drafts</button>
