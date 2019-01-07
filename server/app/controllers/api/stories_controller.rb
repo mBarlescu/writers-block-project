@@ -11,7 +11,7 @@ class Api::StoriesController < ApplicationController
   def show
     if @story
       @genres = @story.genres.all
-      @author = User.find(@story.id)
+      @author = User.find(@story.user_id)
       @number_of_likes = @story.stories_like.size
       @comments = @story.comments.all.order('created_at DESC')
       @author_stories = Story.find_stories_by_author(@story.user_id, @story.id)
@@ -28,12 +28,10 @@ class Api::StoriesController < ApplicationController
   def create
     puts("PARAMS", params)
     @genre = Genre.find(params[:genre])
-    #@story = Story.new(story_params)
-    #@story.user_id = current_user.id
     @story = @genre.stories.new(story_params)
     @story.user_id = current_user.id
-    puts("Passou  #{@story}")
-
+    @story.published = false
+    @story.text = ""
     if @story.save
       render json: @story, status: :created
     else
@@ -109,7 +107,7 @@ class Api::StoriesController < ApplicationController
       @user_liked_story = true
     end
     @segments = @story.segments.order('position')
-    @author = User.find(@story.id)
+    @author = User.find(@story.user_id)
     @number_of_likes = @story.stories_like.size
     @feedbacks = []
     @segments.each do |item|

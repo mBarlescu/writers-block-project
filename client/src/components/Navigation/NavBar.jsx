@@ -20,6 +20,7 @@ class NavBar extends Component {
     this.renderNameAndLogoutLink = this.renderNameAndLogoutLink.bind(this);
     this.logout = this.logout.bind(this);
     this.renderLogin = this.renderLogin.bind(this);
+    this.renderCreate = this.renderCreate.bind(this);
 
     
   }
@@ -33,6 +34,16 @@ class NavBar extends Component {
         </span>
         <NavLink className='nav-link' to="/" onClick = {this.logout}>Logout</NavLink>
         </ul>
+      );
+    }
+  }
+
+  renderCreate(){
+    if(this.props.currentUser.firstName){
+      return(
+        <li className='nav-item'>
+          <NavLink className='nav-link' to="/stories/new">Create</NavLink>
+        </li>
       );
     }
   }
@@ -74,9 +85,7 @@ class NavBar extends Component {
               <li className='nav-item'>
                 <NavLink className='nav-link' to="/users">Users</NavLink>
               </li>
-              <li className='nav-item'>
-                <NavLink className='nav-link' to="/stories">Stories</NavLink>
-              </li>
+              {this.renderCreate()}
             </ul>
            
             {this.renderNameAndLogoutLink()}
