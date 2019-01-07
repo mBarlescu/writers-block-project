@@ -26,6 +26,7 @@ json.number_of_followers do
  )
 end
 
+
   json.relationship do
     json.call(
       @relationship,

@@ -3,7 +3,7 @@ class Api::GenresController < ApplicationController
 
   # GET api/genres
   def index
-    @genres = Genre.all
+    @genres = Genre.all.order('name')
     render json: @genres
   end
 
