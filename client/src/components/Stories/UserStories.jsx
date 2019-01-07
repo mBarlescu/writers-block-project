@@ -27,12 +27,12 @@ navLinkToUser() {
 
   render(){
     return (
-          <div className='col-5 my-col'>
+          <div className='col-5 eachStory'>
             <div className='header row'>
-              <div className='col-5 my-col-img'>
+              <div className='col-5 eachStory-img'>
                 <img className='img-cover' src={this.props.author_stories.image} />
               </div>
-              <div className='col-7 my-col-description'>
+              <div className='col-7 eachStory-description'>
                 <NavLink className='title' to={this.navLinkToStory()}>{this.props.author_stories.title}</NavLink>
                 <br />
                 <NavLink className='author' to={this.navLinkToUser()}>by {this.props.author.first_name} {this.props.author.last_name}</NavLink>

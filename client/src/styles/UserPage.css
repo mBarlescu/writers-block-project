@@ -17,4 +17,86 @@ i.unfollow:hover{
 .image {
   height:200px;
   width: 200px;
+  border-radius: 10px;
+}
+.eachStory-img{
+  height: 200px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+div.eachStory{
+  background-color: #F2F2F2;
+  margin: 15px;
+  border-radius: 10px;
+  border: solid #778899;
+  border-width: 2px;
+  border-style: groove;
+}
+
+.eachStory:hover{
+  /*border-width: 4px;*/
+  background-color: #A0A0A0;
+}
+.eachStory:hover a.author{
+  /*border-width: 4px;*/
+  color: #444;
+}
+
+.eachStory-description{
+  height: 200px;
+  padding: 6px;
+}
+
+.title{
+  color: #444;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 16px;
+}
+
+.author{
+  color: #999;
+  font-size: 14px;
+}
+
+.description {
+  font-size: 12px;
+  line-height:14px;
+}
+
+.userPage-header{
+
+  margin: 15px;
+
+
+
+}
+
+.userPage-img{
+  padding: 10px;
+}
+
+.authorImg-userpage{
+  border-radius: 10px;
+}
+
+.img-cover{
+  border-radius: 10px;
+}
+
+.userPage-description{
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+
+.uni{
+  padding-left: 15px;
+  font-size: 35px;
+}
+
+.author-name-userpage{
+  float: left;
 }

@@ -181,32 +181,42 @@ getAuthorImage(){
 
   render(){
     return (
-      <div className='container my-container'>
+      <div className='container'>
         <br />
         <br />
         <br />
-        <div className='row'>
-          <div className='col-2 authorImg-col-userpage test-col-1'>
+        <div className='row userPage-header'>
+          <div className='col-2 userPage-img'>
             <img className="authorImg-userpage" src={this.getAuthorImage()} />
           </div>
-          <div className='col-8 description-col-userpage test-col-1'>
-            <h2 className='auther-name-userpage'>
+          <div className='col-8 userPage-description'>
+            <h2 className='author-name-userpage'>
               {this.state.data.author.first_name} {this.state.data.author.last_name}
             </h2>
+            {this.state.data.is_following.boolean ? <i className="fas fa-plus unfollow uni" onClick={this.handleUserUnfollow}></i> : <i className="fas fa-plus follow uni" onClick={this.handleUserFollow}></i>}
+            <br />
+            <br />
             <div className='description-userpage'>
               {this.state.data.author.description}
             </div>
           </div>
           <div className='col-2 likes-col-userpage test-col-1'>
+            <br />
+
+
             <span>Followers: {this.state.data.number_of_followers.number}</span>
-            {this.state.data.is_following.boolean ? <i className="fas fa-plus unfollow" onClick={this.handleUserUnfollow}></i> : <i className="fas fa-plus follow" onClick={this.handleUserFollow}></i>}
+            <br />
+            <br />
+
             <br />
             <br />
 
           </div>
         </div>
+        <hr />
         <div className='row'>
-          <div className='col-12 test-col-2'>
+          <div className='col-12'>
+          <br />
             <h2> My Works </h2>
             <div className="row justify-content-around">
 

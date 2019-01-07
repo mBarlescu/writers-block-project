@@ -323,6 +323,9 @@ class ReadPage extends Component {
 
     return(
       <div>
+      <br />
+      <br />
+      <br />
       {this.state.selectedSegment ? <div className='row'>
         <div className='col-8 test-col'>
           <h5> {this.state.data.author.first_name} {this.state.data.author.last_name} </h5>

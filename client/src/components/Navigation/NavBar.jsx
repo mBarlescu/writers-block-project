@@ -31,7 +31,7 @@ class NavBar extends Component {
   }
 
   pathDrafts() {
-    
+
   }
 
   renderNameAndLogoutLink() {
@@ -103,7 +103,7 @@ class NavBar extends Component {
 
     return(
 
-        <nav className='navbar navbar-expand-lg navbar-dark bg-primary'>
+        <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
           <NavLink className='navbar-brand' to="/">Writer's Block</NavLink>
             <ul className='navbar-nav'>
               <li className='nav-item'>
@@ -113,7 +113,7 @@ class NavBar extends Component {
                 <NavLink className='nav-link' to={this.navLinkToDrafts()}>Drafts</NavLink>
               </li>
               {this.renderCreate()}
-      
+
             </ul>
 
             {this.renderNameAndLogoutLink()}

@@ -234,6 +234,9 @@ handleStoryUnlike(event){
 
     return (
       <div>
+        <br />
+        <br />
+        <br />
         <div className='row'>
           <div className='col-12 my-col'>
             <div className='header row'>
