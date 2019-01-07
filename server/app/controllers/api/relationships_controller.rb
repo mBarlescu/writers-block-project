@@ -15,8 +15,9 @@ class Api::RelationshipsController < ApplicationController
 
   # POST /relationships
   def create
-    @relationship = Relationship.new(relationship_params)
-    @relationship.follower_id = current_user.id
+    @follower_id = current_user.id
+    @following_id =  params[:user_id]
+    @relationship = Relationship.new(follower_id: @follower_id, following_id: @following_id)
     if @relationship.save
       @author_followers = Relationship.count_followers(@relationship.following_id)
       render json: @author_followers, status: :created
@@ -53,6 +54,6 @@ class Api::RelationshipsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def relationship_params
-      params.require(:relationship).permit(:following_id, :follower_id, :created_at, :updated_at)
+      params.require(:relationship).permit( :following_id, :created_at, :updated_at)
     end
 end
