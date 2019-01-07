@@ -69,7 +69,7 @@ class NewStory extends Component {
   }
 
   handleGenres(event) {
-    
+
     let genresTemp = this.state.genres
    // genresTemp.push(event.target.value)
     this.setState({genres: genresTemp});
@@ -87,7 +87,7 @@ class NewStory extends Component {
     let genre= event.target[2].value
     console.log("GENRE: ", event.target[2].value)
     let image= "http://localhost:3001" + this.pond.getFile(0).serverId
- 
+
     axios.post(`http://localhost:3000/api/stories`, {title, description, genre, image })
     .then( (response) => {
       console.log("Response ", response);
@@ -103,7 +103,7 @@ class NewStory extends Component {
     });
   }
 
-  
+
 
   render(){
 
@@ -123,13 +123,16 @@ class NewStory extends Component {
       return (
         <option key={item.id} value={item.id}>{item.name}</option>
         //<Checkbox key={item.id} value={item.id}  onChange={this.handleGenres} inline >{item.name}     </Checkbox>
-        
+
       );
     });
 
 
     return (
       <div>
+      <br />
+      <br />
+      <br />
         {this.renderRedirect()}
         <div className="pb-2 mt-4 mb-2 border-bottom">
         <h5>New Story</h5>
@@ -166,7 +169,7 @@ class NewStory extends Component {
               });
               }}>
             </FilePond>
-          
+
           <Button type="submit">Submit</Button>
         </form>
       </div>

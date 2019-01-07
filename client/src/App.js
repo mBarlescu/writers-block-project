@@ -114,8 +114,9 @@ constructor(){
     return (
       <BrowserRouter>
         <div className='outer-container'>
-        <div className='container my-container'>
-          <NavBar users={this.state.users} currentUser={this.state.currentUser}   validateUserSession={this.validateUserSession}/>
+        <NavBar users={this.state.users} currentUser={this.state.currentUser}   validateUserSession={this.validateUserSession}/>
+        <div className='container'>
+
           <Switch>
 
             <Route

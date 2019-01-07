@@ -86,6 +86,9 @@ class DraftsPage extends Component {
 
     return(
       <div>
+      <br />
+      <br />
+      <br />
         {this.getDrafts()}
       </div>
     )

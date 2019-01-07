@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import ReadPage from './ReadPage'
 import { NavLink } from 'react-router-dom';
-
+import '../../styles/StoryPage.css'
 
 
 class StoryPage extends Component {
