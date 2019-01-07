@@ -73,7 +73,7 @@ class DraftsPage extends Component {
     console.log('state before get drafts', this.state);
     const drafts = this.state.drafts;
     return drafts.map((draft, index) => {
-      return <EachDraft key={index} deleteDraft2={this.deleteDraft2} id={draft.id} user_id={draft.user_id} title={draft.title} description={draft.description} text={draft.text} image={draft.image} published={draft.published} created_at={draft.created_at} updated_at={draft.updated_at} />
+      return <EachDraft key={draft.id} deleteDraft2={this.deleteDraft2} id={draft.id} user_id={draft.user_id} title={draft.title} description={draft.description} text={draft.text} image={draft.image} published={draft.published} created_at={draft.created_at} updated_at={draft.updated_at} />
     })
   }
 
