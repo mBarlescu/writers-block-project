@@ -146,6 +146,9 @@ class UpdateStory extends Component {
 
     return (
       <div>
+         <br />
+      <br />
+      <br />
         {this.renderRedirect()}
         <div className="pb-2 mt-4 mb-2 border-bottom">
           <h5>Edit Story</h5>
@@ -182,8 +185,12 @@ class UpdateStory extends Component {
               });
               }}>
             </FilePond>
-          
-          <Button type="submit">Submit</Button>
+            <br/>
+
+<Button className='btn btn-secondary submitStoryButton'type="submit">Submit</Button>
+<br />
+<br />
+<br />
         </form>
       </div>
     )

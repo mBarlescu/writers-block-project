@@ -57,18 +57,24 @@ class Home extends Component {
         <br />
         <br />
         <br />
+        <br />
         <Row>
-          <h4>Popular Stories</h4>
+          <h4 className="titleHome">Popular Stories</h4>
+        </Row>
+        <Row>
+          <h5 className="subtitleHome">The most popular stories from our collection</h5>
         </Row>
         <Row style={{marginTop:20}}>
           <PopularStoriesCarousel stories={popularStories}/>
         </Row>
         <br />
-        <div className="pb-2 mt-4 mb-2 border-bottom">
-        </div>
+        <br />
         <br />
         <Row >
-          <h4>Newest Stories</h4>
+          <h4 className="titleHome">Newest Stories</h4>
+        </Row>
+        <Row>
+          <h5 className="subtitleHome">The newest stories from our collection</h5>
         </Row>
         <Row style={{marginTop:20}}>
           <NewestStoriesCarousel stories={newestStories}/>

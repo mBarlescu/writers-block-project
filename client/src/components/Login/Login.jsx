@@ -84,9 +84,12 @@ class Login extends Component {
     return (
 
       <div>
+        <br />
+        <br />
+        <br />
         {this.renderRedirect()}
         <div className="pb-2 mt-4 mb-2 border-bottom">
-              <h3>Login</h3>
+              <h5>Login</h5>
         </div>
         <UncontrolledAlert color="danger" isOpen={this.state.visible} toggle={this.onDismiss} fade={false}>
           The email address or password is incorrect.

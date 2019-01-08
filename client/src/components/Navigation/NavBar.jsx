@@ -61,8 +61,8 @@ class NavBar extends Component {
     if(this.props.currentUser.firstName){
       return(
         <li className='nav-item'>
-          <NavLink className='nav-link' to="/">My drafts</NavLink>
-        </li>
+        <NavLink className='nav-link' to={this.navLinkToDrafts()}> MyDrafts</NavLink>
+      </li>
       );
     }
   }
@@ -108,9 +108,7 @@ class NavBar extends Component {
               <li className='nav-item'>
                 <NavLink className='nav-link' to="/users">Authors</NavLink>
               </li>
-              <li className='nav-item'>
-                <NavLink className='nav-link' to={this.navLinkToDrafts()}> MyDrafts</NavLink>
-              </li>
+              {this.renderDrafts()}
               {this.renderCreate()}
 
             </ul>

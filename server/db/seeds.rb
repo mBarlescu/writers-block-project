@@ -15,51 +15,51 @@ puts "Making Users..."
 User.destroy_all
 
 
-joe = User.create!(
-  first_name: "Joe",
+adrian = User.create!(
+  first_name: "Adrian",
   last_name: "Dolan",
-  description: "Lorem ipsum dolor amet beard master cleanse cray fingerstache, art party green juice unicorn trust fund you probably haven't heard of them vape swag brooklyn meditation gochujang.",
-  email: "joe@gmail.com",
+  description: "I’m a Dundalk native, now living in New Zealand. I’ve spent the last 12 years abroad and began blogging as a means of recording my travels and making everyone back home jealous. ",
+  email: "adrian@gmail.com",
   password: '123456' ,
   password_confirmation: '123456',
-  image: "https://daphoto.com/wp-content/uploads/2013/11/Friel_4065-5x7x300(pp_w642_h900).jpg"
+  image: "https://www.writing.ie/wp-content/uploads/2018/04/Photo-for-writing-blog-220x330.jpg"
 )
 
 mila = User.create!(
   first_name: "Mila",
   last_name: "Mariah",
-  description: "Lorem ipsum dolor amet beard master cleanse cray fingerstache, art party green juice unicorn trust fund you probably haven't heard of them vape swag brooklyn meditation gochujang.",
+  description: "I grew up on a Greek island with only my sister, a donkey, a dog, and my books for company. I was always reading, often with three or four books on the go at once. ",
   email: "mila@gmail.com",
   password: '123456' ,
   password_confirmation: '123456',
-  image: "https://daphoto.com/wp-content/uploads/2013/11/Friel_4065-5x7x300(pp_w642_h900).jpg"
+  image: "https://www.writing.ie/wp-content/uploads/2014/07/myauthorpic-mini-220x330.jpg"
 )
 
-ben = User.create!(
-  first_name: "Ben",
+rose = User.create!(
+  first_name: "Rose",
   last_name: "Jenoli",
-  description: "Excepteur next level hell of occupy, salvia organic helvetica kogi elit shoreditch paleo glossier tattooed aesthetic.",
-  email: "ben@gmail.com",
+  description: "Deep and dark with an unexpected twist. That would be my stories. Perhaps a little like life in that respect. This is the first time I have started to publish my stories.",
+  email: "rose@gmail.com",
   password: '123456' ,
   password_confirmation: '123456',
-  image: "https://srkheadshotday.com/wp-content/uploads/Mark_Otis_Headshot_16D7253_Crop32.jpg"
+  image: "https://www.writing.ie/wp-content/uploads/2018/06/Rosie.jpg"
   
 )
 
 kim = User.create!(
   first_name: "Kim",
   last_name: "Kennedy",
-  description: "Artisan vape 90's, deserunt woke ipsum ullamco snackwave jianbing excepteur aliqua eiusmod.",
+  description: "My stories have just been put into print for the first time on the website which is slowly growing.Feedback would be appreciated.",
   email: "kim@gmail.com",
   password: '123456' ,
   password_confirmation: '123456',
-  image: "https://i0.wp.com/blog.scottrklinephoto.com/wp-content/uploads/2013/10/Amy_Wigdahl_Headshot_15E9688.jpg"
+  image: "https://www.writing.ie/wp-content/uploads/2018/11/dxReNB3g_400x400-220x330.jpg"
 )
 
 jim = User.create!(
-  first_name: "Jim",
-  last_name: "Jennedy",
-  description: "Exercitation austin tbh knausgaard tilde lo-fi. Chicharrones single-origin coffee echo park tumblr swag flannel deserunt chillwave kale chips typewriter man braid letterpress.",
+  first_name: "Adam",
+  last_name: "Donnelly",
+  description: "Merchant of gourmet soaps by day and a writer of fiction by night. A recent graduate of UCD, I'm looking forward to exploring and interacting with the Irish writing scene.",
   email: "jim@gmail.com",
   password: '123456' ,
   password_confirmation: '123456',
@@ -80,9 +80,14 @@ puts "DONE!"
 
 puts "Making Genres..."
 
-genre1 = Genre.find_or_create_by! name: 'Fantasy'
-genre2 = Genre.find_or_create_by! name: 'Romance'
-genre3 = Genre.find_or_create_by! name: 'Sci-Fi'
+tragedy = Genre.find_or_create_by! name: 'Tragedy'
+sci_fi = Genre.find_or_create_by! name: 'Sci-Fi'
+fantasy = Genre.find_or_create_by! name: 'Fantasy'
+mythology = Genre.find_or_create_by! name: 'Mythology'
+adventure = Genre.find_or_create_by! name: 'Adventure'
+mystery = Genre.find_or_create_by! name: 'Mystery'
+drama = Genre.find_or_create_by! name: 'Drama'
+romance = Genre.find_or_create_by! name: 'Romance'
 
 puts "DONE!"
 
@@ -90,7 +95,7 @@ puts "Making Stories..."
 
 Story.destroy_all
 
-genre1.stories.create!(
+fantasy.stories.create!(
   user_id: mila.id,
   title: "The Many Hardships of Hard Ships",
   description: "A touching story that gives you a relatable window into the mind of a master Shipsmith.",
@@ -110,12 +115,12 @@ story2 = Story.create!(
 
 GenreStory.create!(
   story_id: story2.id,
-  genre_id: genre1.id 
+  genre_id: fantasy.id 
 )
 
 GenreStory.create!(
   story_id: story2.id,
-  genre_id: genre2.id 
+  genre_id: romance.id 
 )
 
 Story.create!(
@@ -222,7 +227,7 @@ Story.create!(
 )
 
 story2 = Story.create!(
-  user_id: ben.id,
+  user_id: rose.id,
   title: "Story Test Kamylla",
   description: "A touching story that gives you a relatable window into the mind of a master Fenk and his companions.",
   text: "Here is where the story doc is kept",
@@ -231,7 +236,7 @@ story2 = Story.create!(
 )
 
 story2 = Story.create!(
-  user_id: ben.id,
+  user_id: rose.id,
   title: "Story Test Kamylla 2",
   description: "A touching story that gives you a relatable window into the mind of a master Fenk and his companions.",
   text: "Here is where the story doc is kept",
@@ -375,41 +380,41 @@ puts "DONE!"
 
 puts "Making Followers..."
 
-joe.following_relationships.create!(
+adrian.following_relationships.create!(
   follower_id: kon.id
 )
 
-joe.following_relationships.create!(
-  follower_id: ben.id
+adrian.following_relationships.create!(
+  follower_id: rose.id
 )
 
 kim.following_relationships.create!(
-  follower_id: ben.id
+  follower_id: rose.id
 )
 
 kim.following_relationships.create!(
-  follower_id: joe.id
+  follower_id: adrian.id
 )
 
-ben.following_relationships.create!(
+rose.following_relationships.create!(
   follower_id: kim.id
 )
 
-ben.following_relationships.create!(
-  follower_id: joe.id
+rose.following_relationships.create!(
+  follower_id: adrian.id
 )
 
 # For testing duplication of followers
-# ben.following_relationships.create!(
-#   follower_id: joe.id
+# rose.following_relationships.create!(
+#   follower_id: adrian.id
 # )
 
 kon.following_relationships.create!(
-  follower_id: ben.id
+  follower_id: rose.id
 )
 
 kon.following_relationships.create!(
-  follower_id: joe.id
+  follower_id: adrian.id
 )
 
 kon.following_relationships.create!(
@@ -426,7 +431,7 @@ puts "Making Comments..."
   text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
 )
 @story1.comments.create!(
-  user_id: ben.id,
+  user_id: rose.id,
   text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
 )
 

@@ -151,7 +151,7 @@ constructor(){
 
             <Route
             path='/stories/:id'
-            render={(props) => <StoryPage {...props} stories= {this.state.stories} users={this.state.users} />}
+            render={(props) => <StoryPage {...props} stories= {this.state.stories} users={this.state.users} validateUserSession={this.validateUserSession}/>}
             exact />
 
             <Route
