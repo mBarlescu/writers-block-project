@@ -31,6 +31,8 @@ class ReadPage extends Component {
      this.handleStoryLike = this.handleStoryLike.bind(this);
      this.handleStoryUnlike = this.handleStoryUnlike.bind(this);
      this.ifSegmentExistsShowFeedback = this.ifSegmentExistsShowFeedback.bind(this);
+     this.changeColor = this.changeColor.bind(this);
+     this.handleTextareaSubmit = this.handleTextareaSubmit.bind(this);
 
 
     let storyId = props.match.params.id
@@ -50,10 +52,11 @@ class ReadPage extends Component {
   }
 
 
+
   listOfSegments(){
     const segments = this.state.data.segments;
     return segments.map((segment, index) => {
-      return <ReadPageText onClick={this.selectSegment} text={segment.text} segmentId={segment.id} key={segment.id} />
+      return <ReadPageText changeColor={this.changeColor} onClick={this.selectSegment} text={segment.text} segmentId={segment.id} key={segment.id} />
 
     })
   }
@@ -87,10 +90,13 @@ class ReadPage extends Component {
     console.log('event state', this.state)
   }
 
-  // changeColor(){
-  //   const selectedSegmentState = this.state.selectedSegment;
-
-  // }
+  changeColor(segment){
+    const selectedSegmentState = this.state.selectedSegment;
+    if (selectedSegmentState === segment) {
+      return "steelblue";
+    }
+    return "";
+  }
 
   getFeedBack(){
     const selectedSegmentState = this.state.selectedSegment
@@ -122,9 +128,14 @@ class ReadPage extends Component {
     });
   };
 
+  handleTextareaSubmit(){
+
+    document.getElementById("form_chooser").value = "";
+
+  }
+
   handleSubmit(event){
     event.preventDefault();
-
   console.log('handling submit', event.target);
   let text = this.state.text;
   let segment_id = this.state.selectedSegment;
@@ -149,6 +160,7 @@ class ReadPage extends Component {
   //   },
   // }
   this.refreshFeedback(res.data)
+  this.handleTextareaSubmit();
   console.log('PLEASE', this.state)
 
 
@@ -308,16 +320,15 @@ class ReadPage extends Component {
   ifSegmentExistsShowFeedback(){
     if (this.state.selectedSegment){
       return(
-      <div className='col-4 test-col'>
-          <form>
-            <textarea onChange={this.handleChange}>
+      <div className='col-4 feedback-area'>
+          <form onSubmit={this.handleTextareaSubmit}>
+            <textarea id="form_chooser" refs='notes' className='textarea-feedback' onChange={this.handleChange} onSubmit={this.handleTextareaSubmit}>
             </textarea>
             <br />
-            <button type='submit' onClick={this.handleSubmit}>
+            <button className='btn btn-secondary commentButton-feedback' type='submit' onClick={this.handleSubmit}>
             Comment
             </button>
           </form>
-          <br />
           <br />
         {this.showFeedBack()}
       </div>
@@ -335,7 +346,7 @@ class ReadPage extends Component {
       <br />
       <br />
       {this.state.selectedSegment ? <div className='row'>
-        <div className='col-8 test-col'>
+        <div className='col-8 readpage-header'>
           <h5> {this.state.data.author.first_name} {this.state.data.author.last_name} </h5>
             <span className='title-readpage'> {this.state.data.story.title} </span>
             <span className='likes-readpage'>Likes: {this.state.data.number_of_likes.number} </span>
@@ -349,7 +360,7 @@ class ReadPage extends Component {
       </div>
       :
       <div className='row'>
-        <div className='col-12 test-col'>
+        <div className='col-12 readpage-header'>
           <h5> {this.state.data.author.first_name} {this.state.data.author.last_name} </h5>
             <span className='title-readpage'> {this.state.data.story.title} </span>
             <span className='likes-readpage'>Likes: {this.state.data.number_of_likes.number} </span>

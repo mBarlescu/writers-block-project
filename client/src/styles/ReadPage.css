@@ -23,17 +23,63 @@ i.unlike:hover{
   background-color: #F2F2F2 ;
 }
 
-/*.selectedSegment:active {
-  color:red;
-}*/
-
-/*.selectedSegment:active {
-  color: red;
-}
-.selectedSegment:focus {
-  color: red;
-}*/
 div:focus{
   color:steelblue;
   outline: none;
+}
+
+
+.createdAt-readpage{
+
+}
+
+.feedback-div{
+
+}
+
+.feedback-name{
+
+}
+
+.feedback-text{
+
+}
+
+.readpage-header{
+
+}
+
+.title-readpage{
+
+}
+
+.likes-readpage{
+
+}
+
+.selectedSegment{
+
+}
+
+.feedback-area{
+  background-color: #F2F2F2;
+  border-radius: 10px;
+}
+
+.textarea-feedback{
+  margin:15px;
+  width: 319px;
+  height: 120px;
+}
+
+.commentButton-feedback{
+  background-color: #D3D3D3;
+  color:#585858;
+  margin-left: 15px;
+}
+
+
+.commentButton-feedback:hover{
+  color:grey;
+  background-color: white;
 }

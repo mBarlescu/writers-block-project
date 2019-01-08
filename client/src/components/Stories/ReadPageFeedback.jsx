@@ -74,10 +74,16 @@ class ReadPageFeedback extends Component {
 
   render() {
     return(
-      <div>
-        {this.props.author.first_name} {this.props.author.last_name}: {this.props.text}
+      <div className='feedback-div'>
+        <span className='feedback-name'>
+          {this.props.author.first_name} {this.props.author.last_name}: </span>
+        <span className='feedback-text'>
+          {this.props.text}
+        </span>
         <br />
-        {this.timeSince(this.props.created)}
+        <span className='createdAt-readpage'>
+          {this.timeSince(this.props.created)}
+        </span>
         <br />
         <br />
       </div>
