@@ -3,6 +3,7 @@ import axios from 'axios';
 import Story from './_StoryCard'
 import PopularStoriesCarousel from '../Home/_PopularStoriesCarousel'
 import NewestStoriesCarousel from '../Home/_NewestStoriesCarousel'
+import { Redirect } from "react-router-dom";
 import { 
   Carousel,
   CarouselItem,
@@ -28,6 +29,7 @@ class Home extends Component {
       stories: {
         popular_stories: [],
         newest_stories: []
+        
       }
       
     };    
@@ -40,6 +42,10 @@ class Home extends Component {
 
   }
 
+
+
+
+
  
   render() {
   
@@ -48,16 +54,23 @@ class Home extends Component {
   
     return (
       <Container>
-        <Row  style={{marginTop:60}}>
+        <br />
+        <br />
+        <br />
+        <Row>
           <h4>Popular Stories</h4>
         </Row>
-        <Row style={{marginTop:30}}>
+        <Row style={{marginTop:20}}>
           <PopularStoriesCarousel stories={popularStories}/>
         </Row>
-        <Row style={{marginTop:60}}>
+        <br />
+        <div className="pb-2 mt-4 mb-2 border-bottom">
+        </div>
+        <br />
+        <Row >
           <h4>Newest Stories</h4>
         </Row>
-        <Row style={{marginTop:30}}>
+        <Row style={{marginTop:20}}>
           <NewestStoriesCarousel stories={newestStories}/>
         </Row>
       </Container>
