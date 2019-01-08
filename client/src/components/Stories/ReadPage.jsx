@@ -53,7 +53,7 @@ class ReadPage extends Component {
   listOfSegments(){
     const segments = this.state.data.segments;
     return segments.map((segment, index) => {
-      return <ReadPageText onClick={this.selectSegment} text={segment.text} segmentId={segment.id} key={index} />
+      return <ReadPageText onClick={this.selectSegment} text={segment.text} segmentId={segment.id} key={segment.id} />
 
     })
   }
