@@ -169,8 +169,13 @@ class NewStory extends Component {
               });
               }}>
             </FilePond>
+            <br/>
 
-          <Button type="submit">Submit</Button>
+          <Button className='btn btn-secondary submitStoryButton'type="submit">Submit</Button>
+          <br />
+          <br />
+          <br />
+          
         </form>
       </div>
     )

@@ -23,7 +23,8 @@ class StoryPage extends Component {
           user_liked_story: {},
         },
         text:"",
-        comments: []
+        comments: [],
+        loggedIn: false
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,6 +34,10 @@ class StoryPage extends Component {
     this.handleStoryLike = this.handleStoryLike.bind(this);
     this.handleStoryUnlike = this.handleStoryUnlike.bind(this);
     this.routeToRead = this.routeToRead.bind(this);
+    this.renderComment = this.renderComment.bind(this);
+    this.renderHeart = this.renderHeart.bind(this);
+    this.renderCommentTitle = this.renderCommentTitle.bind(this);
+    this.loggedIn = this.loggedIn.bind(this);
     //this.setRedirect = this.setRedirect.bind(this);
     //this.renderRedirect = this.renderRedirect.bind(this);
 
@@ -47,7 +52,7 @@ class StoryPage extends Component {
     .then(res => {
       console.log('working?', res)
       this.setState({data: res.data, comments: res.data.comments})
-      console.log('STATEE', this.state)
+      console.log('STATEE', this.state.comments)
     })
     .catch(err => {
       console.log('error', err)
@@ -57,8 +62,12 @@ class StoryPage extends Component {
 
     this.setState({id: storyId})
 
-    console.log('STATE HERE', this.state)
+    this.props.validateUserSession(()=> this.loggedIn());
 
+  }
+
+  loggedIn () {
+    this.setState({loggedIn: true})
   }
 
 
@@ -78,8 +87,42 @@ renderRedirect = () => {
 } */
 
 
+
 setComments = (data) => {
   this.setState({comments: data})
+}
+
+renderComment() {
+  if (this.state.loggedIn) {
+    return(
+        <form>
+          <textarea className='comments-textarea-storypage' value={this.state.text} onChange={this.handleChange} type='comments' name='comments' />
+          <br />
+          <button className='btn btn-secondary storypage-commentButton' type='submit' onClick={this.handleSubmit}> Comment </button>
+        </form>
+      );
+  }
+}
+
+renderCommentTitle() {
+  if(this.state.comments.length != 0 || this.state.loggedIn ) {
+    return (
+      <h2> Comments </h2>
+    )
+  }
+}
+
+renderHeart() {
+  if (this.state.loggedIn) {
+    if(this.state.data.user_liked_story.boolean) {
+     return(
+      <i className="fas fa-heart unlike uni-heart" onClick={this.handleStoryUnlike}></i>
+     )
+     } else {
+    return(
+      <i className="fas fa-heart like uni-heart" onClick={this.handleStoryLike}></i>
+    )}
+  }
 }
 
 listOfGenres() {
@@ -300,21 +343,15 @@ handleStoryUnlike(event){
                 <br />
                 <br />
                 <span className='likes-readpage'>Likes: {this.state.data.number_of_likes.number} </span>
-                {this.state.data.user_liked_story.boolean ? <i className="fas fa-heart unlike uni-heart" onClick={this.handleStoryUnlike}></i>  : <i className="fas fa-heart like uni-heart" onClick={this.handleStoryLike}></i>}
-
+                {this.renderHeart()} 
               </div>
             </div>
 
             <div className='row'>
               <div className='col-12 my-col comments-story-page'>
                 <hr className="storyPage-hr" />
-                <h2> Comments </h2>
-                <form>
-                  <textarea className='comments-textarea-storypage' value={this.state.text} onChange={this.handleChange} type='comments' name='comments' />
-                  <br />
-                  <button className='btn btn-secondary storypage-commentButton' type='submit' onClick={this.handleSubmit}> Comment </button>
-                </form>
-
+                  {this.renderCommentTitle()}
+                  {this.renderComment()}
                   {this.listOfComments()}
 
               </div>

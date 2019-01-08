@@ -106,6 +106,17 @@
   text-align: left;
 }
 
+.submitStoryButton{
+  background-color: #D3D3D3;
+  color:#585858;
+  margin-left: 1000px;
+}
+
+.submitStoryButton:hover{
+  color:grey;
+  background-color: white;
+}
+
 
 
 .other-works{
@@ -144,6 +155,35 @@
 .title-readpage{
   font-weight: 600;
 }
+
+.titletest{
+  font-weight: 600;
+  color: #444;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.titleHome{
+  font-weight: 550;
+  color: #444;
+  line-height: 24px;
+}
+
+.subtitleHome{
+  color:#C0C0C0;
+  line-height: 24px;
+}
+
+.fonthomeauthor{
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.fonthometime{
+  font-size: 12px;
+  line-height: 24px;
+}
+
 
 body{
   font-family: 'Raleway', sans-serif;

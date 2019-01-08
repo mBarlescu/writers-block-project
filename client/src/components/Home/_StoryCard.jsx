@@ -71,15 +71,15 @@ class StoryCard extends Component {
     return (
       <Col sm="3" className=" d-flex align-items-stretc">
         <Card>
-        <CardBody>
+        <CardBody >
         
-        <CardTitle style={{height: 30}}><NavLink  className='title' to={this.navLinkToStory()}>{this.props.story.title}</NavLink></CardTitle>
+        <CardTitle className="text-center" style={{height: 15}}><NavLink  className='titletest' to={this.navLinkToStory()}>{this.props.story.title}</NavLink></CardTitle>
         </CardBody>
           <CardImg top width="100%" height="180px" src={this.props.story.image} alt="Card image cap"/>
-          <CardBody>
-            <CardText><NavLink to={this.navLinkToUser()}>by {this.props.story.first_name}  {this.props.story.last_name}</NavLink></CardText>
+          <CardBody >
+            <CardText style={{height: 5}}><NavLink className="fonthomeauthor" to={this.navLinkToUser()}>by {this.props.story.first_name}  {this.props.story.last_name}</NavLink></CardText>
             <CardText>
-              <small className="text-muted">{this.timeSince(this.props.story.created_at)} </small>
+              <small className="text-muted fonthometime">{this.timeSince(this.props.story.created_at)} </small>
             </CardText>
           </CardBody>
         </Card>
