@@ -1,0 +1,108 @@
+i.like{
+  color: #D3D3D3;
+}
+
+i.unlike{
+  color: red;
+}
+
+i.like:hover {
+  color: red;
+}
+
+i.unlike:hover{
+  color: #D3D3D3;
+}
+
+.storyPage-hr {
+  margin-right: 25px;
+}
+
+.readMe{
+  margin-left: 100px;
+  background-color: #D3D3D3;
+  color: #585858;
+}
+
+.storypage-commentButton{
+  background-color: #D3D3D3;
+  color:#585858;
+  margin-left: 410px;
+}
+
+.storypage-commentButton:hover{
+  color:grey;
+  background-color: white;
+}
+
+.navToRead{
+  color: #585858;
+}
+
+.storypage-header{
+padding: 10px;
+}
+
+.storyPage-img{
+
+}
+
+.storyPage-description{
+
+}
+
+.storyPage-author{
+
+}
+
+.storyPage-inner-description{
+
+}
+
+.storyPage-genre{
+font-weight: 600;
+}
+
+.readMe:hover{
+background-color:white;
+}
+
+.readMe:hover .navToRead{
+  /*border-width: 4px;*/
+  color: grey;
+}
+
+.likes-readpage{
+font-size: 25px;
+}
+
+.uni-heart{
+font-size: 30px;
+margin-left: 15px;
+}
+
+.comments-textarea-storypage{
+
+}
+
+.comments-textarea-storypage{
+
+}
+
+.commentName-storypage{
+
+}
+
+
+.comments-story-page{
+  padding: 20px;
+}
+
+.commentText-storypage{
+
+}
+
+.createdAt-storypage{
+font-size: 13px;
+color: grey;
+}

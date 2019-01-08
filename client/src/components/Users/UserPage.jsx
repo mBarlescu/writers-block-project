@@ -204,7 +204,7 @@ getAuthorImage(){
             <br />
 
 
-            <span>Followers: {this.state.data.number_of_followers.number}</span>
+            <span className='followers'>Followers: {this.state.data.number_of_followers.number}</span>
             <br />
             <br />
 

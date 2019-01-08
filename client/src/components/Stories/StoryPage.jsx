@@ -3,7 +3,9 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import ReadPage from './ReadPage'
 import { NavLink } from 'react-router-dom';
+
 import '../../styles/StoryPage.css'
+
 
 
 class StoryPage extends Component {
@@ -30,6 +32,7 @@ class StoryPage extends Component {
     this.setComments = this.setComments.bind(this);
     this.handleStoryLike = this.handleStoryLike.bind(this);
     this.handleStoryUnlike = this.handleStoryUnlike.bind(this);
+    this.routeToRead = this.routeToRead.bind(this);
     //this.setRedirect = this.setRedirect.bind(this);
     //this.renderRedirect = this.renderRedirect.bind(this);
 
@@ -122,9 +125,12 @@ listOfComments(){
   return comments.map((comment, index) => {
     return <div>
               <span className='commentName-storypage'>{comment.first_name} {comment.last_name}: </span>
-              <span>{comment.text}</span>
+              <span className='commentText-storypage'>{comment.text}</span>
+              <div className='createdAt-storypage'>
+                {this.timeSince(comment.created_at)}
+              </div>
               <br />
-              <br />
+
             </div>
   })
 }
@@ -229,6 +235,38 @@ handleStoryUnlike(event){
         console.log('RES STORY LIKES', this.state)
   }
 
+  timeSince(date) {
+    let stringToDate = new Date(date);
+    let seconds = Math.floor((new Date() - stringToDate) / 1000);
+    let interval = Math.floor(seconds / 31536000);
+
+    if (interval > 1) {
+      return interval + " years ago";
+    }
+    interval = Math.floor(seconds / 2592000);
+    if (interval > 1) {
+      return interval + " months ago";
+    }
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+      return interval + " days ago";
+    }
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+      return interval + " hours ago";
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+      return interval + " minutes ago";
+    }
+    return Math.floor(seconds) + " seconds ago";
+  }
+
+  routeToRead(){
+   this.props.history.push(this.navLinkToRead())
+  }
+
+
 
   render(){
 
@@ -237,40 +275,44 @@ handleStoryUnlike(event){
         <br />
         <br />
         <br />
+
         <div className='row'>
-          <div className='col-12 my-col'>
-            <div className='header row'>
-              <div className='col-3 my-col-img'>
+
+            <div className='storypage-header row'>
+              <div className='col-3 storyPage-img'>
                 <img className='img-cover' src={this.state.data.story.image} />
               </div>
-              <div className='col-9 my-col-description'>
+              <div className='col-9 storyPage-description'>
                 <NavLink className='title' to={this.navLinkToRead()}>{this.state.data.story.title}</NavLink>
+                <button onclick={this.routeToRead} type='button' className='btn btn-secondary readMe'>
+                 <NavLink className='navToRead' to={this.navLinkToRead()}>Read Me</NavLink>
+                </button>
                 <br />
-                <NavLink className='author' to={this.navLinkToUser()}>by {this.state.data.author.first_name} {this.state.data.author.last_name}</NavLink>
+                <NavLink className='storyPage-author' to={this.navLinkToUser()}>by {this.state.data.author.first_name} {this.state.data.author.last_name}</NavLink>
                 <br />
-                <span className='description'>
+                <span className='storyPage-inner-description'>
                   {this.state.data.story.description}
                 </span>
                 <br />
-                <span className='genre'>
+                <span className='storyPage-genre'>
                   Genre: {this.listOfGenres()}
                 </span>
-                <button>
-                 <NavLink to={this.navLinkToRead()}>Read</NavLink>
-                </button>
                 <br />
                 <br />
                 <span className='likes-readpage'>Likes: {this.state.data.number_of_likes.number} </span>
-                {this.state.data.user_liked_story.boolean ? <i className="fas fa-heart unlike" onClick={this.handleStoryUnlike}></i>  : <i className="fas fa-heart like" onClick={this.handleStoryLike}></i>}
+                {this.state.data.user_liked_story.boolean ? <i className="fas fa-heart unlike uni-heart" onClick={this.handleStoryUnlike}></i>  : <i className="fas fa-heart like uni-heart" onClick={this.handleStoryLike}></i>}
 
               </div>
             </div>
+
             <div className='row'>
               <div className='col-12 my-col comments-story-page'>
+                <hr className="storyPage-hr" />
                 <h2> Comments </h2>
                 <form>
                   <textarea className='comments-textarea-storypage' value={this.state.text} onChange={this.handleChange} type='comments' name='comments' />
-                  <button type='submit' onClick={this.handleSubmit}> Comment </button>
+                  <br />
+                  <button className='btn btn-secondary storypage-commentButton' type='submit' onClick={this.handleSubmit}> Comment </button>
                 </form>
 
                   {this.listOfComments()}
@@ -279,7 +321,7 @@ handleStoryUnlike(event){
             </div>
           </div>
         </div>
-      </div>
+
     )
   }
 }
