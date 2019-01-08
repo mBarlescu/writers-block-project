@@ -19,11 +19,16 @@ class UsersPage extends Component {
         number_of_followers: {},
         relationship: {},
         is_following: {},
-      }
+      },
+      loggedIn: false
     }
 
     this.handleUserFollow = this.handleUserFollow.bind(this);
     this.handleUserUnfollow = this.handleUserUnfollow.bind(this);
+    this.loggedIn = this.loggedIn.bind(this);
+    this.renderPlusFollow = this.renderPlusFollow.bind(this);
+
+    this.props.validateUserSession(()=> this.loggedIn());
 
   let userId = props.match.params.id
   const userIdInt = Number.parseInt(userId)
@@ -39,6 +44,10 @@ axios.get(`http://localhost:3000/api/users/${userId}`)
 })
 
 
+}
+
+loggedIn () {
+  this.setState({loggedIn: true})
 }
 
 getAuthorImage(){
@@ -177,7 +186,21 @@ getAuthorImage(){
   navLinkToDrafts() {
     console.log('WHAT IS THE STATE HERE???', this.state)
   return `/users/${this.state.data.author.id}/drafts`
-}
+  }
+
+  renderPlusFollow() {
+    if (this.state.loggedIn) {
+      if (this.state.data.is_following.boolean) {
+        return(
+          <i className="fas fa-plus unfollow uni" onClick={this.handleUserUnfollow}></i>
+        );
+      }else {
+        return(
+          <i className="fas fa-plus follow uni" onClick={this.handleUserFollow}></i>
+          );
+      } 
+    }
+  }
 
   render(){
     return (
@@ -193,7 +216,7 @@ getAuthorImage(){
             <h2 className='author-name-userpage'>
               {this.state.data.author.first_name} {this.state.data.author.last_name}
             </h2>
-            {this.state.data.is_following.boolean ? <i className="fas fa-plus unfollow uni" onClick={this.handleUserUnfollow}></i> : <i className="fas fa-plus follow uni" onClick={this.handleUserFollow}></i>}
+            {this.renderPlusFollow()}
             <br />
             <br />
             <div className='description-userpage'>

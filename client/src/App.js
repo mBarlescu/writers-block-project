@@ -132,7 +132,7 @@ constructor(){
 
             <Route
             path='/users'
-            render={(props) => <Users {...props} stories={this.state.stories} users={this.state.users} />}
+            render={(props) => <Users {...props}  users={this.state.users} />}
             exact/>
 
             <Route
@@ -142,7 +142,7 @@ constructor(){
 
             <Route
             path='/users/:id'
-            render={(props) => <UserPage {...props} stories={this.state.stories} users={this.state.users} /> }
+            render={(props) => <UserPage {...props} validateUserSession={this.validateUserSession} /> }
             exact />
 
             <Route
@@ -153,12 +153,12 @@ constructor(){
 
             <Route
             path='/stories/new'
-            render={(props) => <NewStory {...props} stories= {this.state.stories} users={this.state.users} />}
+            render={(props) => <NewStory {...props}  />}
             exact />
 
             <Route
             path='/stories/:id'
-            render={(props) => <StoryPage {...props} stories= {this.state.stories} users={this.state.users} validateUserSession={this.validateUserSession}/>}
+            render={(props) => <StoryPage {...props}  validateUserSession={this.validateUserSession}/>}
             exact />
 
             <Route
@@ -178,7 +178,7 @@ constructor(){
 
             <Route
             path='/stories/:id/edit'
-            render={(props)=> <EditPage {...props} stories={this.state.stories} users={this.state.users} />}
+            render={(props)=> <EditPage {...props}  />}
             exact />
 
             <Route
