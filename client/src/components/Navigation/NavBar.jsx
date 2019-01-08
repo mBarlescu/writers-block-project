@@ -92,7 +92,6 @@ class NavBar extends Component {
   }
 
    navLinkToDrafts() {
-    console.log('WHAT IS THE STATE HERE???', this.state)
   return `/users/${this.props.currentUser.id}/drafts`
 }
 
@@ -110,7 +109,7 @@ class NavBar extends Component {
                 <NavLink className='nav-link' to="/users">Authors</NavLink>
               </li>
               <li className='nav-item'>
-                <NavLink className='nav-link' to={this.navLinkToDrafts()}>Drafts</NavLink>
+                <NavLink className='nav-link' to={this.navLinkToDrafts()}> MyDrafts</NavLink>
               </li>
               {this.renderCreate()}
 
