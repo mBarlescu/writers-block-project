@@ -26,6 +26,7 @@ import CreateStory from './components/Stories/CreateStory';
 import UpdateStory from './components/Stories/UpdateStory';
 import ReadPage from './components/Stories/ReadPage';
 import Login from './components/Login/Login';
+import FindByGenre from './components/FindByGenre/FindByGenre';
 
 
 class App extends Component {
@@ -145,6 +146,12 @@ constructor(){
             exact />
 
             <Route
+            path='/genres/:id'
+            render={(props) => <FindByGenre {...props} /> }
+            exact />
+      
+
+            <Route
             path='/stories/new'
             render={(props) => <NewStory {...props} stories= {this.state.stories} users={this.state.users} />}
             exact />
@@ -176,7 +183,7 @@ constructor(){
 
             <Route
             path='/stories/:id/read'
-            render={(props)=> <ReadPage {...props} stories={this.state.stories} users={this.state.users} />}
+            render={(props)=> <ReadPage {...props} validateUserSession={this.validateUserSession} />}
             exact />
 
             <Route component={Error} />

@@ -20,7 +20,8 @@ class CreateStory extends Component {
     this.handlePublish = this.handlePublish.bind(this);
     this.setRedirect = this.setRedirect.bind(this);
     this.renderRedirect = this.renderRedirect.bind(this);
-
+    this.navLinkToStoryUpdate = this.navLinkToStoryUpdate.bind(this);
+    
     this.props.validateUserSession(()=>{},()=> this.setRedirect());
 
 
@@ -58,6 +59,14 @@ class CreateStory extends Component {
       return <Redirect to='/login' />
     }
   }
+
+
+  
+  navLinkToStoryUpdate() {
+    return `/stories/${this.state.story.id}/update`
+  }
+
+  
 
    handleChange(event) {
     this.setState({ text: event.target.value });
@@ -100,8 +109,7 @@ class CreateStory extends Component {
   return `/stories/${this.state.story.id}`
 }
 
-
-
+ 
 
   render(){
 
@@ -114,9 +122,12 @@ class CreateStory extends Component {
           <br />
           <br />
         <form className='form-create-page' >
+        <button type='submit'>
+          <NavLink className="buttonEditCreatePage" to={this.navLinkToStoryUpdate()}>Edit Story</NavLink>
+        </button>
         <button type='submit' onClick={this.handleSubmit}>Save</button>
         <button type='submit' onClick={this.handlePublish}>
-          <NavLink className='title' to={this.navLinkToStory()}>Publish</NavLink>
+          <NavLink className='buttonEditCreatePage' to={this.navLinkToStory()}>Publish</NavLink>
         </button>
           <div className="form-group">
 

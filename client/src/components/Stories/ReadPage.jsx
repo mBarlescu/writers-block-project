@@ -22,6 +22,7 @@ class ReadPage extends Component {
       selectedSegment: 0,
       feedback: [],
       text: "",
+      loggedIn: false
     }
 
      this.selectSegment = this.selectSegment.bind(this);
@@ -33,12 +34,17 @@ class ReadPage extends Component {
      this.ifSegmentExistsShowFeedback = this.ifSegmentExistsShowFeedback.bind(this);
      this.changeColor = this.changeColor.bind(this);
      this.handleTextareaSubmit = this.handleTextareaSubmit.bind(this);
+     this.loggedIn = this.loggedIn.bind(this);
+     this.renderFeedbackForm = this.renderFeedbackForm.bind(this);
+     this.renderHeart = this.renderHeart.bind(this);
 
 
     let storyId = props.match.params.id
     const storyIdInt = Number.parseInt(storyId)
     console.log(props)
     console.log(storyId)
+
+    this.props.validateUserSession(()=> this.loggedIn());
 
     axios.get(`http://localhost:3000/api/stories/${storyId}/segments`)
     .then(res => {
@@ -51,6 +57,9 @@ class ReadPage extends Component {
     })
   }
 
+  loggedIn () {
+    this.setState({loggedIn: true})
+  }
 
 
   listOfSegments(){
@@ -317,22 +326,47 @@ class ReadPage extends Component {
         console.log('RES STORY LIKES', this.state)
   }
 
+  renderFeedbackForm() {
+    if (this.state.loggedIn) {
+      return(
+        <form onSubmit={this.handleTextareaSubmit}>
+          <textarea id="form_chooser" refs='notes' className='textarea-feedback' onChange={this.handleChange} onSubmit={this.handleTextareaSubmit}>
+          </textarea>
+          <br />
+          <button className='btn btn-secondary commentButton-feedback' type='submit' onClick={this.handleSubmit}>
+            Comment
+          </button>
+        </form> 
+        );
+    }
+  }
+
   ifSegmentExistsShowFeedback(){
     if (this.state.selectedSegment){
       return(
       <div className='col-4 feedback-area'>
-          <form onSubmit={this.handleTextareaSubmit}>
-            <textarea id="form_chooser" refs='notes' className='textarea-feedback' onChange={this.handleChange} onSubmit={this.handleTextareaSubmit}>
-            </textarea>
-            <br />
-            <button className='btn btn-secondary commentButton-feedback' type='submit' onClick={this.handleSubmit}>
-            Comment
-            </button>
-          </form>
+          {this.renderFeedbackForm()}
           <br />
         {this.showFeedBack()}
       </div>
       )
+    }
+  }
+
+
+ 
+
+  renderHeart() {
+    if (this.state.loggedIn) {
+      if (this.state.data.user_liked_story.boolean) {
+        return(
+         <i className="fas fa-heart unlike uni-heart-read" onClick={this.handleStoryUnlike}></i>
+        );
+      }else {
+        return(
+          <i className="fas fa-heart like uni-heart-read" onClick={this.handleStoryLike}></i>
+        );
+      }
     }
   }
 
@@ -350,8 +384,7 @@ class ReadPage extends Component {
           <h5> {this.state.data.author.first_name} {this.state.data.author.last_name} </h5>
             <span className='title-readpage'> {this.state.data.story.title} </span>
             <span className='likes-readpage'>Likes: {this.state.data.number_of_likes.number} </span>
-            {this.state.data.user_liked_story.boolean ? <i className="fas fa-heart unlike uni-heart-read" onClick={this.handleStoryUnlike}></i>  : <i className="fas fa-heart like uni-heart-read" onClick={this.handleStoryLike}></i>}
-
+            {this.renderHeart()}
             <br />
             <br />
             {this.listOfSegments()}
@@ -364,8 +397,7 @@ class ReadPage extends Component {
           <h5> {this.state.data.author.first_name} {this.state.data.author.last_name} </h5>
             <span className='title-readpage'> {this.state.data.story.title} </span>
             <span className='likes-readpage'>Likes: {this.state.data.number_of_likes.number} </span>
-            {this.state.data.user_liked_story.boolean ? <i className="fas fa-heart unlike uni-heart-read" onClick={this.handleStoryUnlike}></i>  : <i className="fas fa-heart like uni-heart-read" onClick={this.handleStoryLike}></i>}
-
+            {this.renderHeart()}
             <br />
             <br />
             {this.listOfSegments()}

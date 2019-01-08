@@ -35,8 +35,8 @@ class Api::GenresController < ApplicationController
 
   # GET api/genres/1/stories
   def stories
-    @stories_by_genre = Story.find_published_stories_by_genre(params[:id])
-    render json: @stories_by_genre
+    @genre = Genre.find(params[:id])
+    @stories = Story.find_published_stories_by_genre(params[:id])
   end
 
   # DELETE /genres/1

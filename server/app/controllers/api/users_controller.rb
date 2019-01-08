@@ -13,8 +13,8 @@ class Api::UsersController < ApplicationController
       @stories = Story.find_published_stories_by_user(@user.id)
       @relationship = Relationship.new
       @is_following = false
-      @temp_relationship = Relationship.where(following_id: @user.id, follower_id:current_user.id)
-      if current_user &&  !@temp_relationship.empty?
+      @temp_relationship = Relationship.where(following_id: @user.id, follower_id:current_user.id) if current_user
+      if current_user && !@temp_relationship.empty?
         @relationship = @temp_relationship.first
         @is_following = true
       end
