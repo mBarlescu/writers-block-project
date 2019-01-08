@@ -60,6 +60,8 @@ class ReadPage extends Component {
 
   selectSegment(event){
     console.log('event here', event.props.segmentId)
+    console.log('WHAT IS THE EVENT RIGHT FFFF HERE', event.target)
+    // event.pstyle={color: "red"};
     this.state = {
           data: {
           ...this.state.data,
@@ -80,9 +82,15 @@ class ReadPage extends Component {
     // this.setState({selectedSegment: event.props.segmentId}, function (){
     //     console.log('updated state', this.state);
         this.getFeedBack()
+        // this.changeColor(event)
       // });
     console.log('event state', this.state)
   }
+
+  // changeColor(){
+  //   const selectedSegmentState = this.state.selectedSegment;
+
+  // }
 
   getFeedBack(){
     const selectedSegmentState = this.state.selectedSegment
@@ -103,7 +111,7 @@ class ReadPage extends Component {
     if(this.state.feedback){
     const feedback = this.state.feedback;
     return feedback.map((eachFeedBack, index) => {
-      return <ReadPageFeedback id={eachFeedBack.id} likes={eachFeedBack.number_of_likes} text= {eachFeedBack.text} created={eachFeedBack.created_at} author={this.state.data.author} />
+      return <ReadPageFeedback key={eachFeedBack.id} id={eachFeedBack.id} likes={eachFeedBack.number_of_likes} text= {eachFeedBack.text} created={eachFeedBack.created_at} author={this.state.data.author} />
     })
   }
   }

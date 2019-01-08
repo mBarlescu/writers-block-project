@@ -22,3 +22,18 @@ i.unlike:hover{
 .eachStory{
   background-color: #F2F2F2 ;
 }
+
+/*.selectedSegment:active {
+  color:red;
+}*/
+
+/*.selectedSegment:active {
+  color: red;
+}
+.selectedSegment:focus {
+  color: red;
+}*/
+div:focus{
+  color:steelblue;
+  outline: none;
+}

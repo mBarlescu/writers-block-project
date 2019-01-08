@@ -19,7 +19,7 @@ class ReadPageText extends Component {
 
   render() {
     return(
-      <div onClick={this.props.onClick.bind(null, this)}>
+      <div tabindex={this.props.segmentId} className='selectedSegment' onClick={this.props.onClick.bind(null, this)}>
         {this.props.text}
         <br />
         <br />
