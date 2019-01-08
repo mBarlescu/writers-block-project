@@ -350,7 +350,7 @@ class ReadPage extends Component {
           <h5> {this.state.data.author.first_name} {this.state.data.author.last_name} </h5>
             <span className='title-readpage'> {this.state.data.story.title} </span>
             <span className='likes-readpage'>Likes: {this.state.data.number_of_likes.number} </span>
-            {this.state.data.user_liked_story.boolean ? <i className="fas fa-heart unlike" onClick={this.handleStoryUnlike}></i>  : <i className="fas fa-heart like" onClick={this.handleStoryLike}></i>}
+            {this.state.data.user_liked_story.boolean ? <i className="fas fa-heart unlike uni-heart-read" onClick={this.handleStoryUnlike}></i>  : <i className="fas fa-heart like uni-heart-read" onClick={this.handleStoryLike}></i>}
 
             <br />
             <br />
@@ -364,7 +364,7 @@ class ReadPage extends Component {
           <h5> {this.state.data.author.first_name} {this.state.data.author.last_name} </h5>
             <span className='title-readpage'> {this.state.data.story.title} </span>
             <span className='likes-readpage'>Likes: {this.state.data.number_of_likes.number} </span>
-            {this.state.data.user_liked_story.boolean ? <i className="fas fa-heart unlike" onClick={this.handleStoryUnlike}></i>  : <i className="fas fa-heart like" onClick={this.handleStoryLike}></i>}
+            {this.state.data.user_liked_story.boolean ? <i className="fas fa-heart unlike uni-heart-read" onClick={this.handleStoryUnlike}></i>  : <i className="fas fa-heart like uni-heart-read" onClick={this.handleStoryLike}></i>}
 
             <br />
             <br />

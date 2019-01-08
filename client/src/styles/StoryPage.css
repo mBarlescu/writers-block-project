@@ -24,6 +24,11 @@ i.unlike:hover{
   color: #585858;
 }
 
+.likes-storypage{
+  float: left;
+  font-size: 28px;
+}
+
 .storypage-commentButton{
   background-color: #D3D3D3;
   color:#585858;
@@ -72,8 +77,16 @@ background-color:white;
   color: grey;
 }
 
-.likes-readpage{
-font-size: 25px;
+
+
+.comments-onStorypage{
+  word-wrap: break-word;
+  width: 1000px;
+
+}
+
+.comments-story-page{
+
 }
 
 .uni-heart{
@@ -99,7 +112,7 @@ margin-left: 15px;
 }
 
 .commentText-storypage{
-
+width: 1000px;
 }
 
 .createdAt-storypage{

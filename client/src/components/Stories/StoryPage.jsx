@@ -123,7 +123,7 @@ listOfComments(){
   const comments = this.state.comments;
   console.log("Comments", comments)
   return comments.map((comment, index) => {
-    return <div>
+    return <div className='comments-onStorypage'>
               <span className='commentName-storypage'>{comment.first_name} {comment.last_name}: </span>
               <span className='commentText-storypage'>{comment.text}</span>
               <div className='createdAt-storypage'>
@@ -299,7 +299,7 @@ handleStoryUnlike(event){
                 </span>
                 <br />
                 <br />
-                <span className='likes-readpage'>Likes: {this.state.data.number_of_likes.number} </span>
+                <span className='likes-storypage'>Likes: {this.state.data.number_of_likes.number} </span>
                 {this.state.data.user_liked_story.boolean ? <i className="fas fa-heart unlike uni-heart" onClick={this.handleStoryUnlike}></i>  : <i className="fas fa-heart like uni-heart" onClick={this.handleStoryLike}></i>}
 
               </div>

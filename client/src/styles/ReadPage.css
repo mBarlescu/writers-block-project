@@ -30,15 +30,16 @@ div:focus{
 
 
 .createdAt-readpage{
-
+  color: grey;
+  font-size: 13px;
 }
 
 .feedback-div{
-
+  word-wrap: break-word;
 }
 
 .feedback-name{
-
+  font-weight: 600;
 }
 
 .feedback-text{
@@ -50,11 +51,18 @@ div:focus{
 }
 
 .title-readpage{
-
+  font-size: 30px;
 }
 
 .likes-readpage{
+  float: right;
+  font-size: 28px;
+}
 
+.uni-heart-read{
+  float: right;
+  margin-right: 12px;
+  font-size: 30px;
 }
 
 .selectedSegment{
