@@ -3,6 +3,8 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import ReadPageText from './ReadPageText';
 import ReadPageFeedback from './ReadPageFeedback';
+import ToggleButton from './ToggleButton';
+import '../../styles/ReadPage.css'
 
 class ReadPage extends Component {
   constructor(props) {
@@ -15,6 +17,7 @@ class ReadPage extends Component {
         author: {},
         number_of_likes: {},
         segments_feedbacks: [],
+        user_liked_story: {},
       },
       selectedSegment: 0,
       feedback: [],
@@ -26,6 +29,9 @@ class ReadPage extends Component {
      this.handleChange = this.handleChange.bind(this);
      this.handleSubmit = this.handleSubmit.bind(this);
      this.handleStoryLike = this.handleStoryLike.bind(this);
+     this.handleStoryUnlike = this.handleStoryUnlike.bind(this);
+     this.ifSegmentExistsShowFeedback = this.ifSegmentExistsShowFeedback.bind(this);
+
 
     let storyId = props.match.params.id
     const storyIdInt = Number.parseInt(storyId)
@@ -54,10 +60,27 @@ class ReadPage extends Component {
 
   selectSegment(event){
     console.log('event here', event.props.segmentId)
-    this.setState({selectedSegment: event.props.segmentId}, function (){
-        console.log('updated state', this.state);
+    this.state = {
+          data: {
+          ...this.state.data,
+          },
+          selectedSegment: event.props.segmentId,
+          feedback: this.state.feedback,
+          text: this.state.text,
+
+        }
+        this.setState({
+          data: {
+            ...this.state.data
+          },
+          selectedSegment: this.state.selectedSegment,
+          feedback: this.state.feedback,
+          text: this.state.text,
+        })
+    // this.setState({selectedSegment: event.props.segmentId}, function (){
+    //     console.log('updated state', this.state);
         this.getFeedBack()
-      });
+      // });
     console.log('event state', this.state)
   }
 
@@ -80,7 +103,7 @@ class ReadPage extends Component {
     if(this.state.feedback){
     const feedback = this.state.feedback;
     return feedback.map((eachFeedBack, index) => {
-      return <ReadPageFeedback text= {eachFeedBack.text} created={eachFeedBack.created_at} author={this.state.data.author} />
+      return <ReadPageFeedback id={eachFeedBack.id} likes={eachFeedBack.number_of_likes} text= {eachFeedBack.text} created={eachFeedBack.created_at} author={this.state.data.author} />
     })
   }
   }
@@ -125,23 +148,6 @@ class ReadPage extends Component {
 
   }
 
-  handleStoryLike(event){
-    event.preventDefault();
-    console.log('handling story event', event.target);
-    let storyLikes = this.state.data.number_of_likes;
-
-    let storyId = this.state.data.story.id;
-    console.log('dchecking', storyId)
-
-    let story_id = this.state.data.story.id;
-
-
-    axios.post('http://localhost:3000/api/stories_likes', { story_id })
-      .then(res => {
-        console.log('post to storyLikes', res);
-        console.log('post to storyLikes 2', res.data);
-      })
-  }
 
 
   refreshFeedback(resData){
@@ -191,30 +197,110 @@ class ReadPage extends Component {
   // });
   }
 
+  handleStoryLike(event){
+    event.preventDefault();
+    console.log('handling story event', event.target);
+    let storyLikes = this.state.data.number_of_likes;
+
+    let storyId = this.state.data.story.id;
+    console.log('dchecking', storyId)
+
+    let story_id = this.state.data.story.id;
+
+
+    axios.post('http://localhost:3000/api/stories_likes', { story_id })
+      .then(res => {
+        console.log('post to storyLikes', res);
+        console.log('post to storyLikes 2', res.data);
+        this.refreshStoryLikes(res.data)
+      })
+
+
+  }
+
+  refreshStoryLikes(resData){
+    console.log("WHAT IS THIS RESDATA?", resData)
+    console.log('check state', this.state)
+    this.state = {
+          data: {
+          ...this.state.data,
+          number_of_likes: {
+            number: resData,
+          },
+          user_liked_story: {
+            boolean: true,
+          }
+          },
+          selectedSegment: this.state.selectedSegment,
+          feedback: this.state.feedback,
+          text: this.state.text,
+
+        }
+        this.setState({
+          data: {
+            ...this.state.data
+          },
+          selectedSegment: this.state.selectedSegment,
+          feedback: this.state.feedback,
+          text: this.state.text,
+        })
+        console.log('RES STORY LIKES', this.state)
+        console.log("FIND THE TOOOOOOOOOOOGLE", this.state.data.user_liked_story)
+        console.log('FIND TOgGLE HERE', this.state.data.user_liked_story.boolean)
+  }
+
+  handleStoryUnlike(event){
+    event.preventDefault();
+    console.log('handling story UNLIKE event', event.target);
+    let storyLikes = this.state.data.number_of_likes;
+    let story_id = this.state.data.story.id;
+    console.log('checking state before handling story unlike', this.state)
+    console.log('unlike, story_id', story_id);
+    console.log('storyLikes', storyLikes);
 
 
 
+    axios.delete(`http://localhost:3000/api/stories_likes/${story_id}`)
+      .then(res => {
+        console.log('post to storyLikes', res);
+        console.log('post to storyLikes 2', res.data);
+        console.log('NEW STATE after story UNLIKE', this.state)
+        this.refreshStoryUnlike(res.data)
+      })
+  }
 
+  refreshStoryUnlike(resData){
+    console.log('check state', this.state)
+    this.state = {
+          data: {
+          ...this.state.data,
+          number_of_likes: {
+            number: resData,
+          },
+          user_liked_story: {
+            boolean: false,
+          }
+          },
+          selectedSegment: this.state.selectedSegment,
+          feedback: this.state.feedback,
+          text: this.state.text,
 
+        }
+        this.setState({
+          data: {
+            ...this.state.data
+          },
+          selectedSegment: this.state.selectedSegment,
+          feedback: this.state.feedback,
+          text: this.state.text,
+        })
+        console.log('RES STORY LIKES', this.state)
+  }
 
-  render(){
-
-    return(
-      <div>
-      <br />
-      <br />
-      <br />
-      <div className='row'>
-        <div className='col-8 test-col'>
-          <h5> {this.state.data.author.first_name} {this.state.data.author.last_name} </h5>
-            <span className='title-readpage'> {this.state.data.story.title} </span>
-            <span className='likes-readpage'>Likes: {this.state.data.number_of_likes.number} </span>
-            <button type='submit' onClick={this.handleStoryLike}>Like</button>
-            <br />
-            <br />
-            {this.listOfSegments()}
-        </div>
-        <div className='col-4 test-col'>
+  ifSegmentExistsShowFeedback(){
+    if (this.state.selectedSegment){
+      return(
+      <div className='col-4 test-col'>
           <form>
             <textarea onChange={this.handleChange}>
             </textarea>
@@ -226,9 +312,49 @@ class ReadPage extends Component {
           <br />
           <br />
         {this.showFeedBack()}
+      </div>
+      )
+    }
+  }
+
+
+
+  render(){
+
+    return(
+      <div>
+      <br />
+      <br />
+      <br />
+      {this.state.selectedSegment ? <div className='row'>
+        <div className='col-8 test-col'>
+          <h5> {this.state.data.author.first_name} {this.state.data.author.last_name} </h5>
+            <span className='title-readpage'> {this.state.data.story.title} </span>
+            <span className='likes-readpage'>Likes: {this.state.data.number_of_likes.number} </span>
+            {this.state.data.user_liked_story.boolean ? <i className="fas fa-heart unlike" onClick={this.handleStoryUnlike}></i>  : <i className="fas fa-heart like" onClick={this.handleStoryLike}></i>}
+
+            <br />
+            <br />
+            {this.listOfSegments()}
         </div>
+        {this.ifSegmentExistsShowFeedback()}
       </div>
+      :
+      <div className='row'>
+        <div className='col-12 test-col'>
+          <h5> {this.state.data.author.first_name} {this.state.data.author.last_name} </h5>
+            <span className='title-readpage'> {this.state.data.story.title} </span>
+            <span className='likes-readpage'>Likes: {this.state.data.number_of_likes.number} </span>
+            {this.state.data.user_liked_story.boolean ? <i className="fas fa-heart unlike" onClick={this.handleStoryUnlike}></i>  : <i className="fas fa-heart like" onClick={this.handleStoryLike}></i>}
+
+            <br />
+            <br />
+            {this.listOfSegments()}
+        </div>
+        {this.ifSegmentExistsShowFeedback()}
       </div>
+    }
+    </div>
     )
   }
 }
