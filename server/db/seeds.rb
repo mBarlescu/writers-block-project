@@ -650,170 +650,543 @@ GenreStory.create!(
 )
 
 
+hope_tragedy =Story.create!(
+  user_id: rose.id,
+  title: "Hope: A Tragedy",
+  description: "At the start of Shalom Auslander’s staggeringly nervy new novel Hope: A Tragedy, a doleful Jewish non-farmer named Solomon Kugel climbs fearfully into the attic of his recently acquired farmhouse.",
+  text: "It was the hunter's first time outside Montana. He woke, stricken still with the hours-old vision of ascending through rose-lit cumulus, of houses and barns like specks deep in the snowed-in valleys, all the scrolling country below looking December—brown and black hills streaked with snow, flashes of iced-over lakes, the long braids of a river gleaming at the bottom of a canyon. Above the wing the sky had deepened to a blue so pure he knew it would bring tears to his eyes if he looked long enough.
+  
+  Now it was dark. The airplane descended over Chicago, its galaxy of electric lights, the vast neighborhoods coming clearer as the plane glided toward the airport—streetlights, headlights, stacks of buildings, ice rinks, a truck turning at a stoplight, scraps of snow atop a warehouse and winking antennae on faraway hills, finally the long converging parallels of blue runway lights, and they were down.
 
+  He walked into the airport, past the banks of monitors. Already he felt as if he'd lost something, some beautiful perspective, some lovely dream fallen away. He had come to Chicago to see his wife, whom he had not seen in twenty years. She was there to perform her magic for a higher-up at the state university. Even universities, apparently, were interested in what she could do. Outside the terminal the sky was thick and gray and hurried by wind. Snow was coming. A woman from the university met him and escorted him to her Jeep. He kept his gaze out the window.
+  
+  They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?
 
+  Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.
 
+  But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.
+  ",
+  image: "http://positivepsychology.org.uk/wp-content/uploads/2009/10/hope-min.jpg",
+  published: true
+)
 
+hope_tragedy.segments.create!(
+  text: "It was the hunter's first time outside Montana. He woke, stricken still with the hours-old vision of ascending through rose-lit cumulus, of houses and barns like specks deep in the snowed-in valleys, all the scrolling country below looking December—brown and black hills streaked with snow, flashes of iced-over lakes, the long braids of a river gleaming at the bottom of a canyon. Above the wing the sky had deepened to a blue so pure he knew it would bring tears to his eyes if he looked long enough.",
+  position: 0
+)
 
+hope_tragedy.segments.create!(
+  text: "No such luck. The tapping is from a typewriter. And the typist, a stooped, foul-mouthed old lady who does not suffer fools gladly, is the single person about whom Jewish writers most avidly fantasize: Anne Frank.",
+  position: 1
+)
 
+hope_tragedy.segments.create!(
+  text: "He walked into the airport, past the banks of monitors. Already he felt as if he'd lost something, some beautiful perspective, some lovely dream fallen away. He had come to Chicago to see his wife, whom he had not seen in twenty years. She was there to perform her magic for a higher-up at the state university. Even universities, apparently, were interested in what she could do. Outside the terminal the sky was thick and gray and hurried by wind. Snow was coming. A woman from the university met him and escorted him to her Jeep. He kept his gaze out the window.",
+  position: 2
+)
 
+hope_tragedy.segments.create!(
+  text: "They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?",
+  position: 3
+)
 
+hope_tragedy.segments.create!(
+  text: "Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.",
+  position: 4
+)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-story2 = Story.create!(
-  user_id: mila.id,
-  title: "Willy and the Fenk",
-  description: "A touching story that gives you a relatable window into the mind of a master Fenk and his companions.",
-  text: "Here is where the story doc is kept",
-  image: "http://orig06.deviantart.net/1d07/f/2015/103/8/d/the_rake_by_tsabo6-d8pk6q9.jpg",
-  published: false
+hope_tragedy.segments.create!(
+  text: "But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.",
+  position: 5
 )
 
 GenreStory.create!(
-  story_id: story2.id,
+  story_id: hope_tragedy.id,
+  genre_id: tragedy.id 
+)
+
+
+modern_tragedy =Story.create!(
+  user_id: rose.id,
+  title: "Modern Tragedy",
+  description: "In Modern Tragedy, Williams bridges the gap between literary and socio-economic study, tracing the notion of tragedy.",
+  text: "It was the hunter's first time outside Montana. He woke, stricken still with the hours-old vision of ascending through rose-lit cumulus, of houses and barns like specks deep in the snowed-in valleys, all the scrolling country below looking December—brown and black hills streaked with snow, flashes of iced-over lakes, the long braids of a river gleaming at the bottom of a canyon. Above the wing the sky had deepened to a blue so pure he knew it would bring tears to his eyes if he looked long enough.
+  
+  Now it was dark. The airplane descended over Chicago, its galaxy of electric lights, the vast neighborhoods coming clearer as the plane glided toward the airport—streetlights, headlights, stacks of buildings, ice rinks, a truck turning at a stoplight, scraps of snow atop a warehouse and winking antennae on faraway hills, finally the long converging parallels of blue runway lights, and they were down.
+
+  He walked into the airport, past the banks of monitors. Already he felt as if he'd lost something, some beautiful perspective, some lovely dream fallen away. He had come to Chicago to see his wife, whom he had not seen in twenty years. She was there to perform her magic for a higher-up at the state university. Even universities, apparently, were interested in what she could do. Outside the terminal the sky was thick and gray and hurried by wind. Snow was coming. A woman from the university met him and escorted him to her Jeep. He kept his gaze out the window.
+  
+  They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?
+
+  Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.
+
+  But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.
+  ",
+  image: "https://i1.sndcdn.com/artworks-000301847871-i3kiom-t500x500.jpg",
+  published: true
+)
+
+modern_tragedy.segments.create!(
+  text: "Williams bridges the gap between literary and socio-economic study, tracing the notion of tragedy from its philosophical and dramatic origins with Aristotle. In addition, Williams discusses tragedy in Chaucher, Nietzche, Brecht, Sartre and other leading figures in the history of thought, as well as elements of tragic experience – both political and personal - in socialist revolutions of the 20th century.",
+  position: 0
+)
+
+modern_tragedy.segments.create!(
+  text: "No such luck. The tapping is from a typewriter. And the typist, a stooped, foul-mouthed old lady who does not suffer fools gladly, is the single person about whom Jewish writers most avidly fantasize: Anne Frank.",
+  position: 1
+)
+
+modern_tragedy.segments.create!(
+  text: "He walked into the airport, past the banks of monitors. Already he felt as if he'd lost something, some beautiful perspective, some lovely dream fallen away. He had come to Chicago to see his wife, whom he had not seen in twenty years. She was there to perform her magic for a higher-up at the state university. Even universities, apparently, were interested in what she could do. Outside the terminal the sky was thick and gray and hurried by wind. Snow was coming. A woman from the university met him and escorted him to her Jeep. He kept his gaze out the window.",
+  position: 2
+)
+
+modern_tragedy.segments.create!(
+  text: "They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?",
+  position: 3
+)
+
+modern_tragedy.segments.create!(
+  text: "Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.",
+  position: 4
+)
+
+modern_tragedy.segments.create!(
+  text: "But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.",
+  position: 5
+)
+
+GenreStory.create!(
+  story_id: modern_tragedy.id,
+  genre_id: tragedy.id 
+)
+
+romeo_j =Story.create!(
+  user_id: rose.id,
+  title: "Romeo and Juliet",
+  description: "Romeo and Juliet is a tragedy written by William Shakespeare early in his career about two young star-crossed lovers whose deaths ultimately reconcile their feuding families.",
+  text: "An age-old vendetta between two powerful families erupts into bloodshed. A group of masked Montagues risk further conflict by gatecrashing a Capulet party. A young lovesick Romeo Montague falls instantly in love with Juliet Capulet, who is due to marry her father’s choice, the County Paris. With the help of Juliet’s nurse, the women arrange for the couple to marry the next day, but Romeo’s attempt to halt a street fight leads to the death of Juliet’s own cousin, Tybalt, for which Romeo is banished. In a desperate attempt to be reunited with Romeo, Juliet follows the Friar’s plot and fakes her own death. The message fails to reach Romeo, and believing Juliet dead, he takes his life in her tomb. Juliet wakes to find Romeo’s corpse beside her and kills herself. The grieving family agree to end their feud.
+  
+  Now it was dark. The airplane descended over Chicago, its galaxy of electric lights, the vast neighborhoods coming clearer as the plane glided toward the airport—streetlights, headlights, stacks of buildings, ice rinks, a truck turning at a stoplight, scraps of snow atop a warehouse and winking antennae on faraway hills, finally the long converging parallels of blue runway lights, and they were down.
+
+  He walked into the airport, past the banks of monitors. Already he felt as if he'd lost something, some beautiful perspective, some lovely dream fallen away. He had come to Chicago to see his wife, whom he had not seen in twenty years. She was there to perform her magic for a higher-up at the state university. Even universities, apparently, were interested in what she could do. Outside the terminal the sky was thick and gray and hurried by wind. Snow was coming. A woman from the university met him and escorted him to her Jeep. He kept his gaze out the window.
+  
+  They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?
+
+  Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.
+
+  But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.
+  ",
+  image: "http://www.oklahomashakespeare.com/sites/osp/uploads/images/R_and_J_graphic.jpg",
+  published: true
+)
+
+romeo_j.segments.create!(
+  text: "An age-old vendetta between two powerful families erupts into bloodshed. A group of masked Montagues risk further conflict by gatecrashing a Capulet party. A young lovesick Romeo Montague falls instantly in love with Juliet Capulet, who is due to marry her father’s choice, the County Paris. With the help of Juliet’s nurse, the women arrange for the couple to marry the next day, but Romeo’s attempt to halt a street fight leads to the death of Juliet’s own cousin, Tybalt, for which Romeo is banished. In a desperate attempt to be reunited with Romeo, Juliet follows the Friar’s plot and fakes her own death. The message fails to reach Romeo, and believing Juliet dead, he takes his life in her tomb. Juliet wakes to find Romeo’s corpse beside her and kills herself. The grieving family agree to end their feud.",
+  position: 0
+)
+
+romeo_j.segments.create!(
+  text: "Romeo and Juliet begins as the Chorus introduces two feuding families of Verona: the Capulets and the Montagues. On a hot summer's day, the young men of each faction fight until the Prince of Verona intercedes and threatens to banish them. Soon after, the head of the Capulet family plans a feast. His goal is to introduce his daughter Juliet to a Count named Paris who seeks to marry Juliet. ",
+  position: 1
+)
+
+romeo_j.segments.create!(
+  text: "He walked into the airport, past the banks of monitors. Already he felt as if he'd lost something, some beautiful perspective, some lovely dream fallen away. He had come to Chicago to see his wife, whom he had not seen in twenty years. She was there to perform her magic for a higher-up at the state university. Even universities, apparently, were interested in what she could do. Outside the terminal the sky was thick and gray and hurried by wind. Snow was coming. A woman from the university met him and escorted him to her Jeep. He kept his gaze out the window.",
+  position: 2
+)
+
+romeo_j.segments.create!(
+  text: "They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?",
+  position: 3
+)
+
+romeo_j.segments.create!(
+  text: "Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.",
+  position: 4
+)
+
+romeo_j.segments.create!(
+  text: "But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.",
+  position: 5
+)
+
+GenreStory.create!(
+  story_id: romeo_j.id,
+  genre_id: tragedy.id 
+)
+
+
+puts "DONE!"
+
+puts "Making Stories - kin ------------------------------"
+
+
+p_w =Story.create!(
+  user_id: kim.id,
+  title: "Peter and Wendy",
+  description: "Peter Pan; or, the Boy Who Wouldn't Grow Up or Peter and Wendy is J. M. Barrie's most famous work, in the form of a 1904 play and a 1911 novel. ",
+  text: "An age-old vendetta between two powerful families erupts into bloodshed. A group of masked Montagues risk further conflict by gatecrashing a Capulet party. A young lovesick Romeo Montague falls instantly in love with Juliet Capulet, who is due to marry her father’s choice, the County Paris. With the help of Juliet’s nurse, the women arrange for the couple to marry the next day, but Romeo’s attempt to halt a street fight leads to the death of Juliet’s own cousin, Tybalt, for which Romeo is banished. In a desperate attempt to be reunited with Romeo, Juliet follows the Friar’s plot and fakes her own death. The message fails to reach Romeo, and believing Juliet dead, he takes his life in her tomb. Juliet wakes to find Romeo’s corpse beside her and kills herself. The grieving family agree to end their feud.
+  
+  Now it was dark. The airplane descended over Chicago, its galaxy of electric lights, the vast neighborhoods coming clearer as the plane glided toward the airport—streetlights, headlights, stacks of buildings, ice rinks, a truck turning at a stoplight, scraps of snow atop a warehouse and winking antennae on faraway hills, finally the long converging parallels of blue runway lights, and they were down.
+
+  He walked into the airport, past the banks of monitors. Already he felt as if he'd lost something, some beautiful perspective, some lovely dream fallen away. He had come to Chicago to see his wife, whom he had not seen in twenty years. She was there to perform her magic for a higher-up at the state university. Even universities, apparently, were interested in what she could do. Outside the terminal the sky was thick and gray and hurried by wind. Snow was coming. A woman from the university met him and escorted him to her Jeep. He kept his gaze out the window.
+  
+  They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?
+
+  Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.
+
+  But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.
+  ",
+  image: "https://www.napavalleynow.com/wp-content/uploads/sites/www.napavalleynow.com/images/2018/04/peter_x_wendy__to_neverland_by_elalendi-400x284.png",
+  published: true
+)
+
+p_w.segments.create!(
+  text: "All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this. One day when she was two years old she was playing in a garden, and she plucked another flower and ran with it to her mother. I suppose she must have looked rather delightful, for Mrs. Darling put her hand to her heart and cried, 'Oh, why can't you remain like this for ever!' This was all that passed between them on the subject, but henceforth Wendy knew that she must grow up. You always know after you are two. Two is the beginning of the end.",
+  position: 0
+)
+
+p_w.segments.create!(
+  text: "Of course they lived at 14, and until Wendy came her mother was the chief one. She was a lovely lady, with a romantic mind and such a[Pg 2] sweet mocking mouth. Her romantic mind was like the tiny boxes, one within the other, that come from the puzzling East, however many you discover there is always one more; and her sweet mocking mouth had one kiss on it that Wendy could never get, though there it was, perfectly conspicuous in the right-hand corner.",
+  position: 1
+)
+
+p_w.segments.create!(
+  text: "He walked into the airport, past the banks of monitors. Already he felt as if he'd lost something, some beautiful perspective, some lovely dream fallen away. He had come to Chicago to see his wife, whom he had not seen in twenty years. She was there to perform her magic for a higher-up at the state university. Even universities, apparently, were interested in what she could do. Outside the terminal the sky was thick and gray and hurried by wind. Snow was coming. A woman from the university met him and escorted him to her Jeep. He kept his gaze out the window.",
+  position: 2
+)
+
+p_w.segments.create!(
+  text: "They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?",
+  position: 3
+)
+
+p_w.segments.create!(
+  text: "Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.",
+  position: 4
+)
+
+p_w.segments.create!(
+  text: "But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.",
+  position: 5
+)
+
+GenreStory.create!(
+  story_id: p_w.id,
   genre_id: fantasy.id 
 )
 
+moving_castle =Story.create!(
+  user_id: kim.id,
+  title: "Howl's Moving Castle",
+  description: "Howl's Moving Castle is a fantasy novel by British author Diana Wynne Jones, first published in 1986 by Greenwillow Books of New York. ",
+  text: "An age-old vendetta between two powerful families erupts into bloodshed. A group of masked Montagues risk further conflict by gatecrashing a Capulet party. A young lovesick Romeo Montague falls instantly in love with Juliet Capulet, who is due to marry her father’s choice, the County Paris. With the help of Juliet’s nurse, the women arrange for the couple to marry the next day, but Romeo’s attempt to halt a street fight leads to the death of Juliet’s own cousin, Tybalt, for which Romeo is banished. In a desperate attempt to be reunited with Romeo, Juliet follows the Friar’s plot and fakes her own death. The message fails to reach Romeo, and believing Juliet dead, he takes his life in her tomb. Juliet wakes to find Romeo’s corpse beside her and kills herself. The grieving family agree to end their feud.
+  
+  Now it was dark. The airplane descended over Chicago, its galaxy of electric lights, the vast neighborhoods coming clearer as the plane glided toward the airport—streetlights, headlights, stacks of buildings, ice rinks, a truck turning at a stoplight, scraps of snow atop a warehouse and winking antennae on faraway hills, finally the long converging parallels of blue runway lights, and they were down.
+
+  He walked into the airport, past the banks of monitors. Already he felt as if he'd lost something, some beautiful perspective, some lovely dream fallen away. He had come to Chicago to see his wife, whom he had not seen in twenty years. She was there to perform her magic for a higher-up at the state university. Even universities, apparently, were interested in what she could do. Outside the terminal the sky was thick and gray and hurried by wind. Snow was coming. A woman from the university met him and escorted him to her Jeep. He kept his gaze out the window.
+  
+  They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?
+
+  Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.
+
+  But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.
+  ",
+  image: "http://static.tvtropes.org/pmwiki/pub/images/howls-moving-castle_7410.jpg",
+  published: true
+)
+
+moving_castle.segments.create!(
+  text: "Sophie is trapped in her life as the responsible eldest daughter who runs the family hat business and has nothing to look forward to. Everything changes when the evil Witch of the Waste bursts into her shop and, for mysterious reasons, turns her into an old woman. Wandering away from town she finds herself alone in the wilderness at night, and stumbles across the titular castle, owned by a wizard rumored to take the souls of young girls.",
+  position: 0
+)
+
+moving_castle.segments.create!(
+  text: "Once there she makes a deal with a captive fire demon -- if she breaks the contract between the demon and Howl, the demon will lift the spell on Sophie. There's only one problem -- no one can tell her what the contract is, or how to break it.",
+  position: 1
+)
+
+moving_castle.segments.create!(
+  text: "He walked into the airport, past the banks of monitors. Already he felt as if he'd lost something, some beautiful perspective, some lovely dream fallen away. He had come to Chicago to see his wife, whom he had not seen in twenty years. She was there to perform her magic for a higher-up at the state university. Even universities, apparently, were interested in what she could do. Outside the terminal the sky was thick and gray and hurried by wind. Snow was coming. A woman from the university met him and escorted him to her Jeep. He kept his gaze out the window.",
+  position: 2
+)
+
+moving_castle.segments.create!(
+  text: "They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?",
+  position: 3
+)
+
+moving_castle.segments.create!(
+  text: "Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.",
+  position: 4
+)
+
+moving_castle.segments.create!(
+  text: "But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.",
+  position: 5
+)
+
 GenreStory.create!(
-  story_id: story2.id,
-  genre_id: romance.id 
+  story_id: moving_castle.id,
+  genre_id: fantasy.id 
 )
 
-Story.create!(
-  user_id: mila.id,
-  title: "The Darkness Within",
-  description: "A touching story that gives you a relatable window into the mind of the author and their ability to become very dark very quickly.",
-  text: "Here is where the story doc is kept",
-  image: "http://eskipaper.com/images/darkness-master-1.jpg",
-  published: false
-)
+hobbit =Story.create!(
+  user_id: kim.id,
+  title: "The Hobbit Bilbo ",
+  description: "Bilbo Baggins is a hobbit who lives a quiet life, until it is upset by a visit from a wizard named Gandalf.",
+  text: "An age-old vendetta between two powerful families erupts into bloodshed. A group of masked Montagues risk further conflict by gatecrashing a Capulet party. A young lovesick Romeo Montague falls instantly in love with Juliet Capulet, who is due to marry her father’s choice, the County Paris. With the help of Juliet’s nurse, the women arrange for the couple to marry the next day, but Romeo’s attempt to halt a street fight leads to the death of Juliet’s own cousin, Tybalt, for which Romeo is banished. In a desperate attempt to be reunited with Romeo, Juliet follows the Friar’s plot and fakes her own death. The message fails to reach Romeo, and believing Juliet dead, he takes his life in her tomb. Juliet wakes to find Romeo’s corpse beside her and kills herself. The grieving family agree to end their feud.
+  
+  Now it was dark. The airplane descended over Chicago, its galaxy of electric lights, the vast neighborhoods coming clearer as the plane glided toward the airport—streetlights, headlights, stacks of buildings, ice rinks, a truck turning at a stoplight, scraps of snow atop a warehouse and winking antennae on faraway hills, finally the long converging parallels of blue runway lights, and they were down.
 
-Story.create!(
-  user_id: kim.id,
-  title: "The flower",
-  description: "A touching flower story that gives you a relatable window into the mind of the author and their ability to become very dark very quickly.",
-  text: "Here is where the story doc is kept",
-  image: "http://eskipaper.com/images/darkness-master-1.jpg",
-  published: false
-)
+  He walked into the airport, past the banks of monitors. Already he felt as if he'd lost something, some beautiful perspective, some lovely dream fallen away. He had come to Chicago to see his wife, whom he had not seen in twenty years. She was there to perform her magic for a higher-up at the state university. Even universities, apparently, were interested in what she could do. Outside the terminal the sky was thick and gray and hurried by wind. Snow was coming. A woman from the university met him and escorted him to her Jeep. He kept his gaze out the window.
+  
+  They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?
 
-Story.create!(
-  user_id: kim.id,
-  title: "Lorem ipsum",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in iaculis libero. Nunc odio urna, lacinia in libero et, feugiat finibus risus. Nullam sed tellus eget nulla consequat posuere et at tortor. Nullam in neque odio. Morbi porta massa quis cursus dapibus. Etiam ullamcorper, metus eget molestie porttitor, risus velit volutpat lectus, eget fermentum dui elit finibus eros. Mauris vitae diam quis ligula iaculis commodo. Ut vel leo consectetur, vestibulum dui at, pharetra dolor. Donec at augue turpis. In maximus nibh leo, nec tincidunt diam pharetra sed. Morbi varius nibh id orci sollicitudin maximus. Fusce consectetur convallis sagittis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer consequat leo nec vestibulum auctor. Morbi vulputate molestie velit, a mollis nisl. Nulla at justo eleifend, dignissim est varius, condimentum arcu.",
-  text: "Here is where the story doc is kept",
-  image: "http://eskipaper.com/images/darkness-master-1.jpg",
-  published: false
-)
+  Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.
 
-Story.create!(
-  user_id: kim.id,
-  title: "In hac habitasse platea dictumst.",
-  description: "In hac habitasse platea dictumst. In hac habitasse platea dictumst. Quisque vitae arcu ut orci semper interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam et nulla arcu. Proin posuere, nibh et efficitur auctor, magna ipsum ultricies erat, malesuada tincidunt neque libero sed odio. Nulla in nulla lacinia ante tincidunt ultrices id quis ligula. Praesent ipsum velit, lacinia id suscipit cursus, malesuada sit amet ligula. Nulla neque diam, viverra sit amet leo et, eleifend cursus tortor. Donec odio ligula, facilisis quis vulputate ac, rutrum id purus. Etiam dictum libero auctor mauris porttitor, et commodo urna vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque laoreet, risus sit amet hendrerit aliquam, justo lorem blandit quam, id commodo velit lacus ut elit.",
-  text: "Here is where the story doc is kept",
-  image: "http://eskipaper.com/images/darkness-master-1.jpg",
-  published: false
-)
-
-Story.create!(
-  user_id: kim.id,
-  title: "In.",
-  description: "In hac habitasse platea dictumst. In hac habitasse platea dictumst. Quisque vitae arcu ut orci semper interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam et nulla arcu. Proin posuere, nibh et efficitur auctor, magna ipsum ultricies erat, malesuada tincidunt neque libero sed odio. Nulla in nulla lacinia ante tincidunt ultrices id quis ligula. Praesent ipsum velit, lacinia id suscipit cursus, malesuada sit amet ligula. Nulla neque diam, viverra sit amet leo et, eleifend cursus tortor. Donec odio ligula, facilisis quis vulputate ac, rutrum id purus. Etiam dictum libero auctor mauris porttitor, et commodo urna vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque laoreet, risus sit amet hendrerit aliquam, justo lorem blandit quam, id commodo velit lacus ut elit.",
-  text: "Here is where the story doc is kept",
-  image: "http://eskipaper.com/images/darkness-master-1.jpg",
-  published: false
-)
-
-Story.create!(
-  user_id: kim.id,
-  title: "In hac",
-  description: "In hac habitasse platea dictumst. In hac habitasse platea dictumst. Quisque vitae arcu ut orci semper interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam et nulla arcu. Proin posuere, nibh et efficitur auctor, magna ipsum ultricies erat, malesuada tincidunt neque libero sed odio. Nulla in nulla lacinia ante tincidunt ultrices id quis ligula. Praesent ipsum velit, lacinia id suscipit cursus, malesuada sit amet ligula. Nulla neque diam, viverra sit amet leo et, eleifend cursus tortor. Donec odio ligula, facilisis quis vulputate ac, rutrum id purus. Etiam dictum libero auctor mauris porttitor, et commodo urna vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque laoreet, risus sit amet hendrerit aliquam, justo lorem blandit quam, id commodo velit lacus ut elit.",
-  text: "Here is where the story doc is kept",
-  image: "http://eskipaper.com/images/darkness-master-1.jpg",
-  published: false
-)
-
-Story.create!(
-  user_id: kim.id,
-  title: "In hac habi",
-  description: "In hac habitasse platea dictumst. In hac habitasse platea dictumst. Quisque vitae arcu ut orci semper interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam et nulla arcu. Proin posuere, nibh et efficitur auctor, magna ipsum ultricies erat, malesuada tincidunt neque libero sed odio. Nulla in nulla lacinia ante tincidunt ultrices id quis ligula. Praesent ipsum velit, lacinia id suscipit cursus, malesuada sit amet ligula. Nulla neque diam, viverra sit amet leo et, eleifend cursus tortor. Donec odio ligula, facilisis quis vulputate ac, rutrum id purus. Etiam dictum libero auctor mauris porttitor, et commodo urna vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque laoreet, risus sit amet hendrerit aliquam, justo lorem blandit quam, id commodo velit lacus ut elit.",
-  text: "Here is where the story doc is kept",
-  image: "http://eskipaper.com/images/darkness-master-1.jpg",
-  published: false
-)
-Story.create!(
-  user_id: kim.id,
-  title: "In hac habitasse",
-  description: "In hac habitasse platea dictumst. In hac habitasse platea dictumst. Quisque vitae arcu ut orci semper interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam et nulla arcu. Proin posuere, nibh et efficitur auctor, magna ipsum ultricies erat, malesuada tincidunt neque libero sed odio. Nulla in nulla lacinia ante tincidunt ultrices id quis ligula. Praesent ipsum velit, lacinia id suscipit cursus, malesuada sit amet ligula. Nulla neque diam, viverra sit amet leo et, eleifend cursus tortor. Donec odio ligula, facilisis quis vulputate ac, rutrum id purus. Etiam dictum libero auctor mauris porttitor, et commodo urna vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque laoreet, risus sit amet hendrerit aliquam, justo lorem blandit quam, id commodo velit lacus ut elit.",
-  text: "Here is where the story doc is kept",
-  image: "http://eskipaper.com/images/darkness-master-1.jpg",
-  published: false
-)
-Story.create!(
-  user_id: kim.id,
-  title: "In hac habitasse pla",
-  description: "In hac habitasse platea dictumst. In hac habitasse platea dictumst. Quisque vitae arcu ut orci semper interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam et nulla arcu. Proin posuere, nibh et efficitur auctor, magna ipsum ultricies erat, malesuada tincidunt neque libero sed odio. Nulla in nulla lacinia ante tincidunt ultrices id quis ligula. Praesent ipsum velit, lacinia id suscipit cursus, malesuada sit amet ligula. Nulla neque diam, viverra sit amet leo et, eleifend cursus tortor. Donec odio ligula, facilisis quis vulputate ac, rutrum id purus. Etiam dictum libero auctor mauris porttitor, et commodo urna vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque laoreet, risus sit amet hendrerit aliquam, justo lorem blandit quam, id commodo velit lacus ut elit.",
-  text: "Here is where the story doc is kept",
-  image: "http://eskipaper.com/images/darkness-master-1.jpg",
-  published: false
-)
-Story.create!(
-  user_id: kim.id,
-  title: "In hac habitasse platea",
-  description: "In hac habitasse platea dictumst. In hac habitasse platea dictumst. Quisque vitae arcu ut orci semper interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam et nulla arcu. Proin posuere, nibh et efficitur auctor, magna ipsum ultricies erat, malesuada tincidunt neque libero sed odio. Nulla in nulla lacinia ante tincidunt ultrices id quis ligula. Praesent ipsum velit, lacinia id suscipit cursus, malesuada sit amet ligula. Nulla neque diam, viverra sit amet leo et, eleifend cursus tortor. Donec odio ligula, facilisis quis vulputate ac, rutrum id purus. Etiam dictum libero auctor mauris porttitor, et commodo urna vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque laoreet, risus sit amet hendrerit aliquam, justo lorem blandit quam, id commodo velit lacus ut elit.",
-  text: "Here is where the story doc is kept",
-  image: "http://eskipaper.com/images/darkness-master-1.jpg",
-  published: true
-)
-Story.create!(
-  user_id: kim.id,
-  title: "In hac habitasse platea di",
-  description: "In hac habitasse platea dictumst. In hac habitasse platea dictumst. Quisque vitae arcu ut orci semper interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam et nulla arcu. Proin posuere, nibh et efficitur auctor, magna ipsum ultricies erat, malesuada tincidunt neque libero sed odio. Nulla in nulla lacinia ante tincidunt ultrices id quis ligula. Praesent ipsum velit, lacinia id suscipit cursus, malesuada sit amet ligula. Nulla neque diam, viverra sit amet leo et, eleifend cursus tortor. Donec odio ligula, facilisis quis vulputate ac, rutrum id purus. Etiam dictum libero auctor mauris porttitor, et commodo urna vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque laoreet, risus sit amet hendrerit aliquam, justo lorem blandit quam, id commodo velit lacus ut elit.",
-  text: "Here is where the story doc is kept",
-  image: "http://eskipaper.com/images/darkness-master-1.jpg",
-  published: true
-)
-Story.create!(
-  user_id: kim.id,
-  title: "In hac habitasse platea dictum",
-  description: "In hac habitasse platea dictumst. In hac habitasse platea dictumst. Quisque vitae arcu ut orci semper interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam et nulla arcu. Proin posuere, nibh et efficitur auctor, magna ipsum ultricies erat, malesuada tincidunt neque libero sed odio. Nulla in nulla lacinia ante tincidunt ultrices id quis ligula. Praesent ipsum velit, lacinia id suscipit cursus, malesuada sit amet ligula. Nulla neque diam, viverra sit amet leo et, eleifend cursus tortor. Donec odio ligula, facilisis quis vulputate ac, rutrum id purus. Etiam dictum libero auctor mauris porttitor, et commodo urna vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque laoreet, risus sit amet hendrerit aliquam, justo lorem blandit quam, id commodo velit lacus ut elit.",
-  text: "Here is where the story doc is kept",
-  image: "http://eskipaper.com/images/darkness-master-1.jpg",
+  But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.
+  ",
+  image: "https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2014/12/04/BostonGlobe.com/Arts/Images/HBT-FP-0022.jpg",
   published: true
 )
 
-story2 = Story.create!(
-  user_id: rose.id,
-  title: "Story Test Kamylla",
-  description: "A touching story that gives you a relatable window into the mind of a master Fenk and his companions.",
-  text: "Here is where the story doc is kept",
-  image: "http://orig06.deviantart.net/1d07/f/2015/103/8/d/the_rake_by_tsabo6-d8pk6q9.jpg",
-  published: false
+hobbit.segments.create!(
+  text: "Bilbo Baggins is a hobbit who lives a quiet life, until it is upset by a visit from a wizard named Gandalf. He wants Bilbo to help a group of dwarves take back the Mountain from Smaug, a dragon. Bilbo is unsure he wants to help, but he is drawn into the adventure by Gandalf, who tells the dwarves Bilbo is a burglar.",
+  position: 0
 )
 
-story2 = Story.create!(
-  user_id: rose.id,
-  title: "Story Test Kamylla 2",
-  description: "A touching story that gives you a relatable window into the mind of a master Fenk and his companions.",
-  text: "Here is where the story doc is kept",
-  image: "http://orig06.deviantart.net/1d07/f/2015/103/8/d/the_rake_by_tsabo6-d8pk6q9.jpg",
-  published: false
+hobbit.segments.create!(
+  text: "The thirteen dwarves are led by Thorin Oakenshield, whose grandfather left a map and key to the Mountain in the care of Gandalf. The group encounters a few setbacks, such as the loss of the pony carrying their food supplies. Another occurs when Bilbo and the dwarves are captured by trolls, but Gandalf manages, through some trickery to free them.",
+  position: 1
 )
+
+hobbit.segments.create!(
+  text: "One night the group is forced to take shelter in a cave during a bad storm. The cave is the home of goblins, who capture them. Gandalf helps them escape, but Bilbo is left behind, after he is knocked unconscious.",
+  position: 2
+)
+
+hobbit.segments.create!(
+  text: "They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?",
+  position: 3
+)
+
+hobbit.segments.create!(
+  text: "Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.",
+  position: 4
+)
+
+hobbit.segments.create!(
+  text: "But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.",
+  position: 5
+)
+
+GenreStory.create!(
+  story_id: hobbit.id,
+  genre_id: adventure.id 
+)
+
+
+treasure_island =Story.create!(
+  user_id: kim.id,
+  title: "Treasure Island ",
+  description: "From the moment young Jim Hawkins first encounters the sinister Blind Pew at the Admiral Benbow Inn until the climactic battle for treasure on a tropic isle.",
+  text: "An age-old vendetta between two powerful families erupts into bloodshed. A group of masked Montagues risk further conflict by gatecrashing a Capulet party. A young lovesick Romeo Montague falls instantly in love with Juliet Capulet, who is due to marry her father’s choice, the County Paris. With the help of Juliet’s nurse, the women arrange for the couple to marry the next day, but Romeo’s attempt to halt a street fight leads to the death of Juliet’s own cousin, Tybalt, for which Romeo is banished. In a desperate attempt to be reunited with Romeo, Juliet follows the Friar’s plot and fakes her own death. The message fails to reach Romeo, and believing Juliet dead, he takes his life in her tomb. Juliet wakes to find Romeo’s corpse beside her and kills herself. The grieving family agree to end their feud.
+  
+  Now it was dark. The airplane descended over Chicago, its galaxy of electric lights, the vast neighborhoods coming clearer as the plane glided toward the airport—streetlights, headlights, stacks of buildings, ice rinks, a truck turning at a stoplight, scraps of snow atop a warehouse and winking antennae on faraway hills, finally the long converging parallels of blue runway lights, and they were down.
+
+  He walked into the airport, past the banks of monitors. Already he felt as if he'd lost something, some beautiful perspective, some lovely dream fallen away. He had come to Chicago to see his wife, whom he had not seen in twenty years. She was there to perform her magic for a higher-up at the state university. Even universities, apparently, were interested in what she could do. Outside the terminal the sky was thick and gray and hurried by wind. Snow was coming. A woman from the university met him and escorted him to her Jeep. He kept his gaze out the window.
+  
+  They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?
+
+  Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.
+
+  But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.
+  ",
+  image: "https://images-eu.ssl-images-amazon.com/images/I/81ukmBi4-5L.png",
+  published: true
+)
+
+treasure_island.segments.create!(
+  text: "Jim Hawkins is a young boy who lives at his parents’ inn, the Admiral Benbow, near Bristol, England, in the eighteenth century. An old sea captain named Billy Bones dies in the inn after being presented with a black spot, or official pirate verdict of guilt or judgment. Jim is stirred to action by the spot and its mysterious, accurate portent of Billy’s death. Hastily, Jim and his mother unlock Billy’s sea chest, finding a logbook and map inside. Hearing steps outside, they leave with the documents before Billy’s pursuers ransack the inn.",
+  position: 0
+)
+
+treasure_island.segments.create!(
+  text: "Jim realizes that the contents he has snatched from the sea chest must be valuable, so he takes one of the documents he has found to some local acquaintances, Dr. Livesey and Squire Trelawney. Excited, they recognize it as a map for a huge treasure that the infamous pirate Captain Flint has buried on a distant island. Trelawney immediately starts planning an expedition. Naïve in his negotiations to outfit his ship, the Hispaniola, Trelawney is tricked into hiring one of Flint’s former mates, Long John Silver, and many of Flint’s crew. Only the captain, Smollett, is trustworthy. The ship sets sail for Treasure Island with nothing amiss, until Jim overhears Silver’s plans for mutiny. Jim tells the captain about Silver and the rest of the rebellious crew.",
+  position: 1
+)
+
+treasure_island.segments.create!(
+  text: "One night the group is forced to take shelter in a cave during a bad storm. The cave is the home of goblins, who capture them. Gandalf helps them escape, but Bilbo is left behind, after he is knocked unconscious.",
+  position: 2
+)
+
+treasure_island.segments.create!(
+  text: "They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?",
+  position: 3
+)
+
+treasure_island.segments.create!(
+  text: "Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.",
+  position: 4
+)
+
+treasure_island.segments.create!(
+  text: "But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.",
+  position: 5
+)
+
+GenreStory.create!(
+  story_id: treasure_island.id,
+  genre_id: adventure.id 
+)
+
+puts "DONE!"
+
+puts "Making Stories - alex ------------------------------"
+
+
+lightning_t =Story.create!(
+  user_id: alex.id,
+  title: "The Lightning Thief",
+  description: "Percy Jackson is a good kid, but he can't seem to focus on his schoolwork or control his temper.",
+  text: "An age-old vendetta between two powerful families erupts into bloodshed. A group of masked Montagues risk further conflict by gatecrashing a Capulet party. A young lovesick Romeo Montague falls instantly in love with Juliet Capulet, who is due to marry her father’s choice, the County Paris. With the help of Juliet’s nurse, the women arrange for the couple to marry the next day, but Romeo’s attempt to halt a street fight leads to the death of Juliet’s own cousin, Tybalt, for which Romeo is banished. In a desperate attempt to be reunited with Romeo, Juliet follows the Friar’s plot and fakes her own death. The message fails to reach Romeo, and believing Juliet dead, he takes his life in her tomb. Juliet wakes to find Romeo’s corpse beside her and kills herself. The grieving family agree to end their feud.
+  
+  Now it was dark. The airplane descended over Chicago, its galaxy of electric lights, the vast neighborhoods coming clearer as the plane glided toward the airport—streetlights, headlights, stacks of buildings, ice rinks, a truck turning at a stoplight, scraps of snow atop a warehouse and winking antennae on faraway hills, finally the long converging parallels of blue runway lights, and they were down.
+
+  He walked into the airport, past the banks of monitors. Already he felt as if he'd lost something, some beautiful perspective, some lovely dream fallen away. He had come to Chicago to see his wife, whom he had not seen in twenty years. She was there to perform her magic for a higher-up at the state university. Even universities, apparently, were interested in what she could do. Outside the terminal the sky was thick and gray and hurried by wind. Snow was coming. A woman from the university met him and escorted him to her Jeep. He kept his gaze out the window.
+  
+  They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?
+
+  Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.
+
+  But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.
+  ",
+  image: "https://www.monmouth.edu/events/wp-content/uploads/sites/19/2018/07/lightning_thief_thumb.jpg",
+  published: true
+)
+
+lightning_t.segments.create!(
+  text: "Meet Percy Jackson. He is twelve years old, and he decides to tell us the story of his past year. On the first day of summer, just after his sixth-grade year, Percy discovers that something is wrong with him. Or rather, something is right with him. He learns that he is a half-blood: half-human, half-god. He is taken to Camp Half-Blood in New York, a camp for kids just like him that is safe from monsters that like to attack half-bloods. ",
+  position: 0
+)
+
+lightning_t.segments.create!(
+  text: "At camp, Percy learns more information about himself: his father is Poseidon, god of the Sea and brother to Zeus and Hades. When Zeus's master bolt (the thing that allows him to create lightning whenever he wants) is stolen, Poseidon is blamed for the theft. Zeus tells Poseidon that the master bolt must be returned to Mount Olympus by the summer solstice, or else he will declare war on Poseidon. Poseidon is miffed that his brother Zeus would even accuse him of such a thing.",
+  position: 1
+)
+
+lightning_t.segments.create!(
+  text: "Percy sets out on a quest to retrieve Zeus's master bolt, which is believed to be in Hades's captivity in the Underworld. Helping Percy are Grover, his BFF, and Annabeth, a smart demi-goddess and daughter of Athena. The three take a bus, a train, a truck, and a taxi cab to make their way across America, from New York to Los Angeles, where the gates of the Underworld are located. They stop in St. Louis, Denver, and Las Vegas along the way. During their quest, they battle vicious monsters like Medusa, they find disaster on the observation deck of the Gateway Arch, they are tricked by the god of war (Ares), they nearly lose their memories in an enchanted Vegas casino, and they are almost stretched to death.",
+  position: 2
+)
+
+lightning_t.segments.create!(
+  text: "They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?",
+  position: 3
+)
+
+lightning_t.segments.create!(
+  text: "Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.",
+  position: 4
+)
+
+lightning_t.segments.create!(
+  text: "But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.",
+  position: 5
+)
+
+GenreStory.create!(
+  story_id: lightning_t.id,
+  genre_id: adventure.id 
+)
+
+lightning_t =Story.create!(
+  user_id: alex.id,
+  title: "The Lightning Thief",
+  description: "Percy Jackson is a good kid, but he can't seem to focus on his schoolwork or control his temper.",
+  text: "An age-old vendetta between two powerful families erupts into bloodshed. A group of masked Montagues risk further conflict by gatecrashing a Capulet party. A young lovesick Romeo Montague falls instantly in love with Juliet Capulet, who is due to marry her father’s choice, the County Paris. With the help of Juliet’s nurse, the women arrange for the couple to marry the next day, but Romeo’s attempt to halt a street fight leads to the death of Juliet’s own cousin, Tybalt, for which Romeo is banished. In a desperate attempt to be reunited with Romeo, Juliet follows the Friar’s plot and fakes her own death. The message fails to reach Romeo, and believing Juliet dead, he takes his life in her tomb. Juliet wakes to find Romeo’s corpse beside her and kills herself. The grieving family agree to end their feud.
+  
+  Now it was dark. The airplane descended over Chicago, its galaxy of electric lights, the vast neighborhoods coming clearer as the plane glided toward the airport—streetlights, headlights, stacks of buildings, ice rinks, a truck turning at a stoplight, scraps of snow atop a warehouse and winking antennae on faraway hills, finally the long converging parallels of blue runway lights, and they were down.
+
+  He walked into the airport, past the banks of monitors. Already he felt as if he'd lost something, some beautiful perspective, some lovely dream fallen away. He had come to Chicago to see his wife, whom he had not seen in twenty years. She was there to perform her magic for a higher-up at the state university. Even universities, apparently, were interested in what she could do. Outside the terminal the sky was thick and gray and hurried by wind. Snow was coming. A woman from the university met him and escorted him to her Jeep. He kept his gaze out the window.
+  
+  They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?
+
+  Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.
+
+  But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.
+  ",
+  image: "https://www.monmouth.edu/events/wp-content/uploads/sites/19/2018/07/lightning_thief_thumb.jpg",
+  published: true
+)
+
+lightning_t.segments.create!(
+  text: "Meet Percy Jackson. He is twelve years old, and he decides to tell us the story of his past year. On the first day of summer, just after his sixth-grade year, Percy discovers that something is wrong with him. Or rather, something is right with him. He learns that he is a half-blood: half-human, half-god. He is taken to Camp Half-Blood in New York, a camp for kids just like him that is safe from monsters that like to attack half-bloods. ",
+  position: 0
+)
+
+lightning_t.segments.create!(
+  text: "At camp, Percy learns more information about himself: his father is Poseidon, god of the Sea and brother to Zeus and Hades. When Zeus's master bolt (the thing that allows him to create lightning whenever he wants) is stolen, Poseidon is blamed for the theft. Zeus tells Poseidon that the master bolt must be returned to Mount Olympus by the summer solstice, or else he will declare war on Poseidon. Poseidon is miffed that his brother Zeus would even accuse him of such a thing.",
+  position: 1
+)
+
+lightning_t.segments.create!(
+  text: "Percy sets out on a quest to retrieve Zeus's master bolt, which is believed to be in Hades's captivity in the Underworld. Helping Percy are Grover, his BFF, and Annabeth, a smart demi-goddess and daughter of Athena. The three take a bus, a train, a truck, and a taxi cab to make their way across America, from New York to Los Angeles, where the gates of the Underworld are located. They stop in St. Louis, Denver, and Las Vegas along the way. During their quest, they battle vicious monsters like Medusa, they find disaster on the observation deck of the Gateway Arch, they are tricked by the god of war (Ares), they nearly lose their memories in an enchanted Vegas casino, and they are almost stretched to death.",
+  position: 2
+)
+
+lightning_t.segments.create!(
+  text: "They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?",
+  position: 3
+)
+
+lightning_t.segments.create!(
+  text: "Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.",
+  position: 4
+)
+
+lightning_t.segments.create!(
+  text: "But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.",
+  position: 5
+)
+
+GenreStory.create!(
+  story_id: lightning_t.id,
+  genre_id: adventure.id 
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 puts "DONE!"
@@ -833,7 +1206,7 @@ puts "Making Stories_likes..."
 @story9 = Story.find(9)
 @story10 = Story.find(10)
 @story11 = Story.find(11)
-@story12 = Story.find(12)
+
 
 StoriesLike.create!(
   user_id: @user1.id,
@@ -882,10 +1255,7 @@ StoriesLike.create!(
   user_id: @user1.id,
   story_id: @story11.id
 )
-StoriesLike.create!(
-  user_id: @user1.id,
-  story_id: @story12.id
-)
+
 
 StoriesLike.create!(
   user_id: @user2.id,
