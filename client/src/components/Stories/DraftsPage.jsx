@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import EachDraft from './EachDraft'
+import '../../styles/DraftPage.css'
 
 
 class DraftsPage extends Component {
@@ -85,12 +86,19 @@ class DraftsPage extends Component {
   render(){
 
     return(
-      <div>
-      <br />
-      <br />
-      <br />
-        {this.getDrafts()}
-      </div>
+      <div className='row'>
+        <div className='col-12'>
+        <br />
+        <br />
+        <br />
+          <h2> My Drafts </h2>
+          <div className="row justify-content-around">
+
+            {this.getDrafts()}
+            </div>
+            </div>
+          </div>
+
     )
   }
 }

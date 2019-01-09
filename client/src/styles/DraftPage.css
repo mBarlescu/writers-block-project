@@ -1,0 +1,38 @@
+.draftButtonEdit{
+margin: 2px;
+}
+
+
+.draftButtonDelete{
+margin: 2px;
+}
+
+.draftButtonDelete:hover{
+text-decoration: underline;
+}
+
+.draftButtonEdit:hover{
+text-decoration: underline;
+}
+
+
+.navToEdit{
+  color:white;
+}
+
+.eachStory:hover button.draftButtonDelete{
+  background-color: white;
+  color: grey;
+}
+
+.eachStory:hover button.draftButtonEdit{
+  background-color: white;
+  color: grey;
+}
+
+.eachStory:hover .navToEdit{
+  color: grey;
+}
+
+
+

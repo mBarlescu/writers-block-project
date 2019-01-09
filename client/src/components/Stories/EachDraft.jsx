@@ -97,27 +97,28 @@ deleteDraft(event){
   render(){
 
     return(
-      <div>
-        <div className="row">
-          <div className='col-3'>
-            <img className='image' src={this.getImage()} />
+        <div className='col-5 eachStory'>
+            <div className='header row'>
+              <div className='col-5 eachStory-img'>
+                <img className='img-cover' src={this.getImage()} />
+              </div>
+              <div className='col-7 eachStory-description'>
+                <div className='eachStory-innerDescription'>
+                  <span>{this.state.data.title}</span>
+                  <br />
+                  <span className='description'>
+                    {this.state.data.description}
+                  </span>
+                </div>
+                <div className='eachStory-buttons'>
+                  <button className='btn btn-secondary draftButtonEdit'>
+                    <NavLink className='navToEdit' to={this.navLinkToEdit()}>Edit</NavLink>
+                  </button>
+                  <button className='btn btn-secondary draftButtonDelete' onClick={this.deleteDraft}>Delete</button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className='col-6'>
-            <span>{this.state.data.title}</span>
-            <br />
-            <span>Created: {this.timeSince(this.state.data.created_at)}</span>
-            <br />
-            <span>Updated: {this.timeSince(this.state.data.updated_at)}</span>
-          </div>
-          <div className='col-3'>
-            <button>
-              <NavLink to={this.navLinkToEdit()}>Edit</NavLink>
-            </button>
-            <br />
-            <button onClick={this.deleteDraft}>Delete</button>
-          </div>
-        </div>
-      </div>
     )
   }
 }

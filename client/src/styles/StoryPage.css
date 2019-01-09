@@ -46,10 +46,14 @@ i.unlike:hover{
 
 .storypage-header{
 padding: 10px;
+word-wrap: break-word;
 }
 
 .storyPage-img{
 
+}
+
+.img-cover{
 }
 
 .storyPage-description{
@@ -77,7 +81,20 @@ background-color:white;
   color: grey;
 }
 
+.eachStory-description{
+  word-wrap: break-word;
+  /*white-space: nowrap;*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
+.eachStory-innerDescription{
+  height: 145px;
+  word-wrap: break-word;
+  /*white-space: nowrap;*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 .comments-onStorypage{
   word-wrap: break-word;

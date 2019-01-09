@@ -32,6 +32,7 @@ div.eachStory{
   border: solid #778899;
   border-width: 2px;
   border-style: groove;
+  line-height: 20px;
 }
 
 .eachStory:hover{

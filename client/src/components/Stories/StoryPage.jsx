@@ -319,7 +319,7 @@ handleStoryUnlike(event){
         <br />
         <br />
 
-        <div className='row'>
+        <div className='col-12'>
 
             <div className='storypage-header row'>
               <div className='col-3 storyPage-img'>
@@ -327,9 +327,6 @@ handleStoryUnlike(event){
               </div>
               <div className='col-9 storyPage-description'>
                 <NavLink className='title' to={this.navLinkToRead()}>{this.state.data.story.title}</NavLink>
-                <button onclick={this.routeToRead} type='button' className='btn btn-secondary readMe'>
-                 <NavLink className='navToRead' to={this.navLinkToRead()}>Read Me</NavLink>
-                </button>
                 <br />
                 <NavLink className='storyPage-author' to={this.navLinkToUser()}>by {this.state.data.author.first_name} {this.state.data.author.last_name}</NavLink>
                 <br />
@@ -344,7 +341,13 @@ handleStoryUnlike(event){
                 <br />
 
                 <span className='likes-storypage'>Likes: {this.state.data.number_of_likes.number} </span>
-                {this.renderHeart()} 
+                {this.renderHeart()}
+                <br />
+                <br />
+                <button onclick={this.routeToRead} type='button' className='btn btn-secondary readMe'>
+                 <NavLink className='navToRead' to={this.navLinkToRead()}>Read Me</NavLink>
+                </button>
+
 
               </div>
             </div>
