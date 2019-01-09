@@ -74,7 +74,7 @@ class NavBar extends Component {
     if(this.props.currentUser.firstName){
       return(
         <li className='nav-item'>
-        <NavLink className='nav-link' to={this.navLinkToDrafts()}> MyDrafts</NavLink>
+        <NavLink className='nav-link' to={this.navLinkToDrafts()}> MyWorks</NavLink>
       </li>
       );
     }

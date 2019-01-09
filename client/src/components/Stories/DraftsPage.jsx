@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import EachDraft from './EachDraft'
-import '../../styles/DraftPage.css'
+import EachDraft from './EachDraft';
+import UserStoriesDelete from './UserStoriesDelete';
+import '../../styles/DraftPage.css';
 
 
 class DraftsPage extends Component {
@@ -11,19 +12,34 @@ class DraftsPage extends Component {
     this.state = {
       id: 0,
       drafts:[],
+      data:{
+        story: {},
+        author: {},
+        genres: [],
+        author_stories: [],
+        number_of_likes: {},
+        user_liked_story: {},
+      },
     }
     this.deleteDraft2 = this.deleteDraft2.bind(this);
+    this.deletePublished2 = this.deletePublished2.bind(this);
 
-
+    let userId = props.match.params.id
     let storyId = props.match.params.id
     const storyIdInt = Number.parseInt(storyId)
     this.state = {
       id: storyIdInt,
       drafts: this.state.drafts,
+      data:{
+            ...this.state.data,
+          },
     }
     this.setState({
       id: this.state.id,
       drafts: this.state.drafts,
+      data:{
+            ...this.state.data,
+          },
     });
 
 
@@ -42,18 +58,56 @@ class DraftsPage extends Component {
         this.state = {
           id: this.state.id,
           drafts: userDrafts,
+          data:{
+            ...this.state.data,
+          },
         }
         this.setState({
           id: this.state.id,
           drafts: this.state.drafts,
+          data:{
+            ...this.state.data,
+          },
         });
 
         console.log("USERDRAFTS", userDrafts)
         console.log("USERDRAFT F STATE", this.state)
       })
 
+    axios.get(`http://localhost:3000/api/users/${userId}`)
+    .then(res => {
+      console.log('user page get request', res)
+      this.state = {
+          id: this.state.id,
+          drafts: this.state.drafts,
+          data: res.data,
+        }
+        this.setState({
+          id: this.state.id,
+          drafts: this.state.drafts,
+          data:{
+            ...this.state.data,
+          },
+        });
+      // this.setState({
+      //     id: this.state.id,
+      //     drafts: this.state.drafts,
+      //     data: res.data,
+      //   });
+      // this.setState({data: res.data})
+      console.log('userpage state BIG', this.state)
+    })
+
+
     console.log('id', storyId)
     console.log('draft page state', this.state)
+  }
+
+  listOfStories(){
+    const authorStories = this.state.data.author_stories;
+    return authorStories.map((story, index) => {
+      return  <UserStoriesDelete deletePublished2={this.deletePublished2} key={this.state.data.author_stories.id} author={this.state.data.author} author_stories={story} />
+    })
   }
 
   deleteDraft2(resData){
@@ -61,11 +115,40 @@ class DraftsPage extends Component {
     this.state = {
           id: this.state.id,
           drafts: resData,
+          data:{
+            ...this.state.data,
+          },
         }
         this.setState({
           id: this.state.id,
           drafts: this.state.drafts,
+          data:{
+            ...this.state.data,
+          },
         });
+  //omg why
+  }
+
+
+
+  deletePublished2(resData){
+    console.log('IS DELETEPUBLISHEDDDDDDDD BEING HIT?', resData)
+    console.log('IT IS SO WHAT IS STATE RIGHT HERE?!', this.state)
+    this.state = {
+          id: this.state.id,
+          drafts: this.state.drafts,
+          data:{
+            ...this.state.data,
+            author_stories: resData,
+          },
+        }
+        this.setState({
+          id: this.state.id,
+          drafts: this.state.drafts,
+          data:{
+            ...this.state.data,
+          },
+          });
   //omg why
   }
 
@@ -86,7 +169,8 @@ class DraftsPage extends Component {
   render(){
 
     return(
-      <div className='row'>
+      <div>
+        <div className='row'>
         <div className='col-12'>
         <br />
         <br />
@@ -95,9 +179,20 @@ class DraftsPage extends Component {
           <div className="row justify-content-around">
 
             {this.getDrafts()}
-            </div>
-            </div>
           </div>
+          </div>
+        </div>
+        <div className='row'>
+        <div className='col-12'>
+        <hr />
+          <h2> My Published </h2>
+          <div className="row justify-content-around">
+
+            {this.listOfStories()}
+          </div>
+          </div>
+        </div>
+      </div>
 
     )
   }
