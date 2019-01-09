@@ -1062,8 +1062,7 @@ lightning_t =Story.create!(
 
   Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.
 
-  But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.
-  ",
+  But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.",
   image: "https://www.monmouth.edu/events/wp-content/uploads/sites/19/2018/07/lightning_thief_thumb.jpg",
   published: true
 )
@@ -1103,10 +1102,10 @@ GenreStory.create!(
   genre_id: adventure.id 
 )
 
-lightning_t =Story.create!(
+catching_fire =Story.create!(
   user_id: alex.id,
-  title: "The Lightning Thief",
-  description: "Percy Jackson is a good kid, but he can't seem to focus on his schoolwork or control his temper.",
+  title: "Catching Fire",
+  description: "Against all odds, Katniss has won the Hunger Games. She and fellow District 12 tribute Peeta Mellark are miraculously still alive.",
   text: "An age-old vendetta between two powerful families erupts into bloodshed. A group of masked Montagues risk further conflict by gatecrashing a Capulet party. A young lovesick Romeo Montague falls instantly in love with Juliet Capulet, who is due to marry her father’s choice, the County Paris. With the help of Juliet’s nurse, the women arrange for the couple to marry the next day, but Romeo’s attempt to halt a street fight leads to the death of Juliet’s own cousin, Tybalt, for which Romeo is banished. In a desperate attempt to be reunited with Romeo, Juliet follows the Friar’s plot and fakes her own death. The message fails to reach Romeo, and believing Juliet dead, he takes his life in her tomb. Juliet wakes to find Romeo’s corpse beside her and kills herself. The grieving family agree to end their feud.
   
   Now it was dark. The airplane descended over Chicago, its galaxy of electric lights, the vast neighborhoods coming clearer as the plane glided toward the airport—streetlights, headlights, stacks of buildings, ice rinks, a truck turning at a stoplight, scraps of snow atop a warehouse and winking antennae on faraway hills, finally the long converging parallels of blue runway lights, and they were down.
@@ -1119,45 +1118,160 @@ lightning_t =Story.create!(
 
   But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.
   ",
-  image: "https://www.monmouth.edu/events/wp-content/uploads/sites/19/2018/07/lightning_thief_thumb.jpg",
+  image: "https://f4.bcbits.com/img/a0080547999_10.jpg",
   published: true
 )
 
-lightning_t.segments.create!(
-  text: "Meet Percy Jackson. He is twelve years old, and he decides to tell us the story of his past year. On the first day of summer, just after his sixth-grade year, Percy discovers that something is wrong with him. Or rather, something is right with him. He learns that he is a half-blood: half-human, half-god. He is taken to Camp Half-Blood in New York, a camp for kids just like him that is safe from monsters that like to attack half-bloods. ",
+catching_fire.segments.create!(
+  text: "The Hunger Games have passed, and Katniss’s and Peeta’s lives have changed substantially as they are now rich. Katniss returns home from the woods one day to find President Snow waiting for her. He’s concerned that any more public defiance of the Capitol by Katniss, like her and Peeta’s threat of suicide at the end of the Hunger Games, could spark an uprising in the districts. She has to continue pretending that she’s in love with Peeta, or they’ll hurt Gale, Katniss’s oldest friend. Katniss tells Haymitch everything that happened, and she realizes that she’ll never be able to stop pretending: She’ll have to marry Peeta.",
   position: 0
 )
 
-lightning_t.segments.create!(
-  text: "At camp, Percy learns more information about himself: his father is Poseidon, god of the Sea and brother to Zeus and Hades. When Zeus's master bolt (the thing that allows him to create lightning whenever he wants) is stolen, Poseidon is blamed for the theft. Zeus tells Poseidon that the master bolt must be returned to Mount Olympus by the summer solstice, or else he will declare war on Poseidon. Poseidon is miffed that his brother Zeus would even accuse him of such a thing.",
+catching_fire.segments.create!(
+  text: "Peeta and Katniss, meanwhile, have had a tense relationship since Peeta found out that Katniss was only pretending to be in love with him during the Games. They agree to be friends, however, as they embark on their Victory Tour of the districts. Their first stop is District 11. It was the home district of Rue, the girl Katniss befriended who was ultimately killed during the Games. An old man in the crowd whistles out a signal that Katniss and Rue used, and everyone in the crowd puts up a gesture of respect used in Katniss’s home district, District 12. Before she is rushed away, Katniss sees a group of Peacekeepers execute the old man. In other districts, Katniss can sense an undercurrent of repressed rage that suggests people are ready to rebel. At the end of the tour, Peeta and Katniss plan for Peeta to propose during a televised interview to try to appease the Capitol. They do it, but President Snow indicates to Katniss that it’s not enough. Later, at a feast at President Snow’s mansion, Katniss meets Plutarch Heavensbee, the new Head Gamemaker. He shows her his watch, and when he rubs the face, a mockingjay like the one on the pin she wears appears and quickly vanishes. After she returns home, she learns there’s been an uprising in District 8.",
   position: 1
 )
 
-lightning_t.segments.create!(
-  text: "Percy sets out on a quest to retrieve Zeus's master bolt, which is believed to be in Hades's captivity in the Underworld. Helping Percy are Grover, his BFF, and Annabeth, a smart demi-goddess and daughter of Athena. The three take a bus, a train, a truck, and a taxi cab to make their way across America, from New York to Los Angeles, where the gates of the Underworld are located. They stop in St. Louis, Denver, and Las Vegas along the way. During their quest, they battle vicious monsters like Medusa, they find disaster on the observation deck of the Gateway Arch, they are tricked by the god of war (Ares), they nearly lose their memories in an enchanted Vegas casino, and they are almost stretched to death.",
+catching_fire.segments.create!(
+  text: "Katniss goes to meet Gale in the woods and tells him everything that’s happened. She wants to run away with their families, and Gale tells her he loves her. When she mentions the uprising, however, he says he wants to stay and fight. Katniss goes to tell Peeta, who agrees to run away, but then, in the town’s main square, they find Gale being publicly whipped for hunting. As Gale recuperates, Katniss realizes she loves him and decides not to run away.",
   position: 2
 )
 
-lightning_t.segments.create!(
+catching_fire.segments.create!(
   text: "They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?",
   position: 3
 )
 
-lightning_t.segments.create!(
+catching_fire.segments.create!(
   text: "Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.",
   position: 4
 )
 
-lightning_t.segments.create!(
+catching_fire.segments.create!(
   text: "But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.",
   position: 5
 )
 
 GenreStory.create!(
-  story_id: lightning_t.id,
+  story_id: catching_fire.id,
   genre_id: adventure.id 
 )
 
+
+puts "DONE!"
+
+puts "Making Stories - alva ------------------------------"
+
+bone =Story.create!(
+  user_id: alva.id,
+  title: "City of Bones",
+  description: "When fifteen-year-old Clary Fray heads out to the Pandemonium Club in New York City, she hardly expects to witness a murder.",
+  text: "An age-old vendetta between two powerful families erupts into bloodshed. A group of masked Montagues risk further conflict by gatecrashing a Capulet party. A young lovesick Romeo Montague falls instantly in love with Juliet Capulet, who is due to marry her father’s choice, the County Paris. With the help of Juliet’s nurse, the women arrange for the couple to marry the next day, but Romeo’s attempt to halt a street fight leads to the death of Juliet’s own cousin, Tybalt, for which Romeo is banished. In a desperate attempt to be reunited with Romeo, Juliet follows the Friar’s plot and fakes her own death. The message fails to reach Romeo, and believing Juliet dead, he takes his life in her tomb. Juliet wakes to find Romeo’s corpse beside her and kills herself. The grieving family agree to end their feud.
+  
+  Now it was dark. The airplane descended over Chicago, its galaxy of electric lights, the vast neighborhoods coming clearer as the plane glided toward the airport—streetlights, headlights, stacks of buildings, ice rinks, a truck turning at a stoplight, scraps of snow atop a warehouse and winking antennae on faraway hills, finally the long converging parallels of blue runway lights, and they were down.
+
+  He walked into the airport, past the banks of monitors. Already he felt as if he'd lost something, some beautiful perspective, some lovely dream fallen away. He had come to Chicago to see his wife, whom he had not seen in twenty years. She was there to perform her magic for a higher-up at the state university. Even universities, apparently, were interested in what she could do. Outside the terminal the sky was thick and gray and hurried by wind. Snow was coming. A woman from the university met him and escorted him to her Jeep. He kept his gaze out the window.
+  
+  They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?
+
+  Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.
+
+  But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.
+  ",
+  image: "https://riolivingandloving.files.wordpress.com/2013/08/city-of-bones-promo.jpg?w=535",
+  published: true
+)
+
+bone.segments.create!(
+  text: "Clary and her friend Simon decide to spend a night out when Clary notices an unusual group of people. She follows them and she soon finds herself seeing a boy being murdered by three strange teenagers. She soon finds that the boy was a demon, and the other three people, Jace, Alec and Isabelle are Shadowhunters. Clary finds that other people can’t see Shadowhunters when Simon comes to her with a bouncer. Clary refuses to tell Simon what happened even if he realizes that something is wrong.",
+  position: 0
+)
+
+bone.segments.create!(
+  text: "The next day, Clary gets in a fight with her mother and uncle, Jocelyn and Luke when she finds that she will have to spend the rest of the summer at a farm. She leaves with Simon and together they go to a café where Clary meets Jace once again. She follows him outside where she had a brief talk with him before receiving a strange call from her mother telling her not to come home. The line goes dead and Clary runs home only to find the door open, the apartment destroyed and her mother nowhere to be found.",
+  position: 1
+)
+
+bone.segments.create!(
+  text: "She discovers that a strange creature is in the apartment and she has to fight with it as the creature tries to kill her. Clary manages to kill the demon with a Sensor, a device she took by mistake from Jace, but she is struck in the back of the head and loses conscious. When she wakes up she is outside and Jace tells her that he has to take her to The Institute because she got injured by the demon and would die otherwise.",
+  position: 2
+)
+
+bone.segments.create!(
+  text: "They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?",
+  position: 3
+)
+
+bone.segments.create!(
+  text: "Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.",
+  position: 4
+)
+
+bone.segments.create!(
+  text: "But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.",
+  position: 5
+)
+
+GenreStory.create!(
+  story_id: bone.id,
+  genre_id: drama.id 
+)
+
+
+reasons =Story.create!(
+  user_id: alva.id,
+  title: "Thirteen Reasons Why",
+  description: "Clay Jensen returns home from school to find a strange package with his name on it lying on his porch. ",
+  text: "An age-old vendetta between two powerful families erupts into bloodshed. A group of masked Montagues risk further conflict by gatecrashing a Capulet party. A young lovesick Romeo Montague falls instantly in love with Juliet Capulet, who is due to marry her father’s choice, the County Paris. With the help of Juliet’s nurse, the women arrange for the couple to marry the next day, but Romeo’s attempt to halt a street fight leads to the death of Juliet’s own cousin, Tybalt, for which Romeo is banished. In a desperate attempt to be reunited with Romeo, Juliet follows the Friar’s plot and fakes her own death. The message fails to reach Romeo, and believing Juliet dead, he takes his life in her tomb. Juliet wakes to find Romeo’s corpse beside her and kills herself. The grieving family agree to end their feud.
+  
+  Now it was dark. The airplane descended over Chicago, its galaxy of electric lights, the vast neighborhoods coming clearer as the plane glided toward the airport—streetlights, headlights, stacks of buildings, ice rinks, a truck turning at a stoplight, scraps of snow atop a warehouse and winking antennae on faraway hills, finally the long converging parallels of blue runway lights, and they were down.
+
+  He walked into the airport, past the banks of monitors. Already he felt as if he'd lost something, some beautiful perspective, some lovely dream fallen away. He had come to Chicago to see his wife, whom he had not seen in twenty years. She was there to perform her magic for a higher-up at the state university. Even universities, apparently, were interested in what she could do. Outside the terminal the sky was thick and gray and hurried by wind. Snow was coming. A woman from the university met him and escorted him to her Jeep. He kept his gaze out the window.
+  
+  They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?
+
+  Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.
+
+  But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.
+  ",
+  image: "data:image/jpeg;base64,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",
+  published: true
+)
+
+reasons.segments.create!(
+  text: "Clay Jensen, mails a mysterious package to someone named Jenny. We soon learn that the package contains the audiotaped suicide note of Hannah Baker, a girl Clay had a crush on before she killed herself about two weeks ago. This is going to be a doozy, Shmoopers.",
+  position: 0
+)
+
+reasons.segments.create!(
+  text: "The narrative moves back and forth between Hannah's and Clay's thoughts and actions. This is hard to portray in a short summary, so remember that Clay's thoughts are always mixed in with Hannah's stories. ",
+  position: 1
+)
+
+reasons.segments.create!(
+  text: "She discovers that a strange creature is in the apartment and she has to fight with it as the creature tries to kill her. Clary manages to kill the demon with a Sensor, a device she took by mistake from Jace, but she is struck in the back of the head and loses conscious. When she wakes up she is outside and Jace tells her that he has to take her to The Institute because she got injured by the demon and would die otherwise.",
+  position: 2
+)
+
+reasons.segments.create!(
+  text: "They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?",
+  position: 3
+)
+
+reasons.segments.create!(
+  text: "Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.",
+  position: 4
+)
+
+reasons.segments.create!(
+  text: "But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.",
+  position: 5
+)
+
+GenreStory.create!(
+  story_id: reasons.id,
+  genre_id: mystery.id 
+)
 
 
 
@@ -1195,6 +1309,7 @@ puts "Making Stories_likes..."
 
 @user1 = User.first
 @user2 = User.second
+
 @story1 = Story.first
 @story2 = Story.second
 @story3 = Story.third
@@ -1206,6 +1321,10 @@ puts "Making Stories_likes..."
 @story9 = Story.find(9)
 @story10 = Story.find(10)
 @story11 = Story.find(11)
+@story12 = Story.find(12)
+
+
+
 
 
 StoriesLike.create!(
@@ -1256,6 +1375,17 @@ StoriesLike.create!(
   story_id: @story11.id
 )
 
+StoriesLike.create!(
+  user_id: @user1.id,
+  story_id: @story12.id
+)
+
+
+
+StoriesLike.create!(
+  user_id: @user2.id,
+  story_id: @story1.id
+)
 
 StoriesLike.create!(
   user_id: @user2.id,
@@ -1264,32 +1394,135 @@ StoriesLike.create!(
 
 
 
-puts "Making Segments..."
-
 
 puts "Feedbacks..."
 
 @seg1 = Segment.first
 @seg2 = Segment.second
+@seg3 = Segment.find(3)
+@seg4 = Segment.find(4)
+@seg5 = Segment.find(5)
+@seg6= Segment.find(6)
 
 Feedback.create!(
   segment_id: @seg1.id,
-  user_id: @user1.id,
-  text: "Pro et libris denique, discere cotidieque id eos. Eu dissentiet disputationi vix, ut accumsan qualisque eos, ad pri sale facilisis. No nec verear splendide, eam quem enim ei. Assum dissentiunt quo in. Eius necessitatibus cu cum, id eum habeo adipiscing. Duo ex commodo scriptorem, vim ex quas everti lobortis."
+  user_id: rose.id,
+  text: "Also, outright wrong in some parts - for instance, that the most volatile stocks generate the highest returns."
   )
 
   Feedback.create!(
   segment_id: @seg2.id,
-  user_id: @user2.id,
-  text: "Et copiosae facilisis consequuntur qui. Quem democritum vim ea, vim everti sadipscing in. Nam quando homero cetero ea, te est natum dictas inimicus, his tota facilisi te. Per iriure utroque facilis ut."
+  user_id: mila.id,
+  text: "This is an interesting treatise on uncertainty, probability and risk based on the Gods vs. Prometheus metaphor. "
+  )
+
+  Feedback.create!(
+  segment_id: @seg1.id,
+  user_id: adrian.id,
+  text: "Anyone who has taken one college level statistics and probability course, along with a basic finance course, will have already been exposed to the concepts in this book. "
   )
 
   Feedback.create!(
   segment_id: @seg2.id,
-  user_id: @user1.id,
-  text: "Pro et libris denique, discere cotidieque id eos. Eu dissentiet disputationi vix, ut accumsan qualisque eos, ad pri sale facilisis. No nec verear splendide, eam quem enim ei. Assum dissentiunt quo in. Eius necessitatibus cu cum, id eum habeo adipiscing. Duo ex commodo scriptorem, vim ex quas everti lobortis."
+  user_id: kim.id,
+  text: "This book provides a history of how key concepts of probability and statistics were developed and goes on to discuss Modern Portfolio Theory and behavioral finance."
   )
 
+  Feedback.create!(
+  segment_id: @seg2.id,
+  user_id: alex.id,
+  text: "Overall, I'd recommend this to anyone interested in probability or in a field that requires you to handle/address risk."
+  )
+
+  Feedback.create!(
+  segment_id: @seg2.id,
+  user_id: alva.id,
+  text: "The reason I gave it four stars is due to the lengthy section toward the finish on the stock market. I think the discussion could have gone on with more on developments in predictive analytics, but the author focused instead on the market as well as decision theory by Kahneman/Tversky. This being said, I can understand the approach since Bernstein was an investment advisor/consultant. Also, the book was written in 1998 and perhaps there wasn't much brewing yet in topics of big data, machine learning or predictive algorithms."
+  )
+
+  Feedback.create!(
+  segment_id: @seg1.id,
+  user_id: alva.id,
+  text: "He writes short but amazingly poignant biographies of the men who developed mathematics from its very inception."
+  )
+
+  Feedback.create!(
+  segment_id: @seg1.id,
+  user_id: alex.id,
+  text: "The Greeks and Romans were no slouches – they were able to determine that the world was round and pull off engineering feats that required a pretty good knowledge of arithmetic. "
+  )
+
+  Feedback.create!(
+  segment_id: @seg3.id,
+  user_id: rose.id,
+  text: "This book is itself a work of genius."
+  )
+
+  Feedback.create!(
+  segment_id: @seg3.id,
+  user_id: adrian.id,
+  text: "I believe that it will strengthen your understanding of technical concepts found in statistics and mathematics."
+  )
+
+  Feedback.create!(
+  segment_id: @seg3.id,
+  user_id: mila.id,
+  text: "All though this book indeed is technical, it is presented through a fascinating narrative that makes it a joy to read. "
+  )
+  
+  Feedback.create!(
+  segment_id: @seg3.id,
+  user_id: alex.id,
+  text: "A brilliant narrative history, The Commanding Heights is about the most powerful economic forces at work in the world today, and about the people and the ideas that are shaping the future."
+  )
+  
+  Feedback.create!(
+  segment_id: @seg3.id,
+  user_id: alva.id,
+  text: "The thing I like most about Huemer is how he takes a difficult subject for most people"
+  )
+
+  Feedback.create!(
+  segment_id: @seg1.id,
+  user_id: alex.id,
+  text: "Anarchism is just about the most difficult philosophical/social construct I can think of to implement, and this book doesn't satisfy in that regard, in my opinion."
+  )
+
+  Feedback.create!(
+  segment_id: @seg4.id,
+  user_id: adrian.id,
+  text: "His answer: no good reason exists to justify the idea of political authority."
+  )
+
+  Feedback.create!(
+  segment_id: @seg3.id,
+  user_id: alva.id,
+  text: "He takes the long view."
+  )
+
+  Feedback.create!(
+  segment_id: @seg5.id,
+  user_id: mila.id,
+  text: "It took thousands of years for humans to evolve the current political institutions that govern us; surely, in a few hundred years more, we can render them obsolete."
+  )
+
+  Feedback.create!(
+  segment_id: @seg4.id,
+  user_id: kim.id,
+  text: "A brilliant achievement."
+  )
+
+  Feedback.create!(
+  segment_id: @seg6.id,
+  user_id: alva.id,
+  text: "From time we find books like this."
+  )
+
+  Feedback.create!(
+  segment_id: @seg5.id,
+  user_id: kim.id,
+  text: " To make the difference he explains the emergence of the politics, markets and the capital as connected phenomenons. "
+  )
 
 
 puts "DONE!"
@@ -1345,14 +1578,118 @@ puts "Making Comments..."
 
 @story1.comments.create!(
   user_id: alva.id,
-  text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+  text: "I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book."
 )
 @story1.comments.create!(
   user_id: rose.id,
-  text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+  text: "Readers can gain knowledge of what it was like to work in New York City in the early 1900s. One of the things that was especially interesting was that there were no safety laws at work. Also, there was a big contrast between the rich and the poor. Some people may not like this book because it is very depressing, but it is an important event in history to remember."
+)
+
+@story1.comments.create!(
+  user_id: rose.id,
+  text: "This book was very well written. It has black and white photos along with descriptions of the photos. These photos give us a better idea of what people's lives were like. This book is suitable for 9-20 year olds."
+)
+
+@story2.comments.create!(
+  user_id: alva.id,
+  text: "My favorite parts are the galactic blast game (it is similar to baseball except there are robots playing), recess at Zack's school where everything is 3-D holographic images, the rainbow river in a crystal cave on Juno, and the galaxy gemmite that Zack finds on Juno. "
+)
+@story2.comments.create!(
+  user_id: rose.id,
+  text: "Readers can gain knowledge of what it was like to work in New York City in the early 1900s. One of the things that was especially interesting was that there were no safety laws at work. Also, there was a big contrast between the rich and the poor. Some people may not like this book because it is very depressing, but it is an important event in history to remember."
+)
+
+@story2.comments.create!(
+  user_id: rose.id,
+  text: "This book was very well written. It has black and white photos along with descriptions of the photos. These photos give us a better idea of what people's lives were like. This book is suitable for 9-20 year olds."
+)
+
+@story3.comments.create!(
+  user_id: alva.id,
+  text: "I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book."
+)
+@story3.comments.create!(
+  user_id: rose.id,
+  text: "Readers can gain knowledge of what it was like to work in New York City in the early 1900s. One of the things that was especially interesting was that there were no safety laws at work. Also, there was a big contrast between the rich and the poor. Some people may not like this book because it is very depressing, but it is an important event in history to remember."
+)
+
+@story3.comments.create!(
+  user_id: rose.id,
+  text: "This book was very well written. It has black and white photos along with descriptions of the photos. These photos give us a better idea of what people's lives were like. This book is suitable for 9-20 year olds."
+)
+
+@story4.comments.create!(
+  user_id: alva.id,
+  text: "My favorite parts are the galactic blast game (it is similar to baseball except there are robots playing), recess at Zack's school where everything is 3-D holographic images, the rainbow river in a crystal cave on Juno, and the galaxy gemmite that Zack finds on Juno. "
+)
+@story4.comments.create!(
+  user_id: rose.id,
+  text: "Readers can gain knowledge of what it was like to work in New York City in the early 1900s. One of the things that was especially interesting was that there were no safety laws at work. Also, there was a big contrast between the rich and the poor. Some people may not like this book because it is very depressing, but it is an important event in history to remember."
+)
+
+@story4.comments.create!(
+  user_id: rose.id,
+  text: "This book was very well written. It has black and white photos along with descriptions of the photos. These photos give us a better idea of what people's lives were like. This book is suitable for 9-20 year olds."
+)
+
+puts "DONE!"
+
+
+test1 = Story.create!(
+  user_id: mila.id,
+  title: "Title to be defined",
+  description: "It was the hunter's first time outside Montana. He woke, stricken still with the hours-old vision of ascending through rose-lit cumulus, of houses and barns like specks deep in the snowed-in valleys.",
+  text: "It was the hunter's first time outside Montana. He woke, stricken still with the hours-old vision of ascending through rose-lit cumulus, of houses and barns like specks deep in the snowed-in valleys, all the scrolling country below looking December—brown and black hills streaked with snow, flashes of iced-over lakes, the long braids of a river gleaming at the bottom of a canyon. Above the wing the sky had deepened to a blue so pure he knew it would bring tears to his eyes if he looked long enough.
+  
+  Now it was dark. The airplane descended over Chicago, its galaxy of electric lights, the vast neighborhoods coming clearer as the plane glided toward the airport—streetlights, headlights, stacks of buildings, ice rinks, a truck turning at a stoplight, scraps of snow atop a warehouse and winking antennae on faraway hills, finally the long converging parallels of blue runway lights, and they were down.
+
+  He walked into the airport, past the banks of monitors. Already he felt as if he'd lost something, some beautiful perspective, some lovely dream fallen away. He had come to Chicago to see his wife, whom he had not seen in twenty years. She was there to perform her magic for a higher-up at the state university. Even universities, apparently, were interested in what she could do. Outside the terminal the sky was thick and gray and hurried by wind. Snow was coming. A woman from the university met him and escorted him to her Jeep. He kept his gaze out the window.
+  
+  They were in the car for forty-five minutes, passing first the tall, lighted architecture of downtown, then naked suburban oaks, heaps of ploughed snow, gas stations, power towers, and telephone wires. The woman said, So you regularly attend your wife's performances?
+
+  Before long his wife stepped onto the deck and came down to join him. There were things he had been preparing to say: something about a final belief, an expression of gratitude for providing a reason to leave the valley, if only for a night. He wanted to tell her that although the wolves were gone, may always have been gone, they still came to him in dreams. That they could run there, fierce and unfettered, was surely enough. She would understand. She had understood long before he did.
+
+  But he was afraid to speak. He could see that speaking would be like dashing some very fragile bond to pieces, like kicking a dandelion gone to seed; the wispy, tenuous sphere of its body would scatter in the wind. So instead they stood together, the snow fluttering down from the clouds to melt into the water, where their reflected images trembled like two people trapped against the glass of a parallel world, and he reached, finally, to take her hand.
+  ",
+  image: "https://i2.wp.com/geekxpop.com/wp-content/uploads/2018/05/unnamed-18.jpg?resize=450%2C237&ssl=1",
+  published: false
 )
 
 
-puts "DONE!"
+test2 =Story.create!(
+  user_id: mila.id,
+  title: "Title to be defined",
+  description: "I used to go to thrift stores with my friends. We’d take the train into Boston, and go to The Garment District, which is this huge vintage clothing warehouse.",
+  text: "I used to go to thrift stores with my friends. We’d take the train into Boston, and go to The Garment District, which is this huge vintage clothing warehouse. Everything is arranged by color, and somehow that makes all of the clothes beautiful. It’s kind of like if you went through the wardrobe in the Narnia books, only instead of finding Aslan and the White Witch and horrible Eustace, you found this magic clothing world–instead of talking animals, there were feather boas and wedding dresses and bowling shoes, and paisley shirts and Doc Martens and everything hung up on racks so that first you have black dresses, all together, like the world’s largest indoor funeral, and then blue dresses–all the blues you can imagine–and then red dresses and so on. Pink-reds and orangey reds and purple-reds and exit-light reds and candy reds. Sometimes I would close my eyes and Natasha and Natalie and Jake would drag me over to a rack, and rub a dress against my hand. “Guess what color this is.
+
+  We had this theory that you could learn how to tell, just by feeling, what color something was. For example, if you’re sitting on a lawn, you can tell what color green the grass is, with your eyes closed, depending on how silky-rubbery it feels. With clothing, stretchy velvet stuff always feels red when your eyes are closed, even if it’s not red. Natasha was always best at guessing colors, but Natasha is also best at cheating at games and not getting caught.
+  
+  One time we were looking through kid’s t-shirts and we found a Muppets t-shirt that had belonged to Natalie in third grade. We knew it belonged to her, because it still had her name inside, where her mother had written it in permanent marker, when Natalie went to summer camp. Jake bought it back for her, because he was the only one who had money that weekend. He was the only one who had a job.
+  
+  Maybe you’re wondering what a guy like Jake is doing in The Garment District with a bunch of girls. The thing about Jake is that he always has a good time, no matter what he’s doing. He likes everything, and he likes everyone, but he likes me best of all. Wherever he is now, I bet he’s having a great time and wondering when I’m going to show up. I’m always running late. But he knows that.
+  
+  We had this theory that things have life cycles, the way that people do. The life cycle of wedding dresses and feather boas and t-shirts and shoes and handbags involves the Garment District. If clothes are good, or even if they’re bad in an interesting way, the Garment District is where they go when they die. You can tell that they’re dead, because of the way that they smell. When you buy them, and wash them, and start wearing them again, and they start to smell like you, that’s when they reincarnate. But the point is, if you’re looking for a particular thing, you just have to keep looking for it. You have to look hard.
+  
+  Down in the basement at the Garment Factory they sell clothing and beat-up suitcases and teacups by the pound. You can get eight pounds worth of prom dresses–a slinky black dress, a poufy lavender dress, a swirly pink dress, a silvery, starry lame dress so fine you could pass it through a key ring– for eight dollars. I go there every week, hunting for Grandmother Zofia’s faery handbag.
+  
+  The faery handbag: It’s huge and black and kind of hairy. Even when your eyes are closed, it feels black. As black as black ever gets, like if you touch it, your hand might get stuck in it, like tar or black quicksand or when you stretch out your hand at night, to turn on a light, but all you feel is darkness.
+  
+  Once I decided that, everything became perfectly clear. First I put down “kirif which means “happy news, and then I got a “b, an “o, an “l, an “e, a “f, another “i, an “s, and a “z. So then I could make “kirif into “bolekirifisz, which could mean “the happy result of a combination of diligent effort and patience.
+  
+  I would find the faery handbag. The tiles said so. I would work the clasp and go into the handbag and have my own adventures and would rescue Jake. Hardly any time would have gone by before we came back out of the handbag. Maybe I’d even make friends with that poor dog and get to say goodbye, for real, to Zofia. Rustan would show up again and be really sorry that he’d missed Zofia’s funeral and this time he would be brave enough to tell my mother the whole story. He would tell her that he was her father. Not that she would believe him. Not that you should believe this story. Promise me that you won’t believe a word.",
+  image: "https://www.vibrational-alchemy.com/faeries/faeries.jpg",
+  published: false
+)
+
+
+GenreStory.create!(
+  story_id: test1.id,
+  genre_id: mystery.id 
+)
+
+GenreStory.create!(
+  story_id: test2.id,
+  genre_id: mystery.id 
+)
 
 
