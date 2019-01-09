@@ -168,7 +168,7 @@ constructor(){
 
             <Route
             path='/stories/:id/update'
-            render={(props) => <UpdateStory {...props}  validateUserSession={this.validateUserSession} />}
+            render={(props) => <UpdateStory {...props}   />}
             exact/>
 
             <Route

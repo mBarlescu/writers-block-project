@@ -75,7 +75,7 @@ class NewestStoriesCarousel extends Component {
         <CarouselItem
           onExiting={this.onExiting}
           onExited={this.onExited}
-          key={item.key}
+          key={item.id}
         >
           <div>
             <Row>

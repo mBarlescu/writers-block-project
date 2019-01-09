@@ -38,7 +38,7 @@ class UpdateStory extends Component {
       this.setState({title: res.data.story.title, 
                      description: res.data.story.description,
                      genre_id: res.data.genres[0].id})
-      console.log('STATEE', res.data.genres)
+      console.log('STATEE', res.data.story)
     })
     .catch(err => {
       console.log('error', err)
