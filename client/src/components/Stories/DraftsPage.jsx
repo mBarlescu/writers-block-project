@@ -131,16 +131,15 @@ class DraftsPage extends Component {
 
 
 
-  deletePublished2(resData){
-    console.log('IS DELETEPUBLISHEDDDDDDDD BEING HIT?', resData)
-    console.log('IT IS SO WHAT IS STATE RIGHT HERE?!', this.state)
-    this.state = {
+  deletePublished2(){
+    let userId = this.props.match.params.id;
+    axios.get(`http://localhost:3000/api/users/${userId}`)
+    .then(res => {
+      console.log('user page get request', res)
+      this.state = {
           id: this.state.id,
           drafts: this.state.drafts,
-          data:{
-            ...this.state.data,
-            author_stories: resData,
-          },
+          data: res.data,
         }
         this.setState({
           id: this.state.id,
@@ -148,9 +147,35 @@ class DraftsPage extends Component {
           data:{
             ...this.state.data,
           },
-          });
-  //omg why
+        });
+      // this.setState({
+      //     id: this.state.id,
+      //     drafts: this.state.drafts,
+      //     data: res.data,
+      //   });
+      // this.setState({data: res.data})
+      console.log('userpage state BIG', this.state)
+    })
   }
+    // console.log('IS DELETEPUBLISHEDDDDDDDD BEING HIT?', resData)
+    // console.log('IT IS SO WHAT IS STATE RIGHT HERE?!', this.state)
+    // this.state = {
+    //       id: this.state.id,
+    //       drafts: this.state.drafts,
+    //       data:{
+    //         ...this.state.data,
+    //         author_stories: resData,
+    //       },
+    //     }
+    //     this.setState({
+    //       id: this.state.id,
+    //       drafts: this.state.drafts,
+    //       data:{
+    //         ...this.state.data,
+    //       },
+    //       });
+  //omg why
+
 
 
   getDrafts(){

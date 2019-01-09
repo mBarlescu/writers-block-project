@@ -283,6 +283,7 @@ console.log('WHAT IS THE STATE OF READPAGE RIGHT HERE', this.state)
         console.log('RES STORY LIKES', this.state)
         console.log("FIND THE TOOOOOOOOOOOGLE", this.state.data.user_liked_story)
         console.log('FIND TOgGLE HERE', this.state.data.user_liked_story.boolean)
+        this.showFeedBack()
   }
 
   handleStoryUnlike(event){

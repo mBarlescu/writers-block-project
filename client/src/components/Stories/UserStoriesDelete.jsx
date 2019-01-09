@@ -27,10 +27,15 @@ class UserStoriesDelete extends Component {
       .then(res => {
         console.log('deleting draft', res);
         console.log('deleting draft 2', res.data);
-        this.props.deletePublished2(res.data)
+        this.props.deletePublished2()
       })
       //omg why
   }
+navLinkToStory() {
+  return `/stories/${this.props.author_stories.id}`
+}
+
+
 
 
   render(){
@@ -43,7 +48,7 @@ class UserStoriesDelete extends Component {
               </div>
               <div className='col-7 eachStory-description'>
                 <div className='eachStory-innerDescription'>
-                  <span>{this.props.author_stories.title}</span>
+                   <NavLink className='title' to={this.navLinkToStory()}>{this.props.author_stories.title}</NavLink>
                   <br />
                   <span className='description'>
                     {this.props.author_stories.description}

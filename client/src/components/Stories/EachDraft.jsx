@@ -104,7 +104,7 @@ deleteDraft(event){
               </div>
               <div className='col-7 eachStory-description'>
                 <div className='eachStory-innerDescription'>
-                  <span>{this.state.data.title}</span>
+                  <span className='title'>{this.state.data.title}</span>
                   <br />
                   <span className='description'>
                     {this.state.data.description}
