@@ -9,7 +9,7 @@ import '../../styles/ReadPage.css'
 class ReadPage extends Component {
   constructor(props) {
     super (props);
-
+    console.log('PROOOPS FOR READPAGE', this.props)
     this.state ={
       data: {
         story: {},
@@ -22,6 +22,11 @@ class ReadPage extends Component {
       selectedSegment: 0,
       feedback: [],
       text: "",
+      // userId: {
+      //   id: this.props.currentUser.id,
+      //   firstName: this.props.currentUser.firstName,
+      //   lastName: this.props.currentUser.lastName,
+      // }
     }
 
      this.selectSegment = this.selectSegment.bind(this);
@@ -39,6 +44,7 @@ class ReadPage extends Component {
     const storyIdInt = Number.parseInt(storyId)
     console.log(props)
     console.log(storyId)
+    console.log('STATE FOR READPAGE OMG', this.state)
 
     axios.get(`http://localhost:3000/api/stories/${storyId}/segments`)
     .then(res => {
@@ -72,6 +78,7 @@ class ReadPage extends Component {
           selectedSegment: event.props.segmentId,
           feedback: this.state.feedback,
           text: this.state.text,
+          // userId: {...this.state.userId},
 
         }
         this.setState({
@@ -81,6 +88,7 @@ class ReadPage extends Component {
           selectedSegment: this.state.selectedSegment,
           feedback: this.state.feedback,
           text: this.state.text,
+          // userId: {...this.state.userId},
         })
     // this.setState({selectedSegment: event.props.segmentId}, function (){
     //     console.log('updated state', this.state);
@@ -115,9 +123,10 @@ class ReadPage extends Component {
 
   showFeedBack() {
     if(this.state.feedback){
+      console.log('GIVE ME THE STATE', this.state)
     const feedback = this.state.feedback;
     return feedback.map((eachFeedBack, index) => {
-      return <ReadPageFeedback key={eachFeedBack.id} id={eachFeedBack.id} likes={eachFeedBack.number_of_likes} text= {eachFeedBack.text} created={eachFeedBack.created_at} author={this.state.data.author} />
+      return <ReadPageFeedback currentUser={this.props.currentUser} key={eachFeedBack.id} id={eachFeedBack.id} likes={eachFeedBack.number_of_likes} text= {eachFeedBack.text} created={eachFeedBack.created_at} firstName={eachFeedBack.first_name} lastName={eachFeedBack.last_name} />
     })
   }
   }
@@ -191,6 +200,7 @@ class ReadPage extends Component {
     console.log('lets see', feedback)
     feedback.push(resData);
     console.log('new data', feedback)
+    console.log('WHAT IS RESDATA', resData)
         this.state = {
           data: {
           ...this.state.data,
@@ -199,6 +209,8 @@ class ReadPage extends Component {
           selectedSegment: this.state.selectedSegment,
           feedback: resData,
           text: this.state.text,
+          // userId: {...this.state.userId},
+
 
         }
         this.setState({
@@ -208,8 +220,10 @@ class ReadPage extends Component {
           selectedSegment: this.state.selectedSegment,
           feedback: this.state.feedback,
           text: this.state.text,
+          // userId: {...this.state.userId},
         })
-
+console.log('WHAT IS THE STATE OF READPAGE RIGHT HERE', this.state)
+// this.showFeedBack()
 
   //   this.setState({feedback: segmentFeedback}, function (){
   //       console.log('updated AGAIN state', this.state);
@@ -254,6 +268,7 @@ class ReadPage extends Component {
           selectedSegment: this.state.selectedSegment,
           feedback: this.state.feedback,
           text: this.state.text,
+          // userId: {...this.state.userId},
 
         }
         this.setState({
@@ -263,6 +278,7 @@ class ReadPage extends Component {
           selectedSegment: this.state.selectedSegment,
           feedback: this.state.feedback,
           text: this.state.text,
+          // userId: {...this.state.userId},
         })
         console.log('RES STORY LIKES', this.state)
         console.log("FIND THE TOOOOOOOOOOOGLE", this.state.data.user_liked_story)
@@ -304,6 +320,7 @@ class ReadPage extends Component {
           selectedSegment: this.state.selectedSegment,
           feedback: this.state.feedback,
           text: this.state.text,
+          // userId: {...this.state.userId},
 
         }
         this.setState({
@@ -313,6 +330,7 @@ class ReadPage extends Component {
           selectedSegment: this.state.selectedSegment,
           feedback: this.state.feedback,
           text: this.state.text,
+          // userId: {...this.state.userId},
         })
         console.log('RES STORY LIKES', this.state)
   }
@@ -335,6 +353,7 @@ class ReadPage extends Component {
       )
     }
   }
+
 
 
 

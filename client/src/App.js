@@ -149,7 +149,7 @@ constructor(){
             path='/genres/:id'
             render={(props) => <FindByGenre {...props} /> }
             exact />
-      
+
 
             <Route
             path='/stories/new'
@@ -183,7 +183,7 @@ constructor(){
 
             <Route
             path='/stories/:id/read'
-            render={(props)=> <ReadPage {...props} validateUserSession={this.validateUserSession} />}
+            render={(props)=> <ReadPage {...props} currentUser={this.state.currentUser} validateUserSession={this.validateUserSession} />}
             exact />
 
             <Route component={Error} />

@@ -18,7 +18,7 @@ class NavBar extends Component {
       listGenres: []
 
     };
-    console.log('PROPS ON NAVBAR', this.props)
+
     console.log('STATE ON NAVBAR', this.state)
     this.props.validateUserSession();
 
@@ -40,7 +40,7 @@ class NavBar extends Component {
       console.log("Error ", error);
     });
 
-
+    console.log('PROPS ON NAVBAR', this.props)
   }
 
   setGenres(list) {
@@ -127,7 +127,7 @@ class NavBar extends Component {
 
   }
 
-   navLinkToDrafts() {
+navLinkToDrafts() {
   return `/users/${this.props.currentUser.id}/drafts`
 }
 
