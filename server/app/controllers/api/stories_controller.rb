@@ -79,6 +79,7 @@ class Api::StoriesController < ApplicationController
 
   # POST api/stories/1/publish
   def publish
+    puts ("Params KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK #{params[:story_id]}")
     @story = Story.find(params[:story_id])
     if((current_user.id == @story.user_id) && @story.published == false)
       if @story.update(text: params[:text], published: true)
