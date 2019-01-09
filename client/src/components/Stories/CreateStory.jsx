@@ -21,7 +21,7 @@ class CreateStory extends Component {
     this.setRedirect = this.setRedirect.bind(this);
     this.renderRedirect = this.renderRedirect.bind(this);
     this.navLinkToStoryUpdate = this.navLinkToStoryUpdate.bind(this);
-    
+
     this.props.validateUserSession(()=>{},()=> this.setRedirect());
 
 
@@ -61,12 +61,12 @@ class CreateStory extends Component {
   }
 
 
-  
+
   navLinkToStoryUpdate() {
     return `/stories/${this.state.story.id}/update`
   }
 
-  
+
 
    handleChange(event) {
     this.setState({ text: event.target.value });
@@ -109,26 +109,30 @@ class CreateStory extends Component {
   return `/stories/${this.state.story.id}`
 }
 
- 
+
 
   render(){
 
     return (
-      <div>
+      <div className='createPage'>
         {this.renderRedirect()}
         <br />
         <br />
-        <h1 className='create-page-outer-container text-center'>{this.state.story.title}</h1>
+
+
           <br />
           <br />
         <form className='form-create-page' >
-        <button type='submit'>
-          <NavLink className="buttonEditCreatePage" to={this.navLinkToStoryUpdate()}>Edit Story</NavLink>
-        </button>
-        <button type='submit' onClick={this.handleSubmit}>Save</button>
-        <button type='submit' onClick={this.handlePublish}>
-          <NavLink className='buttonEditCreatePage' to={this.navLinkToStory()}>Publish</NavLink>
-        </button>
+         <h1 className='create-page-outer-container text-center'>{this.state.story.title}</h1>
+        <div className='createButtonsDiv'>
+          <button className='btn btn-secondary createButton'  type='submit'>
+            <NavLink className="buttonEditCreatePage createNav" to={this.navLinkToStoryUpdate()}>Edit Story</NavLink>
+          </button>
+          <button className='btn btn-secondary createButton' type='submit' onClick={this.handleSubmit}>Save</button>
+          <button className='btn btn-secondary createButton' type='submit' onClick={this.handlePublish}>
+            <NavLink className='buttonEditCreatePage createNav' to={this.navLinkToStory()}>Publish</NavLink>
+          </button>
+        </div>
           <div className="form-group">
 
             <textarea value={this.state.text} onChange={this.handleChange} className="form-control my-create-textarea" id="exampleFormControlTextarea1" rows="3" ></textarea>

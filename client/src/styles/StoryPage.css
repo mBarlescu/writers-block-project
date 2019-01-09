@@ -145,3 +145,45 @@ width: 1000px;
 font-size: 13px;
 color: grey;
 }
+
+/* createpage */
+.createButton{
+  color: white;
+}
+
+.createNav{
+  color: white;
+}
+
+.createButton:hover{
+  background-color: white;
+  color: #696969;
+  text-decoration: underline;
+}
+
+.createButton:hover .createNav{
+  color: #696969;
+}
+.createButton{
+  margin: 5px;
+}
+
+.createButtonsDiv{
+/*margin-right: 450px;*/
+padding:5px;
+}
+
+.my-create-textarea{
+  text-align: center;
+}
+
+.createPage{
+position: relative;
+/*top: 50%;*/
+/*transform: translateY(-50%);*/
+}
+
+.create-page-outer-container{
+   word-wrap: break-word;
+}
+

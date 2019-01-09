@@ -54,6 +54,7 @@ div:focus{
 
 .title-readpage{
   font-size: 30px;
+  word-wrap: break-word;
 }
 
 .likes-readpage{
@@ -92,4 +93,8 @@ div:focus{
 .commentButton-feedback:hover{
   color:grey;
   background-color: white;
+}
+
+.selectedSegment{
+  word-wrap: break-word;
 }
