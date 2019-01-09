@@ -13,6 +13,8 @@ class ReadPageFeedback extends Component {
     this.handleFeedbackLikes = this.handleFeedbackLikes.bind(this);
 
     console.log('STATE ON FEEDBACK PAGE', this.state)
+    console.log('PROPS ON THIS FEEDBACK PAGE', this.props)
+    console.log(this.props)
 
   }
 
@@ -76,7 +78,7 @@ class ReadPageFeedback extends Component {
     return(
       <div className='feedback-div'>
         <span className='feedback-name'>
-          {this.props.author.first_name} {this.props.author.last_name}: </span>
+          {this.props.firstName} {this.props.lastName}: </span>
         <span className='feedback-text'>
           {this.props.text}
         </span>
