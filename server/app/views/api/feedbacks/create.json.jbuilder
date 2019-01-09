@@ -1,6 +1,6 @@
- json.array! @feedbacks do |items|
 
-    json.array! items do |item|
+
+    json.array! @feedbacks do |item|
     
         json.id item.id
         json.segment_id item.segment_id
@@ -11,4 +11,3 @@
      
    
     end
-  end
