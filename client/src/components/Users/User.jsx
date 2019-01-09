@@ -17,13 +17,13 @@ class User extends Component {
 
 
     return (
-      <div className='col-5 my-col'>
+      <div className='col-5 eachStory'>
         <div className='header row'>
-          <div className='col-5 my-col-img'>
+          <div className='col-5 eachStory-img'>
             <img className='img-cover' src={this.props.user.image} />
           </div>
-          <div className='col-7 my-col-description'>
-            <NavLink className='author' to={this.navLinkToUser()}>{this.props.user.first_name} {this.props.user.last_name}</NavLink>
+          <div className='col-7 eachStory-description'>
+            <NavLink className='authorForUsers' to={this.navLinkToUser()}>{this.props.user.first_name} {this.props.user.last_name}</NavLink>
             <br />
             <span className='description'>
               {this.props.user.description}

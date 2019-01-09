@@ -86,6 +86,7 @@ background-color:white;
   /*white-space: nowrap;*/
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 5px;
 }
 
 .eachStory-innerDescription{
@@ -100,6 +101,14 @@ background-color:white;
   word-wrap: break-word;
   width: 1000px;
 
+}
+
+/* this is for user.jsx */
+.authorForUsers{
+  font-size: 30px;
+  margin-top: 10px;
+  color: #A9A9A9;
+  font-weight: 600;
 }
 
 .comments-story-page{

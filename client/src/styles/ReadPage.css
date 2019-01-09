@@ -47,7 +47,9 @@ div:focus{
 }
 
 .readpage-header{
-
+/*white-space: nowrap;*/
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .title-readpage{

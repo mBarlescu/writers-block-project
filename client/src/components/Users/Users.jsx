@@ -12,13 +12,13 @@ const Users = (props) => {
       return <User /*story={allStories[index]}*/ key={index} user={user} />
     });
   return (
-    <div className='container my-container'>
-      <div>
+    <div className='row'>
+      <div className='col-12'>
         <br/>
         <br/>
         <br/>
         <br/>
-        <div className='row justify-content-around my-row'>
+        <div className='row justify-content-around'>
         {listOfUsers}
         </div>
       </div>

@@ -44,6 +44,10 @@ div.eachStory{
   color: #444;
 }
 
+.eachStory:hover .authorForUsers{
+  color: #696969;
+}
+
 .eachStory-description{
   height: 200px;
   padding: 6px;
