@@ -13,5 +13,5 @@ Create a story, comment on a story, leave feedback, help eachother become better
 
 ## Screen Shots
 
-!["Homepage"]
+!["Homepage"](https://github.com/mBarlescu/writers-block-project/blob/master/Screenshot%20from%202019-01-15%2022-43-13.png?raw=true)
 !["Leaving feedback on a story"]
